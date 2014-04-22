@@ -1,0 +1,5 @@
+.DS_Store
+.nodemonignore
+.bower-*/
+node_modules/
+/public/build/
