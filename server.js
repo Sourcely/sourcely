@@ -6,7 +6,7 @@ var http = require('http');
 var path = require('path');
 var app = express();
 var mysql = require('mysql');
-var waterline = require('waterline');
+var Bookshelf = require('bookshelf');
 var _ = require('lodash');
 
 // all environments

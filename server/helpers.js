@@ -2,7 +2,7 @@
 // var fs       = Promise.promisifyAll(require('fs'));
 // var mkdirp   = Promise.promisify(require('mkdirp'));
 var Path     = require('path');
-var waterline = require('waterline');
+var Bookshelf = require('bookshelf');
 var _ = require('lodash');
 // var _        = require('underscore');
 
