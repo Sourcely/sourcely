@@ -2,4 +2,4 @@
 .nodemonignore
 .bower-*/
 node_modules/
-/public/system/
+public/system/
