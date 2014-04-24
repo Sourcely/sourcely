@@ -2,12 +2,12 @@
 // var fs       = Promise.promisifyAll(require('fs'));
 // var mkdirp   = Promise.promisify(require('mkdirp'));
 var Path     = require('path');
-// var waterline = require('waterline');
+var Bookshelf = require('bookshelf');
 var _ = require('lodash');
 // var _        = require('underscore');
 
 var sendLandingPage = function(req, res) {
-  res.sendfile('public/index.html');
+  res.sendfile('public/webClient/index.html');
 };
 
 module.exports = {
