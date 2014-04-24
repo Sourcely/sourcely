@@ -34,7 +34,8 @@
     "mysql": "~2.1.1",
     "lodash": "~2.4.1",
     "knex": "~0.5.13",
-    "bookshelf": "~0.6.10"
+    "bookshelf": "~0.6.10",
+    "bluebird": "~1.2.3"
   },
   "devDependencies": {
     "assetmanager": "^0.1.1"
