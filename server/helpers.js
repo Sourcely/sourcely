@@ -8,8 +8,10 @@ var http = require('http');
 // var _        = require('underscore');
 
 var sendLandingPage = function(req, res) {
-  var index = Path.resolve(__dirname+'../public/index.html')
+/*  var index = Path.resolve(__dirname+'../public/index.html')
   res.sendfile(index);
+*/
+res.sendfile('public/webClient/index.html');
 };
 
 module.exports = {
