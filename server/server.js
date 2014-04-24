@@ -8,6 +8,6 @@ var mysql = require('mysql');
 
 app.listen(process.env.PORT || 3000);
 
-require('./server/models/database')
+require('./models/database')
 require('./routes')(app);
 require('./express')(app);
