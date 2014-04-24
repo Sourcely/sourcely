@@ -7,7 +7,7 @@ var _ = require('lodash');
 // var _        = require('underscore');
 
 var sendLandingPage = function(req, res) {
-  res.sendfile('public/index.html');
+  res.sendfile('public/webClient/index.html');
 };
 
 module.exports = {
