@@ -21,7 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(app.router);
 
 require('./server/config')
-require('./server/models/test')
 
 http.createServer(app).listen(app.get('port'), function () {
   console.log('the magic happens on port ' + app.get('port'));

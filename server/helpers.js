@@ -4,12 +4,14 @@
 var Path     = require('path');
 var Bookshelf = require('bookshelf');
 var _ = require('lodash');
+var http = require('http');
 // var _        = require('underscore');
 
 var sendLandingPage = function(req, res) {
-  res.sendfile('public/index.html');
+  var index = Path.resolve(__dirname+'../public/index.html')
+  res.sendfile(index);
 };
 
 module.exports = {
-  sendLandingPage: sendLandingPage
+  sendLandingPage: sendLandingPage,
 };

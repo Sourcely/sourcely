@@ -30,6 +30,6 @@ module.exports = {
         Article.forge({title: artcileTitle, date: date, description: description}).save().then(console.log("created article "+articleTitle));
     },
     createSource: function(sourceName, url){
-        Source.forge({name: sourceName, url:url}).save().then(console.log("created source "+ name));
+        Source.forge({source: sourceName, url:url}).save().then(console.log("created source "+ sourceName));
     }
 };
