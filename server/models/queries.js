@@ -8,10 +8,13 @@ var Category =  MySql.Model.extend({
     initialize: function(){},
 });
 
-var Article =  MySql.Model.extend({
+var Article = MySql.Model.extend({
     tableName: 'articles',
     sources: function() {
        return this.hasMany(Source);
+    },
+    category: function(){
+       return this.belongsTo(Category, 'category_id')
     }
 });
 
@@ -29,7 +32,8 @@ module.exports = {
     createArticle: function(articleTitle, date, description){
         Article.forge({title: artcileTitle, date: date, description: description}).save().then(console.log("created article "+articleTitle));
     },
-    createSource: function(titleName, url, date){
-        Source.forge({title: titleName, link:url, date: date}).save().then(console.log("created source "+ titleName));
-    }
+    createSource: function(titleName, url, date, categoryID){
+        Source.forge({title: titleName, link:url, date: date, categories_id: categoryID}).save().then(console.log("created source "+ titleName));
+    },
+    Category: Category
 };
