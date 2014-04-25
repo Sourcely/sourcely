@@ -16,7 +16,11 @@ var NYTAPI = {
                     var sourceUrl = data.results[i].url;
                     var date = new Date();
                     var category = data.results[i].section;
-                    new Book({'categories': category})
+                    var title = data.results[i].title;
+                    var abstract = data.results[i].abstract;
+                    SQLQueries.createSource(source,sourceUrl, date, category, title, abstract);
+//for creating foreign keys and relationships
+/*                    new Book({'categories': category})
                       .fetch()
                       .then(function(model) {
                         if(model.get('category_id')){
@@ -25,7 +29,9 @@ var NYTAPI = {
                             SQLQueries.createCategory();
                         };
                       });
-                }
+*/                
+            
+            }
         }).on('error', function(e) {
             console.log("Got error: " + e.message);
         })
