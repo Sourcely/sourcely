@@ -29,7 +29,7 @@ module.exports = {
     createArticle: function(articleTitle, date, description){
         Article.forge({title: artcileTitle, date: date, description: description}).save().then(console.log("created article "+articleTitle));
     },
-    createSource: function(sourceName, url){
-        Source.forge({source: sourceName, url:url}).save().then(console.log("created source "+ sourceName));
+    createSource: function(titleName, url, date){
+        Source.forge({title: titleName, link:url, date: date}).save().then(console.log("created source "+ titleName));
     }
 };
