@@ -20,20 +20,20 @@ SQL.knex.schema.hasTable('categories').then(function(exists) {
   }
 });
 
-SQL.knex.schema.hasTable('sources').then(function(exists) {
+SQL.knex.schema.hasTable('articles').then(function(exists) {
   if (!exists) {
-    return SQL.knex.schema.createTable('sources', function(t) {
+    return SQL.knex.schema.createTable('articles', function(t) {
       t.increments('id').primary();
-      t.string('source', 100);
+      t.string('title', 100);
       t.date('date');
       t.text('description');
     });
   }
 });
 
-SQL.knex.schema.hasTable('articles').then(function(exists) {
+SQL.knex.schema.hasTable('sources').then(function(exists) {
   if (!exists) {
-    return SQL.knex.schema.createTable('articles', function(t) {
+    return SQL.knex.schema.createTable('sources', function(t) {
       t.increments('id').primary();
       t.string('title', 100);
       t.string('link', 500);
