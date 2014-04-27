@@ -1,13 +1,24 @@
 <html lang="en" ng-app="webClient">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link type="text/css" rel="stylesheet" href="webClient/css/webClient.css">
     <script src="system/lib/angular/angular.js"></script>
     <script src="webClient/js/app.js"></script>
     <title>Sourcely</title>
   </head>
 
   <body ng-controller="webClientController">
-    <p>This is my web page</p>
+    <div id="header">
+      <span id="title">Sourcely</span>
+      <a href="#" class="tool" ng-click="logout()"> Logout</a>
+      <a href="/account" class="tool">Settings</a>
+    </div>
+    <div id="main">
+      <div id="categories">
+      </div>
+      <div id="currentCategory">
+      </div>
+    </div>
   </body>
 
 </html>

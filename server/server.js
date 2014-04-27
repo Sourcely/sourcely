@@ -10,4 +10,4 @@ app.listen(process.env.PORT || 3000);
 require('./config')
 require('./routes')(app);
 require('./express')(app);
-require('./apiRunner');
+require('./newsAggregator/aggregator.js');
