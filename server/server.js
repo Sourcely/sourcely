@@ -7,7 +7,7 @@ var mysql = require('mysql');
 
 app.listen(process.env.PORT || 3000);
 
-require('./config')
+// require('./config')
 require('./routes')(app);
 require('./express')(app);
-require('./newsAggregator/aggregator.js');
+// require('./newsAggregator/aggregator.js');

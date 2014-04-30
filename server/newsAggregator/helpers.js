@@ -45,18 +45,6 @@ module.exports = {
   eventChecker: eventChecker
 };
 
-var stopWords = {
-  a: ["a", "an", "are", "as", "at", "about", "above", "according", "accordance", "accordingly", "across", "act", "actually", "added", "after", "all", "almost", "alone", "along", "any", "anybody", "anyone", "another"],
-  b: ["be", "by"],
-  c: ["com"],
-  f: ["for", "from"],
-  h: ["how"],
-  i: ["i", "if", "in", "is", "it"],
-  o: ["of", "on", "or", "often"],
-  t: ["the", "that", "this", "to"],
-  w: ["was", "what", "when", "where", "who", "will", "with"]
-};
-
 var stopWords = "a,able,about,above,abst,accordance,according,accordingly,across,act,actually,added,adj,\
 affected,affecting,affects,after,afterwards,again,against,ah,all,almost,alone,along,already,also,although,\
 always,am,among,amongst,an,and,announce,another,any,anybody,anyhow,anymore,anyone,anything,anyway,anyways,\
