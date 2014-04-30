@@ -1,4 +1,5 @@
 var MySql = require('../config').SQLServer;
+var _ = require('lodash');
 
 var Category =  MySql.Model.extend({
     tableName: 'categories',/*,
@@ -28,10 +29,22 @@ var Source =  MySql.Model.extend({
     }*/
 });
 
-var querySource = function(){};
+var querySource = function(title){
+    var exists;
+    new Source({'article': title})
+        .fetch()
+        .then(function(model) {
+            if(model){
+               exists = true;
+            }else{
+               exists = false;
+            };
+        })
+    return exists;
+};
 
 var createCategory = function(category){
-    Category.forge({category: category}).save().then(console.log("created category "+category));
+    Category.forge({category: category}).save().then();
 //        Category.forge({category: category}).save().then(console.log("created category "+category));
 }
 var createArticle = function(articleTitle, date, description, category){
@@ -47,17 +60,28 @@ var createArticle = function(articleTitle, date, description, category){
 //        Article.forge({title: artcileTitle, date: date, description: description}).save().then(console.log("created article "+articleTitle));
 }
 var createSource = function(source, url, date, category, title, abstract){
-    Source.forge({source: source, link:url, date: date, category: category, article: title}).save().then(
-        new Article({'title': title})
-            .fetch()
-            .then(function(model) {
-                if(!model){
-                   var date = new Date()
-                   createArticle(title, date, abstract, category) 
-                };
-            })
-    );
+    //console.log(source, date, category, title);
+    new Source({'article': title})
+        .fetch()
+        .then(function(model) {
+            if(model){
+               console.log("sourceExists");
+           }else{
+                Source.forge({source: source, link:url, date: date, category: category, article: title}).save().then(
+                    new Article({'title': title})
+                        .fetch()
+                        .then(function(model) {
+                            if(!model){
+                               var date = new Date();
+                               createArticle(title, date, abstract, category) 
+                            };
+                        })
+                );
+             };
+        })
+
+
 //        Source.forge({title: source, link:url, date: date, categories_id: categoryID}).save().then(console.log("created source "+ source));
-}
+};
 
 module.exports = {createCategory: createCategory, createArticle: createArticle, createSource: createSource};

@@ -11,14 +11,15 @@ var NYTAPI = {
                 dataChunks += chunk;
             }).on('end', function(){
                 var data = JSON.parse(dataChunks);
-                for(var i = 0; i<1; i++) {
+                var stack = [];
+                for(var i = 0; i<data.results.length; i++) {
                     var source = data.results[i].source;
                     var sourceUrl = data.results[i].url;
                     var date = new Date();
                     var category = data.results[i].section;
                     var title = data.results[i].title;
                     var abstract = data.results[i].abstract;
-                    SQLQueries.createSource(source,sourceUrl, date, category, title, abstract);
+                    stack[i] = [source,sourceUrl, date, category, title, abstract];
 //for creating foreign keys and relationships
 /*                    new Book({'categories': category})
                       .fetch()
@@ -30,8 +31,15 @@ var NYTAPI = {
                         };
                       });
 */                
-            
-            }
+                };
+                var callerFunc = function(array){
+                    var temp = array.shift();
+                    SQLQueries.createSource(temp[0],temp[1],temp[2],temp[3],temp[4],temp[5])
+                    if(array.length > 0){
+                        setTimeout(function(){callerFunc(array)}, 250);
+                    }
+                };
+                callerFunc(stack);
         }).on('error', function(e) {
             console.log("Got error: " + e.message);
         })
