@@ -23,7 +23,7 @@ feeds = [
     'http://www.theverge.com/rss/index.xml'
 ]
 
-'''    
+'''
     'http://feeds2.feedburner.com/time/topstories',
     'http://rss.cnn.com/rss/cnn_topstories.rss',
     'http://www.huffingtonpost.com/feeds/index.xml',
@@ -41,10 +41,7 @@ feeds = [
 #########################################
 import feedparser
 import nltk
-import newspaper
-from newspaper import Article
 import time
-import datetime
 import calendar
 
 corpus = []
@@ -103,7 +100,7 @@ def top_keywords(n,doc,corpus):
         d[word] = tfidf(word,doc,corpus)
     sorted_d = sorted(d.iteritems(), key=operator.itemgetter(1))
     sorted_d.reverse()
-    return [w[0] for w in sorted_d[:n]]   
+    return [w[0] for w in sorted_d[:n]]
 
 key_word_list=set()
 nkeywords=5
@@ -126,7 +123,7 @@ for document in corpus:
     feature_vectors.append(vec)
 
 #########################################
-# now turn that into symmatrix matrix of 
+# now turn that into symmatrix matrix of
 # cosine similarities
 #########################################
 import numpy
@@ -138,6 +135,7 @@ for i in xrange(0,n):
 #########################################
 # now hierarchically cluster mat
 #########################################
+import hcluster
 from hcluster import linkage, dendrogram
 t = 0.8
 Z = linkage(mat, 'single')
@@ -154,17 +152,17 @@ def extract_clusters(Z,threshold,n):
           n2=int(row[1])
 
           if n1 >= n:
-             l1=clusters[n1] 
-             del(clusters[n1]) 
+             l1=clusters[n1]
+             del(clusters[n1])
           else:
              l1= [n1]
-      
+
           if n2 >= n:
-             l2=clusters[n2] 
-             del(clusters[n2]) 
+             l2=clusters[n2]
+             del(clusters[n2])
           else:
-             l2= [n2]    
-          l1.extend(l2)  
+             l2= [n2]
+          l1.extend(l2)
           clusters[ct] = l1
           ct += 1
       else:
@@ -190,10 +188,10 @@ print len(clusterCollection.distinct("title"))
 #inserting into mongo collection
 
 for key in clusters:
-   print "============================================="	   
+   print "============================================="
    collection = 0
    for id in clusters[key]:
-       exists = clusterCollection.find_one({"title": titles[id]})       
+       exists = clusterCollection.find_one({"title": titles[id]})
        if exists != None:
            collection = exists["collectionID"]
    for id in clusters[key]:
@@ -216,7 +214,7 @@ for key in clusters:
                  "date": dates[id],
                  "category": "tech",
                  "description": descriptions[id]
-                 }          
+                 }
                print "new", article["collectionID"]
            clusterCollection.insert(article)
    collectionID += 1
