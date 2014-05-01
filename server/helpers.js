@@ -2,14 +2,18 @@
 // var fs       = Promise.promisifyAll(require('fs'));
 // var mkdirp   = Promise.promisify(require('mkdirp'));
 var Path     = require('path');
-var waterline = require('waterline');
+var Bookshelf = require('bookshelf');
 var _ = require('lodash');
+var http = require('http');
 // var _        = require('underscore');
 
 var sendLandingPage = function(req, res) {
-  res.sendfile('public/index.html');
+/*  var index = Path.resolve(__dirname+'../public/index.html')
+  res.sendfile(index);
+*/
+res.sendfile('public/webClient/index.html');
 };
 
 module.exports = {
-  sendLandingPage: sendLandingPage
+  sendLandingPage: sendLandingPage,
 };
