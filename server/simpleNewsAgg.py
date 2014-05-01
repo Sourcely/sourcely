@@ -51,6 +51,7 @@ corpus = []
 titles=[]
 links = []
 dates = []
+epochTimes = []
 descriptions = []
 categories = []
 ct = -1
@@ -72,6 +73,7 @@ for feed in feeds:
            links.append(e['link'])
            dates.append(e['published'])
            descriptions.append(e['description'])
+           epochTimes.append(articleTime)
 
 #########################################
 # tf-idf implementation
@@ -206,7 +208,8 @@ for key in clusters:
                  "link": links[id],
                  "date": dates[id],
                  "category": "tech",
-                 "description": descriptions[id]
+                 "description": descriptions[id],
+                 "epochTime": epochTimes[id]
                  }
                print "old", article["collectionID"]
            else:
@@ -215,7 +218,8 @@ for key in clusters:
                  "link": links[id],
                  "date": dates[id],
                  "category": "tech",
-                 "description": descriptions[id]
+                 "description": descriptions[id],
+                 "epochTime": epochTimes[id]
                  }          
                print "new", article["collectionID"]
            clusterCollection.insert(article)
