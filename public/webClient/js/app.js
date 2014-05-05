@@ -56,9 +56,18 @@ app.controller('games', ['$scope', '$http', function($scope, $http){
 }]);
 
 app.controller('tech', ['$scope', '$http', function($scope, $http){
-  $scope.category = {name: "tech", articles: [
-                      {title: "man digs hole man finds gold", author: "nyt"},
-                      {title: "spacex takes man to mars then kills him in a crash", author: "the verge"},
-                      {title: "google cars can now sense cyclist gestures, what did they do before?", author: "brian"}
-                    ]};
+  $scope.category = {name:"tech", articles: []};
+  $http({ method:'GET',
+                   url:'http://localhost:3000/tech'
+       }).success(function(data,status,headers,config){
+                     console.log("data: ", data);
+                     $scope.category.articles = data;
+       }).error(function(err,status,headers,config){
+                     console.log("error: ", err);
+       });
+  // $scope.category = {name: "tech", articles: [
+  //                     {title: "man digs hole man finds gold", author: "nyt"},
+  //                     {title: "spacex takes man to mars then kills him in a crash", author: "the verge"},
+  //                     {title: "google cars can now sense cyclist gestures, what did they do before?", author: "brian"}
+  //                   ]};
 }]);
