@@ -9,7 +9,7 @@ clusterConnection.on('open', function() {
       throw new Error(error);
     } else {
       names.map(function(cname) {
-        console.log(cname.name);
+        // console.log(cname.name);
       });
     }
   });
