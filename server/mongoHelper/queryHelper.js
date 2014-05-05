@@ -12,7 +12,7 @@ function techArticles() {
     articleCluster.find({"category":"tech"},
       function(err, data) {
         if(err){
-          resolve(data);
+          console.log(err);
         }else{
           resolve(data);
         }
