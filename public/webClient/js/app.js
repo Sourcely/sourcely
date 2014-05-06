@@ -1,4 +1,6 @@
-var app = angular.module('webClient', ['ui.router'])
+var app = angular.module('webClient', [
+  'ui.router'
+]);
 
 app.config(function($stateProvider) {
 
@@ -44,8 +46,9 @@ app.config(function($stateProvider) {
       })
 });
 
-app.controller('categories', ['$scope', '$http', function($scope, $http){
+app.controller('categories', ['$scope', '$http', 'techFactory', function($scope, $http, techFactory){
   $scope.categories = ["games", "tech"];
+  techFactory.retrieveTechArticles();
 }]);
 
 app.controller('games', ['$scope', '$http', function($scope, $http){
@@ -55,19 +58,7 @@ app.controller('games', ['$scope', '$http', function($scope, $http){
                     ]};
 }]);
 
-app.controller('tech', ['$scope', '$http', function($scope, $http){
+app.controller('tech', ['$scope', '$http', 'techFactory', function($scope, $http, techFactory){
   $scope.category = {name:"tech", articles: []};
-  $http({ method:'GET',
-                   url:'http://localhost:3000/tech'
-       }).success(function(data,status,headers,config){
-                     console.log("data: ", data);
-                     $scope.category.articles = data;
-       }).error(function(err,status,headers,config){
-                     console.log("error: ", err);
-       });
-  // $scope.category = {name: "tech", articles: [
-  //                     {title: "man digs hole man finds gold", author: "nyt"},
-  //                     {title: "spacex takes man to mars then kills him in a crash", author: "the verge"},
-  //                     {title: "google cars can now sense cyclist gestures, what did they do before?", author: "brian"}
-  //                   ]};
+  $scope.category.articles = techFactory.getTechArticles();
 }]);
