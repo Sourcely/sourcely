@@ -1,37 +1,20 @@
-div#right {
-  top:50px;
-  right: 0;
-  bottom: 0;
-  left: 270px;
-  position: absolute;
-  background-color: red;
-  overflow: auto;
-}
-
 div#currentCategory {
   top:50px;
   left: 0;
   right: 0;
+/*  bottom: 50px;*/
   background-color: RoyalBlue;
   position: absolute;
-/*  overflow: auto;*/
 }
 
 div#currentCategory h1{
   left: 20px;
   font-size: 24px;
   position: absolute;
-/*  overflow: auto;*/
 }
 
 div#articleBox {
   top: 40px;
-/*  overflow: auto;*/
+  overflow: auto;
   position: relative;
-}
-
-ul.article {
-  margin: 15px;
-  position: relative;
-/*  overflow: auto;*/
 }

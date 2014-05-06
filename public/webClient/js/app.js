@@ -43,5 +43,6 @@ app.config(function($stateProvider) {
             controller: 'games'
           }
         }
-      })
-});
+      });
+
+})

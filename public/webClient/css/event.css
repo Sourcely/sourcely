@@ -1,0 +1,19 @@
+div.event {
+  margin: 15px;
+  position: relative;
+  padding-bottom: 5px;
+  display: block;
+}
+
+span.source {
+  left: 50px;
+  display: inline-block;
+  height:150px;
+  width:200px;
+  border: thin solid grey;
+  overflow: hidden;
+}
+
+li.sources {
+  display: inline-block;
+}
