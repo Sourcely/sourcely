@@ -9,21 +9,23 @@ Created on Fri Apr 25 19:28:36 2014
 # define our feeds
 #########################################
 feeds = [
+    'http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml',    
     'http://www.engadget.com/rss-hd.xml',
-    'http://gizmodo.com/rss',
+    'http://feeds.gawker.com/gizmodo/full',
     'http://feeds.boingboing.net/boingboing/iBag',
     'http://feeds.feedburner.com/askTheAdmin',
-    'http://lifehacker.com/tag/rss',
+    'http://feeds.gawker.com/lifehacker/full',
     'http://feeds.feedburner.com/techdirt/feed',
-    'http://www.nytimes.com/services/xml/rss/index.html',
+    'http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml',
     'http://feeds.wired.com/wired/index',
     'http://feeds.feedburner.com/TechCrunch/',
     'http://www.cnet.com/rss/news/',
     'http://feeds.arstechnica.com/arstechnica/index',
-    'http://www.theverge.com/rss/index.xml'
+    'http://www.theverge.com/rss/index.xml',
+    'http://feeds.venturebeat.com/VentureBeat'
 ]
 
-'''
+'''      
     'http://feeds2.feedburner.com/time/topstories',
     'http://rss.cnn.com/rss/cnn_topstories.rss',
     'http://www.huffingtonpost.com/feeds/index.xml',
@@ -41,8 +43,12 @@ feeds = [
 #########################################
 import feedparser
 import nltk
+import newspaper
+from newspaper import Article
 import time
+import datetime
 import calendar
+import lxml.html as lh
 
 corpus = []
 titles=[]
@@ -60,6 +66,7 @@ for feed in feeds:
        tupleTime = e['published_parsed']
        articleTime = calendar.timegm(tupleTime)
        timeDifference = (epochTime - articleTime)/(3600)
+#Only grabbing articles from the last ~ 24 hours
        if timeDifference < 24:
            words = nltk.wordpunct_tokenize(nltk.clean_html(e['description']))
            words.extend(nltk.wordpunct_tokenize(e['title']))
@@ -70,6 +77,7 @@ for feed in feeds:
            links.append(e['link'])
            dates.append(e['published'])
            descriptions.append(e['description'])
+#Saving epoch times for server to reference when figuring out which feeds to pull out
            epochTimes.append(articleTime)
 
 #########################################
@@ -102,7 +110,7 @@ def top_keywords(n,doc,corpus):
         d[word] = tfidf(word,doc,corpus)
     sorted_d = sorted(d.iteritems(), key=operator.itemgetter(1))
     sorted_d.reverse()
-    return [w[0] for w in sorted_d[:n]]
+    return [w[0] for w in sorted_d[:n]]   
 
 key_word_list=set()
 nkeywords=5
@@ -125,7 +133,7 @@ for document in corpus:
     feature_vectors.append(vec)
 
 #########################################
-# now turn that into symmatrix matrix of
+# now turn that into symmatrix matrix of 
 # cosine similarities
 #########################################
 import numpy
@@ -137,7 +145,6 @@ for i in xrange(0,n):
 #########################################
 # now hierarchically cluster mat
 #########################################
-import hcluster
 from hcluster import linkage, dendrogram
 t = 0.8
 Z = linkage(mat, 'single')
@@ -154,17 +161,17 @@ def extract_clusters(Z,threshold,n):
           n2=int(row[1])
 
           if n1 >= n:
-             l1=clusters[n1]
-             del(clusters[n1])
+             l1=clusters[n1] 
+             del(clusters[n1]) 
           else:
              l1= [n1]
-
+      
           if n2 >= n:
-             l2=clusters[n2]
-             del(clusters[n2])
+             l2=clusters[n2] 
+             del(clusters[n2]) 
           else:
-             l2= [n2]
-          l1.extend(l2)
+             l2= [n2]    
+          l1.extend(l2)  
           clusters[ct] = l1
           ct += 1
       else:
@@ -187,18 +194,23 @@ else:
     collectionID = sorted(clusterCollection.distinct("collectionID"))[-1] + 1
 
 print len(clusterCollection.distinct("title"))
+
 #inserting into mongo collection
+import urllib2
+
 
 for key in clusters:
-   print "============================================="
+   print "============================================="     
    collection = 0
-   for id in clusters[key]:
-       exists = clusterCollection.find_one({"title": titles[id]})
+#Checking to see if an article exists in a current cluster, if it exists, set collection to that id 
+  for id in clusters[key]:
+       exists = clusterCollection.find_one({"title": titles[id]})       
        if exists != None:
            collection = exists["collectionID"]
    for id in clusters[key]:
        exists = clusterCollection.find_one({"title": titles[id]})
        if exists == None:
+           #image parsing
            print id,titles[id]
            if collection > 0:
                article = {"collectionID": collection,
@@ -218,8 +230,6 @@ for key in clusters:
                  "category": "tech",
                  "description": descriptions[id],
                  "epochTime": epochTimes[id]
-                 }          
-                 "description": descriptions[id]
                  }
                print "new", article["collectionID"]
            clusterCollection.insert(article)
