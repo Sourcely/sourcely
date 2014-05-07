@@ -1,8 +1,10 @@
 div.event {
-  margin: 15px;
+  margin-left: 15px;
+  margin-bottom: 15px;
   position: relative;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
   display: block;
+  border-bottom: thin solid grey;
 }
 
 span.source {
@@ -14,6 +16,14 @@ span.source {
   overflow: hidden;
 }
 
+ul.sourceList {
+  margin-top: 20px;
+  width: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 li.sources {
   display: inline-block;
+  margin-right: 20px;
 }
