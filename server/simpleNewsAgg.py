@@ -9,7 +9,22 @@ Created on Fri Apr 25 19:28:36 2014
 # define our feeds
 #########################################
 feeds = [
-    'http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml',    
+    'http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml',
+    'http://www.engadget.com/rss-hd.xml',
+    'http://feeds.gawker.com/gizmodo/full',
+    'http://feeds.boingboing.net/boingboing/iBag',
+    'http://feeds.feedburner.com/askTheAdmin',
+    'http://feeds.gawker.com/lifehacker/full',
+    'http://www.engadget.com/rss-hd.xml',
+    'http://feeds.gawker.com/gizmodo/full',
+    'http://feeds.boingboing.net/boingboing/iBag',
+    'http://feeds.feedburner.com/askTheAdmin',
+    'http://feeds.gawker.com/lifehacker/full',
+    'http://feeds.feedburner.com/techdirt/feed',
+    'http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml'
+]
+
+'''     
     'http://www.engadget.com/rss-hd.xml',
     'http://feeds.gawker.com/gizmodo/full',
     'http://feeds.boingboing.net/boingboing/iBag',
@@ -23,9 +38,8 @@ feeds = [
     'http://feeds.arstechnica.com/arstechnica/index',
     'http://www.theverge.com/rss/index.xml',
     'http://feeds.venturebeat.com/VentureBeat'
-]
-
-'''      
+    
+    
     'http://feeds2.feedburner.com/time/topstories',
     'http://rss.cnn.com/rss/cnn_topstories.rss',
     'http://www.huffingtonpost.com/feeds/index.xml',
@@ -48,7 +62,10 @@ from newspaper import Article
 import time
 import datetime
 import calendar
-import lxml.html as lh
+import urllib2
+import lxml.html as imgGrabber
+#for enabling cookies on redirects
+from cookielib import CookieJar
 
 corpus = []
 titles=[]
@@ -187,6 +204,7 @@ from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 clusterDatabase = client['clusterDatabase']
 clusterCollection = clusterDatabase['clusterCollection']
+clusterCollection.remove({})
 
 if len(clusterCollection.distinct("collectionID")) == 0:
     collectionID = 0
@@ -196,14 +214,15 @@ else:
 print len(clusterCollection.distinct("title"))
 
 #inserting into mongo collection
-import urllib2
 
+cj = CookieJar()
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 
 for key in clusters:
    print "============================================="     
    collection = 0
 #Checking to see if an article exists in a current cluster, if it exists, set collection to that id 
-  for id in clusters[key]:
+   for id in clusters[key]:
        exists = clusterCollection.find_one({"title": titles[id]})       
        if exists != None:
            collection = exists["collectionID"]
@@ -211,7 +230,12 @@ for key in clusters:
        exists = clusterCollection.find_one({"title": titles[id]})
        if exists == None:
            #image parsing
+           doc=imgGrabber.parse(opener.open(links[id]))
+           imgs=doc.xpath('//img/@src')
+           articleImages = []
+           print imgs
            print id,titles[id]
+           print articleImages
            if collection > 0:
                article = {"collectionID": collection,
                  "title": titles[id],
