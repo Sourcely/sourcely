@@ -1,0 +1,29 @@
+div.event {
+  margin-left: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 15px;
+  display: block;
+  border-bottom: thin solid #E3E3E3;
+}
+
+span.source {
+  left: 50px;
+  display: inline-block;
+  height:150px;
+  width:200px;
+  border: thick solid grey;
+  overflow: hidden;
+}
+
+ul.sourceList {
+  margin-top: 20px;
+  width: auto;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+li.sources {
+  display: inline-block;
+  margin-right: 20px;
+}

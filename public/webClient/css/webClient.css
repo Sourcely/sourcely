@@ -9,11 +9,11 @@ a {
 
 div#header {
   height:50px;
-  background-color: orange;
+  background-color: #FFCC66;
   position: static;
 }
 
-div#header span{
+div#header span#logo{
   color: #F5F5F5;
   left: 100px;
   top: 20px;
