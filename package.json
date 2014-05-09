@@ -5,14 +5,8 @@
   "version": "0.0.1",
   "private": false,
   "contributors": [
-    {
-      "name": "Scott Zhang",
-      "mail": "Scottzhang235@gmail.com"
-    },
-    {
-      "name": "Brian Kang",
-      "mail": "Brian.Kang2@gmail.com"
-    }
+    "Scott Zhang <Scottzhang235@gmail.com>",
+    "Brian Kang <Brian.Kang2@gmail.com>"
   ],
   "repository": {
     "type": "git",
@@ -40,5 +34,11 @@
   },
   "devDependencies": {
     "assetmanager": "^0.1.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Sourcely/sourcely/issues"
+  },
+  "homepage": "https://github.com/Sourcely/sourcely",
+  "author": "Sourcely",
+  "license": "ISC"
 }
