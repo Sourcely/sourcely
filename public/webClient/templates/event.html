@@ -1,0 +1,10 @@
+<div class="event">
+  <div class="eventTitle" ng-click="showSources=!showSources">{{article[0].title}}</div>
+  <div ng-show="showSources" ng-init="showSources=false">
+    <ul class="sourceList">
+      <li class="sources" ng-repeat="source in article">
+        <a href={{source.link}}><span class="source">{{source.title}}</span></a>
+      </li>
+    </ul>
+  </div>
+</div>

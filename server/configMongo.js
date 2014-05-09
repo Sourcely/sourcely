@@ -16,17 +16,3 @@ clusterConnection.on('open', function() {
 });
 
 module.exports = {connection: clusterConnection}
-
-/*var clusterDatabase = mongoose.connection;
-clusterDatabase.on('open', function(){
-  mongoose.connection.clusterDatabase.collectionNames(function(error, names) {
-    if (error) {
-      throw new Error(error);
-    } else {
-      names.map(function(cname) {
-        console.log(cname.name);
-      });
-    }
-  });
-});
-*/
