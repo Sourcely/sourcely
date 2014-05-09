@@ -3,7 +3,6 @@ var express = require('express');
 
 module.exports = function(app){
 	var fullpath = path.join(__dirname, '../public');
-	app.set('port', process.env.PORT || 3000);
 	app.use(express.static(fullpath));
 	app.use(express.logger('dev'));
 	app.use(express.urlencoded());

@@ -4,13 +4,13 @@ var express = require('express');
 var helper  = require('./helpers');
 var app     = express();
 var mongoose = require('mongoose');
-var http = require('http');
 
 require('./configMongo')
 require('./routes')(app);
 require('./express')(app);
 require('./mongoHelper/queryHelper')
+app.set('port', process.env.PORT || 3000);
 
-http.createServer(app).listen(app.get('port'), function(){
+app.listen(app.get('port'), function(){
   console.log('Magic happens on port ' + app.get('port'));
 });
