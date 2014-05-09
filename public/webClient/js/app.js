@@ -19,7 +19,7 @@ app.config(function($stateProvider) {
         }
       })
       .state('tech', {
-        url: '/tech',
+        url: '/technology',
         views: {
           'left@': {
             templateUrl: 'webClient/templates/leftBar.html',
@@ -27,7 +27,7 @@ app.config(function($stateProvider) {
           },
           'right@': {
             templateUrl: 'webClient/templates/reader.html',
-            controller: 'tech'
+            controller: 'technology'
           }
         }
       })

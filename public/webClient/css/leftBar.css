@@ -1,7 +1,14 @@
+div#left {
+  top: 50px;
+  bottom: 0;
+  width: 270px;
+  background-color: #E3E3E3;
+  position: absolute;
+}
+
 div#categoryBox {
   top: 30%;
   position: absolute;
-  background-color: white;
 }
 
 li.category {

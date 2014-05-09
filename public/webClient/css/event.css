@@ -4,7 +4,7 @@ div.event {
   position: relative;
   padding-bottom: 15px;
   display: block;
-  border-bottom: thin solid grey;
+  border-bottom: thin solid #E3E3E3;
 }
 
 span.source {
@@ -12,7 +12,7 @@ span.source {
   display: inline-block;
   height:150px;
   width:200px;
-  border: thin solid grey;
+  border: thick solid grey;
   overflow: hidden;
 }
 

@@ -9,7 +9,7 @@ a {
 
 div#header {
   height:50px;
-  background-color: orange;
+  background-color: #FFCC66;
   position: static;
 }
 
@@ -20,22 +20,4 @@ div#header span#logo{
   font-size: 20px;
 
   position: absolute;
-}
-
-div#left {
-  top: 50px;
-  bottom: 0;
-  width: 270px;
-  background-color: black;
-  position: absolute;
-}
-
-div#right {
-  top:50px;
-  right: 0;
-  bottom: 0;
-  left: 270px;
-  position: absolute;
-  background-color: red;
-  overflow: auto;
 }
