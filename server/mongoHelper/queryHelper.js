@@ -6,8 +6,7 @@ var Schema   = mongoose.Schema;
 var articleModel = mongoose.model('Article', new Schema({collectionID: Number, title: String,link: String, date: String, category: String, description: String, epochTime: Number}), 'clusterCollection');
 var articleCluster = mongoose.model('Article');
 //this will return every article in the database
-<<<<<<< HEAD
-var articlesByCategory = function(categoryString){
+/*var articlesByCategory = function(categoryString){
     return articleCluster.find({"category":categoryString}, function(err, data) { console.log(data)});
 };
 module.exports = {
@@ -15,8 +14,7 @@ module.exports = {
 };
 
 articlesByCategory("tech")
-=======
-// articleCluster.find({"category":"tech"}, function(err, data) { return data; });
+*/// articleCluster.find({"category":"tech"}, function(err, data) { return data; });
 function techArticles() {
   return new Promise(function (resolve, reject) {
     articleCluster.find({"category":"tech"},
@@ -33,4 +31,3 @@ function techArticles() {
 module.exports = {
   techArticles: techArticles
 };
->>>>>>> 663d0551b63c32a0c8631e56d622fd999e988ef9
