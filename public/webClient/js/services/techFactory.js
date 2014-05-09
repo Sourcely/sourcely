@@ -4,7 +4,7 @@ angular.module('webClient').factory('techFactory', ['$http', function($http){
 
     service.retrieveTechArticles = function() {
       $http({ method:'GET',
-              url:'http://localhost:3000/tech'
+              url:'/technology'
            }).success(function(data,status,headers,config){
              techArticles = data;
              return techArticles;
