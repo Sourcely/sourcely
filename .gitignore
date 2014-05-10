@@ -3,3 +3,4 @@
 .bower-*/
 node_modules/
 public/system/
+*.pyc
