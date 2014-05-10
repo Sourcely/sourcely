@@ -14,7 +14,7 @@ app.controller('technology', ['$scope', '$http', 'techFactory', function($scope,
   $scope.category = {name:"Technology", articles: techFactory.getTechArticles()};
   if($scope.category.articles === undefined) {
     $http({ method:'GET',
-            url:'http://localhost:3000/technology'
+            url:'/technology'
          }).success(function(data,status,headers,config){
            $scope.category.articles = data;
            console.log(data);
