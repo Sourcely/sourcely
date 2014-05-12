@@ -16,6 +16,11 @@ span.source {
   overflow: hidden;
 }
 
+div.eventTitle {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
 ul.sourceList {
   margin-top: 20px;
   width: auto;

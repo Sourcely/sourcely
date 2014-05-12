@@ -5,44 +5,13 @@ var app = angular.module('webClient', [
 app.config(function($stateProvider) {
 
     $stateProvider
-      .state('categories', {
+      .state('tech', {
         url: '',
         views: {
-          'left@': {
-            templateUrl: 'webClient/templates/leftBar.html',
-            controller: 'categories'
-          },
-          'right@': {
-            templateUrl: 'webClient/templates/reader.html',
-            controller: 'categories'
-          }
-        }
-      })
-      .state('tech', {
-        url: '/technology',
-        views: {
-          'left@': {
-            templateUrl: 'webClient/templates/leftBar.html',
-            controller: 'categories'
-          },
-          'right@': {
+          'content@': {
             templateUrl: 'webClient/templates/reader.html',
             controller: 'technology'
           }
         }
       })
-      .state('games', {
-        url: '/games',
-        views: {
-          'left@': {
-            templateUrl: 'webClient/templates/leftBar.html',
-            controller: 'categories'
-          },
-          'right@': {
-            templateUrl: 'webClient/templates/reader.html',
-            controller: 'games'
-          }
-        }
-      });
-
 })

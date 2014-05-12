@@ -3,9 +3,9 @@
     <link type="text/css" rel="stylesheet" href="webClient/css/reset.css">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="webClient/css/webClient.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/leftBar.css">
     <link type="text/css" rel="stylesheet" href="webClient/css/reader.css">
     <link type="text/css" rel="stylesheet" href="webClient/css/event.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <script src="system/lib/angular/angular.js"></script>
     <script src="system/lib/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="webClient/js/app.js"></script>
@@ -16,12 +16,8 @@
   </head>
 
   <body>
-    <div id="header"><span id="logo">Sourcely</span></div>
-    <div id="left">
-      <div ui-view="left"></div>
-    </div>
-    <div id="right">
-      <div ui-view="right"></div>
+    <div id="content">
+      <div ui-view="content"></div>
     </div>
   </body>
 </html>
