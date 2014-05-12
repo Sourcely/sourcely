@@ -9,19 +9,18 @@ def init():
   # define our feeds
   #########################################
   feeds = [
-      'http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml',
-      'http://www.engadget.com/rss-hd.xml',
-      'http://feeds.gawker.com/gizmodo/full',
-      'http://feeds.boingboing.net/boingboing/iBag',
-      'http://feeds.feedburner.com/askTheAdmin',
-      'http://feeds.gawker.com/lifehacker/full',
-      'http://www.engadget.com/rss-hd.xml',
-      'http://feeds.gawker.com/gizmodo/full',
-      'http://feeds.boingboing.net/boingboing/iBag',
-      'http://feeds.feedburner.com/askTheAdmin',
-      'http://feeds.gawker.com/lifehacker/full',
-      'http://feeds.feedburner.com/techdirt/feed',
-      'http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml'
+    'http://www.engadget.com/rss-hd.xml',
+    'http://gizmodo.com/rss',
+    'http://feeds.boingboing.net/boingboing/iBag',
+    'http://feeds.feedburner.com/askTheAdmin',
+    'http://lifehacker.com/tag/rss',
+    'http://feeds.feedburner.com/techdirt/feed',
+    'http://www.nytimes.com/services/xml/rss/index.html',
+    'http://feeds.wired.com/wired/index',
+    'http://feeds.feedburner.com/TechCrunch/',
+    'http://www.cnet.com/rss/news/',
+    'http://feeds.arstechnica.com/arstechnica/index',
+    'http://www.theverge.com/rss/index.xml'
   ]
 
   '''     
@@ -205,9 +204,11 @@ def init():
      collection = 0
   #Checking to see if an article exists in a current cluster, if it exists, set collection to that id 
      for id in clusters[key]:
+         print id
          exists = clusterCollection.find_one({"title": titles[id]})       
          if exists != None:
              collection = exists["collectionID"]
+             break
      for id in clusters[key]:
          print id
          exists = clusterCollection.find_one({"title": titles[id]})
