@@ -4,12 +4,12 @@ app.controller('technology', ['$scope', '$http', 'techFactory', function($scope,
     $http({ method:'GET',
             url:'/technology'
          }).success(function(data,status,headers,config){
-           $scope.category.articles = data;
            console.log(data);
+           $scope.category.articles = data;
          }).error(function(err,status,headers,config){
            console.log("error: ", err);
          });
   } else {
     console.log("correct place");
   }
-}]);
+}])

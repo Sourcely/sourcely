@@ -1,10 +1,28 @@
 <div class="event">
-  <div class="eventTitle" ng-click="showSources=!showSources">{{article[0].title}}</div>
-  <div ng-show="showSources" ng-init="showSources=false">
-    <ul class="sourceList">
-      <li class="sources" ng-repeat="source in article">
-        <a href={{source.link}}><span class="source">{{source.title}}</span></a>
-      </li>
-    </ul>
-  </div>
+
+  <accordion class="changeBack" close-others="true">
+    <accordion-group class="disable_border disable_text_highlighting" ng-class="{true:'active', false:''}[isOpen]" heading="{{article[0].title}}">
+      <ul class="sourceList">
+        <li class="sources" ng-repeat="source in article">
+
+          <div ng-controller="ModalDemoCtrl">
+            <script type="text/ng-template" id="modal.html">
+                <div class="modal-body">
+                  <div class="modalContainer">
+                    <iframe src={{source.link}}></iframe>
+                  </div>
+                </div>
+                <div class="modalFooter">
+                  <a href={{source.link}}><div class="modalLink">New Tab</div></a>
+                </div>
+            </script>
+<!--               <a href={{source.link}}>     </a> -->
+            <span class="source" ng-click="open('lg', source.link)"><p>{{source.title}}<p></span>
+          </div>
+
+        </li>
+      </ul>
+    </accordion-group>
+  </accordion>
+
 </div>

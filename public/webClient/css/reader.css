@@ -1,23 +1,22 @@
 div#content {
   top: 20px;
-  right: 50px;
-  left: 50px;
-  height: 100%;
+  bottom: 20px;
+  right: 100px;
+  left: 100px;
   position: absolute;
-  background-color: #FFFFFF;
-  overflow: auto;
+  background-color: rgb(243, 243, 243);
 }
 
 div#currentCategory {
   left: 0;
   right: 0;
-  background-color: #FFFFFF;
+  background-color: rgb(243, 243, 243);
   position: absolute;
 }
 
 div#header {
   height: 40px;
-  background-color: gold;
+  background-color: rgb(68, 165, 255);
 }
 
 div#currentCategory h1{
@@ -28,7 +27,16 @@ div#currentCategory h1{
 }
 
 div#articleBox {
-  top: 50px;
-  overflow: auto;
+  top: 35px;
+  overflow-y: scroll;
   position: relative;
+  background-color: rgb(243, 243, 243);
+}
+
+div#footer {
+  left: 100px;
+  right: 100px;
+  height: 25px;
+  bottom: 0;
+  background-color: white;
 }

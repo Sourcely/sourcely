@@ -1,9 +1,11 @@
 body {
-  background-color: #F1F1F1;
-  font-family: 'Roboto', sans-serif;  
+  background-color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
   text-decoration: none;
   color: #878785;
 }
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
