@@ -30,7 +30,7 @@ def init():
     'http://www.theverge.com/rss/index.xml'
   ]
 
-  '''     
+  '''
       'http://feeds2.feedburner.com/time/topstories',
       'http://rss.cnn.com/rss/cnn_topstories.rss',
       'http://www.huffingtonpost.com/feeds/index.xml',
@@ -119,7 +119,7 @@ def init():
           d[word] = tfidf(word,doc,corpus)
       sorted_d = sorted(d.iteritems(), key=operator.itemgetter(1))
       sorted_d.reverse()
-      return [w[0] for w in sorted_d[:n]]   
+      return [w[0] for w in sorted_d[:n]]
 
   key_word_list=set()
   nkeywords=5
@@ -142,7 +142,7 @@ def init():
       feature_vectors.append(vec)
 
   #########################################
-  # now turn that into symmatrix matrix of 
+  # now turn that into symmatrix matrix of
   # cosine similarities
   #########################################
   import numpy
@@ -170,17 +170,17 @@ def init():
             n2=int(row[1])
 
             if n1 >= n:
-               l1=clusters[n1] 
-               del(clusters[n1]) 
+               l1=clusters[n1]
+               del(clusters[n1])
             else:
                l1= [n1]
-        
+
             if n2 >= n:
-               l2=clusters[n2] 
-               del(clusters[n2]) 
+               l2=clusters[n2]
+               del(clusters[n2])
             else:
-               l2= [n2]    
-            l1.extend(l2)  
+               l2= [n2]
+            l1.extend(l2)
             clusters[ct] = l1
             ct += 1
         else:
@@ -211,12 +211,12 @@ def init():
   opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
 
   for key in clusters:
-     print "============================================="     
+     print "============================================="
      collection = 0
-  #Checking to see if an article exists in a current cluster, if it exists, set collection to that id 
+  #Checking to see if an article exists in a current cluster, if it exists, set collection to that id
      for id in clusters[key]:
          print id
-         exists = clusterCollection.find_one({"title": titles[id]})       
+         exists = clusterCollection.find_one({"title": titles[id]})
          if exists != None:
              collection = exists["collectionID"]
              break
