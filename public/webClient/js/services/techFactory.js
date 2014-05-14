@@ -16,6 +16,6 @@ angular.module('webClient').factory('techFactory', ['$http', function($http){
     service.getTechArticles = function() {
       return techArticles;
     };
-    
+
     return service;
 }]);

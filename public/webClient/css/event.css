@@ -1,10 +1,8 @@
 div.event {
   margin-left: 15px;
-  margin-bottom: 15px;
+  margin-right: 15px;
   position: relative;
-  padding-bottom: 15px;
   display: block;
-  border-bottom: thin solid #E3E3E3;
 }
 
 span.source {
@@ -12,11 +10,64 @@ span.source {
   display: inline-block;
   height:150px;
   width:200px;
-  border: thick solid grey;
+  border: thin solid grey;
   overflow: hidden;
 }
 
+.disable_text_highlighting {
+-webkit-touch-callout: none;
+-webkit-user-select: none; /* Webkit */
+-moz-user-select: none;    /* Firefox */
+-ms-user-select: none;     /* IE 10  */
+-o-user-select: none;
+user-select: none;
+}
+
+.disable_border {
+  border-style: none;
+}
+
+.panel-heading {
+  background-color: rgb(243, 243, 243) !important;
+  padding: 0 !important;
+}
+
+.panel-heading a:hover {
+  text-decoration: none !important;
+}
+
+span.source:hover{
+  color: rgb(68, 165, 255) !important;
+}
+
+.panel-body {
+  background-color: white;
+  border: none;
+}
+
+.panel-group {
+  margin-bottom: 15px;
+}
+
+.panel-title {
+  font-size: 15px;
+  margin-left: 20px;
+  padding-bottom: 4px;
+}
+
+span.source p {
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+div.eventTitle {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
 ul.sourceList {
+  margin-left: 10px;
   margin-top: 20px;
   width: auto;
   overflow-x: scroll;

@@ -1,29 +1,42 @@
-div#right {
-  top:50px;
-  right: 0;
-  bottom: 0;
-  left: 270px;
+div#content {
+  top: 20px;
+  bottom: 20px;
+  right: 100px;
+  left: 100px;
   position: absolute;
-  background-color: #FFFFFA;
-  overflow: auto;
+  background-color: rgb(243, 243, 243);
 }
 
 div#currentCategory {
-  top:50px;
   left: 0;
   right: 0;
-  background-color: #FFFFFA;
+  background-color: rgb(243, 243, 243);
   position: absolute;
 }
 
+div#header {
+  height: 40px;
+  background-color: rgb(68, 165, 255);
+}
+
 div#currentCategory h1{
-  left: 20px;
-  font-size: 24px;
+  top: 10px;
+  left: 100px;
+  font-size: 20px;
   position: absolute;
 }
 
 div#articleBox {
-  top: 40px;
-  overflow: auto;
+  top: 35px;
+  overflow-y: scroll;
   position: relative;
+  background-color: rgb(243, 243, 243);
+}
+
+div#footer {
+  left: 100px;
+  right: 100px;
+  height: 25px;
+  bottom: 0;
+  background-color: white;
 }

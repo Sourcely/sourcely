@@ -1,5 +1,6 @@
 body {
-  background-color: #F5F5F5;
+  background-color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -7,17 +8,4 @@ a {
   color: #878785;
 }
 
-div#header {
-  height:50px;
-  background-color: #FFCC66;
-  position: static;
-}
-
-div#header span#logo{
-  color: #F5F5F5;
-  left: 100px;
-  top: 20px;
-  font-size: 20px;
-
-  position: absolute;
-}
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
