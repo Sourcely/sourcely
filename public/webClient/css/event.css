@@ -1,18 +1,32 @@
 
 div.event {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin-left: 10px;
+  margin-right: 35px;
   position: relative;
   display: block;
 }
 
 span.source {
-  left: 50px;
   display: inline-block;
-  height:150px;
-  width:200px;
+  height: 100px;
+  width: 150px;
   border: thin solid grey;
   overflow: hidden;
+  position: relative;
+}
+
+span.source p {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 14px;
+}
+
+span.source p.sourceName {
+  bottom: 2px;
+  right: 2px;
+  font-size: 12px;
+  position: absolute;
 }
 
 .disable_text_highlighting {
@@ -43,6 +57,8 @@ span.source:hover{
 
 .panel-body {
   background-color: white;
+  height: 166px;
+  overflow-y: scroll;
   border: none;
 }
 
@@ -56,11 +72,6 @@ span.source:hover{
   padding-bottom: 4px;
 }
 
-span.source p {
-  margin-top: 20px;
-  margin-left: 5px;
-  margin-right: 5px;
-}
 
 div.eventTitle {
   margin-left: 10px;
@@ -77,5 +88,6 @@ ul.sourceList {
 
 li.sources {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 15px;
+  margin-bottom: 15px;
 }

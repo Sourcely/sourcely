@@ -5,16 +5,8 @@
       <ul class="sourceList">
         <li class="sources" ng-repeat="source in article">
 
-          <div ng-controller="ModalDemoCtrl">
-<!--             // <script type="text/ng-template" id="modal.html">
-            //     <div class="modal-body">
-            //       <div class="modalContainer">
-            //         <iframe src={{source.link}}></iframe>
-            //       </div>
-            //     </div>
-            // </script> -->
-<!--             <span class="source" ng-click="open('lg', source.link)"><p>{{source.title}}<p></span> -->
-            <span class="source" ng-click="openLink(source.link)"><p>{{source.title}}<p></span>
+          <div ng-controller="openArticle">
+            <span class="source" ng-click="openLink(source.link)"><p>{{source.title}}<p> <p class="sourceName">{{source.source}}</p></span>
           </div>
 
         </li>
