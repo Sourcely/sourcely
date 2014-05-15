@@ -58,7 +58,7 @@ span.source:hover{
 .panel-body {
   background-color: white;
   height: 166px;
-  overflow-y: scroll;
+  overflow-x: scroll;
   border: none;
 }
 
@@ -81,7 +81,6 @@ div.eventTitle {
 ul.sourceList {
   margin-left: 10px;
   margin-top: 20px;
-  width: auto;
   overflow-x: scroll;
   overflow-y: hidden;
 }
