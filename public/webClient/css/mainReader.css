@@ -1,0 +1,8 @@
+.mainReader{
+  position: absolute;
+  width: 50%;
+  height: 90%;
+  background-color: black;
+  display: inline-block;
+  right: 0px;
+}

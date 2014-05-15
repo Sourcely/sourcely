@@ -1,9 +1,5 @@
 div#content {
-  top: 20px;
-  bottom: 20px;
-  right: 100px;
-  left: 100px;
-  position: absolute;
+  position: relative;
   background-color: rgb(243, 243, 243);
 }
 
@@ -11,7 +7,6 @@ div#currentCategory {
   left: 0;
   right: 0;
   background-color: rgb(243, 243, 243);
-  position: absolute;
 }
 
 div#header {
@@ -27,7 +22,7 @@ div#currentCategory h1{
 }
 
 div#articleBox {
-  top: 35px;
+  top: 10px;
   overflow-y: scroll;
   position: relative;
   background-color: rgb(243, 243, 243);
@@ -39,4 +34,10 @@ div#footer {
   height: 25px;
   bottom: 0;
   background-color: white;
+}
+
+.articleContainer {
+  width: 50%;
+  display: inline-block;
+  position: absolute;
 }

@@ -12,4 +12,4 @@ app.controller('technology', ['$scope', '$http', 'techFactory', function($scope,
   } else {
     console.log("correct place");
   }
-}])
+}]);

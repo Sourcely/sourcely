@@ -9,3 +9,7 @@ a {
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.webBanner{
+  font-size: 20;
+}
