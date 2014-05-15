@@ -3,18 +3,22 @@ var app = angular.module('webClient', [
   'ui.bootstrap'
 ]);
 
-app.config(function($stateProvider) {
-
+app.config(function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/tech")
     $stateProvider
       .state('tech', {
-        url: '',
+        url: '/tech',
         views: {
           'content@': {
             templateUrl: 'webClient/templates/reader.html',
             controller: 'technology'
+          },
+          'mainReader@': {
+            templateUrl: '/webClient/templates/mainReader.html',
+            controller: 'reader'
           }
         }
-      })
+        })
 })
 
 var ModalDemoCtrl = function ($scope, $modal, $log) {

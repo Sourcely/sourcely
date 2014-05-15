@@ -9,15 +9,22 @@ def init():
   # define our feeds
   #########################################
   feeds = [
-    'http://www.engadget.com/rss-hd.xml',
-    'http://gizmodo.com/rss',
-    'http://feeds.boingboing.net/boingboing/iBag',
+    'http://feeds.feedburner.com/9To5Mac-MacAllDay',
+    'http://feeds.feedburner.com/techdirt',
+    'http://feeds.feedburner.com/TechCrunch',
     'http://feeds.feedburner.com/askTheAdmin',
-    'http://lifehacker.com/tag/rss',
-    'http://feeds.feedburner.com/techdirt/feed',
+    'http://feeds.feedburner.com/technobuffalo/rss',
+    'http://www.engadget.com/rss-hd.xml',
+    'http://www.daringfireball.net/feeds/main',
+    'http://www.macworld.com/news/index.rss',
+    'http://www.counternotions.com/feed/',
+    'http://feeds.boingboing.net/boingboing/iBag',
+    #'http://feeds.gawker.com/lifehacker/full',
+    'http://www.gizmodo.com/rss',
+    'http://www.recode.net/feed/',
+    'http://feeds.mashable.com/Mashable',
     'http://www.nytimes.com/services/xml/rss/index.html',
     'http://feeds.wired.com/wired/index',
-    'http://feeds.feedburner.com/TechCrunch/',
     'http://www.cnet.com/rss/news/',
     'http://feeds.arstechnica.com/arstechnica/index',
     'http://www.theverge.com/rss/index.xml'
@@ -46,6 +53,7 @@ def init():
   import calendar
   import urllib2
   import lxml.html as imgGrabber
+  import re
   #for enabling cookies on redirects
   from cookielib import CookieJar
 
@@ -56,6 +64,7 @@ def init():
   epochTimes = []
   descriptions = []
   categories = []
+  sources = []
   ct = -1
   epochTime = time.time()
 
@@ -76,6 +85,8 @@ def init():
              links.append(e['link'])
              dates.append(e['published'])
              descriptions.append(e['description'])
+             source = re.search("\.(.*?)\.", feed)
+             sources.append(source.group(0)[1:-1])
   #Saving epoch times for server to reference when figuring out which feeds to pull out
              epochTimes.append(articleTime)
 
@@ -225,7 +236,8 @@ def init():
                    "date": dates[id],
                    "category": "tech",
                    "description": descriptions[id],
-                   "epochTime": epochTimes[id]
+                   "epochTime": epochTimes[id],
+                   "source": sources[id]
                    }
                  print "old", article["collectionID"]
              else:
@@ -235,7 +247,8 @@ def init():
                    "date": dates[id],
                    "category": "tech",
                    "description": descriptions[id],
-                   "epochTime": epochTimes[id]
+                   "epochTime": epochTimes[id],
+                   "source": sources[id]
                    }
                  print "new", article["collectionID"]
              clusterCollection.insert(article)
