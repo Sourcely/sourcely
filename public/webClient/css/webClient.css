@@ -1,15 +1,38 @@
-body {
-  background-color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
-}
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 a {
   text-decoration: none;
   color: #878785;
 }
 
-.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+body {
+  background-color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  top: 0;
+  bottom: 0;
+  border: 2px solid grey;
+}
+
+#header {
+  height: 40px;
+  width: 100%;
+  background-color: rgb(68, 165, 255);
+  position: absolute;
+}
 
 .webBanner{
   font-size: 20;
+}
+
+#header h1 {
+  top: 8px;
+  left: 10px;
+  position: absolute;
+}
+
+#content {
+  width: 100%;
+  top: 40px;
+  bottom: 0;
+  position: absolute;
 }
