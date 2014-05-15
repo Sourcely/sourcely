@@ -1,8 +1,20 @@
 .mainReader{
   position: absolute;
-  width: 50%;
-  height: 90%;
-  background-color: black;
+  left: 33%;
+  width: 67%;
+  height: 100%;
+  background-color: grey;
   display: inline-block;
-  right: 0px;
+}
+
+.readerContainer {
+  width: 100%;
+  height: 100%;
+  background-color: blue;
+}
+
+#articleIFrame {
+  background-color: white;
+  width: 100%;
+  height: 100%;
 }
