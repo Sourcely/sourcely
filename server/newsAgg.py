@@ -253,3 +253,4 @@ def init():
                  print "new", article["collectionID"]
              clusterCollection.insert(article)
      collectionID += 1
+  return
