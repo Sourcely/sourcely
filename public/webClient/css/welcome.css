@@ -1,0 +1,30 @@
+body {
+  background-color: rgb(214, 214, 214);
+}
+
+div.welcomeDiv {
+  height: 200px;
+  width: 400px;
+  left: 20%;
+  top: 20%;
+  color: rgb(177, 177, 177);
+  text-align: center;
+  position: absolute;
+}
+
+div.welcomeDiv h1 {
+  font-size: 36px;
+}
+
+img {
+  
+}
+
+div.wordsOfWisdom {
+
+}
+
+div.welcomeDiv .intro {
+  display: block;
+  position: absolute;
+}
