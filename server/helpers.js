@@ -16,7 +16,12 @@ var sendTechArticles = function(req, res) {
   });
 };
 
+var sendWelcome = function(req, res) {
+  res.sendfile('public/webClient/welcome.html');
+};
+
 module.exports = {
   sendLandingPage: sendLandingPage,
-  sendTechArticles: sendTechArticles
+  sendTechArticles: sendTechArticles,
+  sendWelcome: sendWelcome
 };

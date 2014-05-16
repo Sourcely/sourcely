@@ -4,10 +4,10 @@ var app = angular.module('webClient', [
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/tech")
+    $urlRouterProvider.otherwise("/technology")
     $stateProvider
-      .state('tech', {
-        url: '/tech',
+      .state('technology', {
+        url: '/technology',
         views: {
           'content@': {
             templateUrl: 'webClient/templates/reader.html',
