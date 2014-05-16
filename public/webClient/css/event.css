@@ -18,6 +18,9 @@ span.source p {
   font-size: 14px;
 }
 
+.readSource{
+  color: rgb(243, 243, 243);
+}
 span.source p.sourceName {
   bottom: 2px;
   right: 2px;
@@ -67,7 +70,13 @@ span.source:hover{
   margin-left: 8px;
   padding-bottom: 10px;
 }
-
+/*.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid green;
+}*/
 
 div.eventTitle {
   margin-left: 10px;
