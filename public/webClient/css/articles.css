@@ -6,7 +6,6 @@ div#currentCategory {
 
 div#articleBox {
   padding-top: 20px;
-  overflow-y: scroll;
   background-color: rgb(243, 243, 243);
   position: absolute;
 }
