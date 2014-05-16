@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           },
           'mainReader@': {
             templateUrl: '/webClient/templates/mainReader.html',
-            controller: 'reader'
+            controller: 'technology'
           }
         }
         })
@@ -44,6 +44,10 @@ var ModalDemoCtrl = function ($scope, $modal, $log) {
     }, function () {
       $log.info('Modal dismissed at: ' + new Date());
     });
+  };
+
+  $scope.openLink = function (articleUrl) {
+    document.getElementById('articleIFrame').src = articleUrl;
   };
 };
 
