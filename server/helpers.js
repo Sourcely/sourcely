@@ -11,8 +11,18 @@ var sendLandingPage = function(req, res) {
 
 var sendTechArticles = function(req, res) {
   queryHelper.techArticles().then(function(data) {
-    console.log(data);
-    res.send(data);
+    var articles = data;
+    for(var cluster in articles){
+        var tempTime = 0;
+        for(var i = 0; i < articles[cluster].length; i++){
+            var articleTime = articles[cluster][i]['epochTime'];
+            if(articleTime > tempTime){
+                tempTime = articleTime;
+            }
+        }
+        articles[cluster]['mostRecentUpdate'] = tempTime;
+    }
+    res.send(articles);
   });
 };
 

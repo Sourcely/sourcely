@@ -7,7 +7,7 @@ var articleModel = mongoose.model('Article', new Schema({collectionID: Number, t
 var articleCluster = mongoose.model('Article');
 //this will return every article in the database
 
-function techArticles() {
+var techArticles = function() {
   return new Promise(function (resolve, reject) {
     articleCluster.find({"category":"tech"},
       function(err, data) {

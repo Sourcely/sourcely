@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           },
           'mainReader@': {
             templateUrl: '/webClient/templates/mainReader.html',
-            controller: 'technology'
+            controller: ''
           }
         }
         })
