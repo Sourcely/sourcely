@@ -17,9 +17,9 @@ def set_interval(func, sec):
     t.start()
     return t
 
-newsInterval = set_interval(N.init, 2000)
+set_interval(N.init, 10)
 N.init()
-newsInterval()
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

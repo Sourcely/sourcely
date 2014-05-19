@@ -11,7 +11,6 @@ var sendLandingPage = function(req, res) {
 
 var sendTechArticles = function(req, res) {
   queryHelper.techArticles().then(function(data) {
-    console.log(data);
     res.send(data);
   });
 };

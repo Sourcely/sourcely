@@ -4,8 +4,18 @@ app.controller('technology', ['$scope', '$http', 'techFactory', function($scope,
     $http({ method:'GET',
             url:'/technology'
          }).success(function(data,status,headers,config){
-           console.log(data);
-           $scope.category.articles = data;
+           var timeSortedArticles = [];
+           for(var articleCluster in data){
+            var tempArticle=[];
+            for (var key in data[articleCluster]){
+              tempArticle.push(data[articleCluster][key])
+            }
+            timeSortedArticles.push(tempArticle)
+           }
+           timeSortedArticles.sort(function(a,b){
+            return b[1]-a[1];
+           });
+           $scope.category.articles = timeSortedArticles;
          }).error(function(err,status,headers,config){
            console.log("error: ", err);
          });
