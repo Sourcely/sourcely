@@ -15,14 +15,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
           },
           'mainReader@': {
             templateUrl: '/webClient/templates/mainReader.html',
-            controller: 'technology'
+            controller: ''
           }
         }
         })
 })
 
 var openArticle = function ($scope, $modal, $log) {
-  $scope.openLink = function (articleUrl) {
+  $scope.openLink = function (articleUrl, span) {
     document.getElementById('articleIFrame').src = articleUrl;
+    console.log(span)
   };
 };

@@ -6,7 +6,7 @@ angular.module('webClient').factory('techFactory', ['$http', function($http){
       $http({ method:'GET',
               url:'/technology'
            }).success(function(data,status,headers,config){
-             techArticles = data;
+             var techArticles = data;
              return techArticles;
            }).error(function(err,status,headers,config){
              console.log("error: ", err);

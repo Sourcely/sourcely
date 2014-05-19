@@ -1,0 +1,43 @@
+div#content {
+  position: relative;
+  background-color: rgb(243, 243, 243);
+}
+
+div#currentCategory {
+  left: 0;
+  right: 0;
+  background-color: rgb(243, 243, 243);
+}
+
+div#header {
+  height: 40px;
+  background-color: rgb(68, 165, 255);
+}
+
+div#currentCategory h1{
+  top: 10px;
+  left: 100px;
+  font-size: 20px;
+  position: absolute;
+}
+
+div#articleBox {
+  top: 10px;
+  overflow-y: scroll;
+  position: relative;
+  background-color: rgb(243, 243, 243);
+}
+
+div#footer {
+  left: 100px;
+  right: 100px;
+  height: 25px;
+  bottom: 0;
+  background-color: white;
+}
+
+.articleContainer {
+  width: 50%;
+  display: inline-block;
+  position: absolute;
+}
