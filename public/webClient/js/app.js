@@ -21,6 +21,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
 })
 
+app.snapper = new Snap({
+  element: document.getElementById('articleContainer')
+});
+
 var openArticle = function ($scope, $modal, $log) {
 
   $scope.openLink = function (articleUrl) {

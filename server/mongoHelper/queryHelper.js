@@ -22,7 +22,19 @@ function techArticles() {
               newData[data[i].collectionID] = [data[i]];
             }
           }
-          resolve(newData);
+          var articles = newData;
+          for(var cluster in articles){
+              var tempTime = 0;
+              for(var i = 0; i < articles[cluster].length; i++){
+                  var articleTime = articles[cluster][i]['epochTime'];
+                  if(articleTime > tempTime){
+                      tempTime = articleTime;
+                  }
+              }
+              articles[cluster] = {'sources': articles[cluster]};
+              articles[cluster]['mostRecentUpdate'] = tempTime;
+          }
+          resolve(articles);
         }
       });
   });
