@@ -20,7 +20,7 @@ var techArticles = function() {
               newData[data[i].collectionID].push(data[i]);
             } else {
               newData[data[i].collectionID] = [data[i]];
-            } 
+            }
           }
           var articles = newData;
           for(var cluster in articles){
@@ -32,7 +32,7 @@ var techArticles = function() {
                   }
               }
               var tempCluster = articles[cluster]
-              articles[cluster] = {'sources': tempCluster} 
+              articles[cluster] = {'sources': tempCluster}
               articles[cluster]['mostRecentUpdate'] = tempTime;
           }
           resolve(articles);
