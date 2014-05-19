@@ -7,7 +7,7 @@ var articleModel = mongoose.model('Article', new Schema({collectionID: Number, t
 var articleCluster = mongoose.model('Article');
 //this will return every article in the database
 
-function techArticles() {
+var techArticles = function() {
   return new Promise(function (resolve, reject) {
     articleCluster.find({"category":"tech"},
       function(err, data) {
@@ -20,9 +20,22 @@ function techArticles() {
               newData[data[i].collectionID].push(data[i]);
             } else {
               newData[data[i].collectionID] = [data[i]];
-            }
+            } 
           }
-          resolve(newData);
+          var articles = newData;
+          for(var cluster in articles){
+              var tempTime = 0;
+              for(var i = 0; i < articles[cluster].length; i++){
+                  var articleTime = articles[cluster][i]['epochTime'];
+                  if(articleTime > tempTime){
+                      tempTime = articleTime;
+                  }
+              }
+              var tempCluster = articles[cluster]
+              articles[cluster] = {'sources': tempCluster} 
+              articles[cluster]['mostRecentUpdate'] = tempTime;
+          }
+          resolve(articles);
         }
       });
   });
