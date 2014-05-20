@@ -16,7 +16,7 @@
     <h1>Sourcely</h1>
   </div>
     <div id="content">
-      <div ui-view="content" class="articleContainer"></div>
+      <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
       <div ui-view="mainReader" class="mainReader"></div>
     </div>
 
@@ -28,5 +28,6 @@
     <script src="webClient/js/controllers/technology.js"></script>
     <script src="webClient/js/controllers/reader.js"></script>
     <script src="webClient/js/services/techFactory.js"></script>
-    <script src="webClient/js/directives.js"></script>
+    <script src="webClient/js/directives/eventInclude.js"></script>
+    <script src="webClient/js/directives/lazyLoad.js"></script>
 </html>

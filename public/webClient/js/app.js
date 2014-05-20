@@ -27,4 +27,5 @@ var openArticle = function ($scope, $modal, $log) {
     document.getElementById('articleIFrame').src = articleUrl;
     console.log(span)
   };
+  
 };
