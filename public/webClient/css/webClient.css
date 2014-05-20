@@ -36,3 +36,15 @@ body {
   bottom: 0;
   position: absolute;
 }
+.loginButton{
+  float:right;
+  text-align: center;
+  height: 100%;
+  position: relative;
+}
+.loginAnchor{
+  font-size: 14;
+  position: relative;
+  top: 12px;
+  right: 20px;
+}
