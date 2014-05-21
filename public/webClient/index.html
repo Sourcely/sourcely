@@ -4,29 +4,33 @@
     <link type="text/css" rel="stylesheet" href="webClient/css/reset.css">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="webClient/css/webClient.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/articles.css">
     <link type="text/css" rel="stylesheet" href="webClient/css/mainReader.css">
     <link type="text/css" rel="stylesheet" href="webClient/css/event.css">
+    <link type="text/css" rel="stylesheet" href="webClient/css/reader.css">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <title>Sourcely</title>
   </head>
 
-  <body>
-  <div id='header' class="webBanner">
-    <h1>Sourcely</h1>
-  </div>
-    <div id="content">
-      <div ui-view="content" class="articleContainer"></div>
+  <body ng-controller="mainController">
+    <div class='header' class="webBanner">
+      <h1>Sourcely</h1>
+    </div>
+    <button class="hamburger" ng-click="collapseLeft()">hamburger</button>
+    <div class="content">
+      <div class="eventUiViewContainer collapsable" ng-class="{isCollapsed: open}">
+        <div ui-view="content" class="articleContainer"></div>
+      </div>
       <div ui-view="mainReader" class="mainReader"></div>
     </div>
-
   </body>
+
     <script src="system/lib/angular/angular.js"></script>
     <script src="system/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="system/lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="system/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="webClient/js/app.js"></script>
-    <script src="webClient/js/controllers/technology.js"></script>
-    <script src="webClient/js/controllers/reader.js"></script>
+    <script src="webClient/js/controllers/mainController.js"></script>
+    <script src="webClient/js/controllers/technologyController.js"></script>
+    <script src="webClient/js/controllers/readerController.js"></script>
     <script src="webClient/js/services/techFactory.js"></script>
     <script src="webClient/js/directives.js"></script>
 </html>

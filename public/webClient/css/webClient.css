@@ -12,10 +12,25 @@ body {
   bottom: 0;
 }
 
-#header {
+.header {
   height: 40px;
   width: 100%;
   background-color: rgb(68, 165, 255);
+  position: absolute;
+}
+
+.header h1 {
+  top: 8px;
+  left: 47%;
+  position: absolute;
+  color: white;
+  font-size: 22px;
+}
+
+.hamburger {
+  height:20px;
+  width: 30px;
+  background: yellow;
   position: absolute;
 }
 
@@ -24,15 +39,25 @@ body {
   color: white;
 }
 
-#header h1 {
-  top: 8px;
-  left: 10px;
-  position: absolute;
-}
-
-#content {
+.content {
   width: 100%;
   top: 40px;
   bottom: 0;
   position: absolute;
+  overflow: hidden;
+}
+
+.collapsable {
+  display: inline-block;
+  overflow: hidden;
+  height: 100%;
+  width: 33%;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;        
+  -moz-transition: width 0.5s;        
+  -o-transition: width 0.5s;
+}
+
+.collapsable.isCollapsed {
+  width: 0;
 }
