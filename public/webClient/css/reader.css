@@ -1,17 +1,7 @@
-div#content {
-  position: relative;
-  background-color: rgb(243, 243, 243);
-}
-
 div#currentCategory {
   left: 0;
   right: 0;
   background-color: rgb(243, 243, 243);
-}
-
-div#header {
-  height: 40px;
-  background-color: rgb(68, 165, 255);
 }
 
 div#currentCategory h1{
@@ -28,16 +18,22 @@ div#articleBox {
   background-color: rgb(243, 243, 243);
 }
 
-div#footer {
-  left: 100px;
-  right: 100px;
-  height: 25px;
-  bottom: 0;
-  background-color: white;
+div#currentCategory {
+  left: 0;
+  right: 0;
+  background-color: rgb(243, 243, 243);
 }
 
 .articleContainer {
-  width: 50%;
-  display: inline-block;
-  position: absolute;
+  height: 100%;
+  width: 450px;
+  overflow: scroll;
+}
+
+.eventUiViewContainer {
+  height: 100%;
+  width: 450px;
+  position: relative;
+  overflow: hidden;
+  float: left;
 }

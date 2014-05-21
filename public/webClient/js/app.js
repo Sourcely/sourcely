@@ -11,18 +11,32 @@ app.config(function($stateProvider, $urlRouterProvider) {
         views: {
           'content@': {
             templateUrl: 'webClient/templates/reader.html',
-            controller: 'technology'
+            controller: 'technologyController'
           },
           'mainReader@': {
             templateUrl: '/webClient/templates/mainReader.html',
-            controller: ''
+            controller: 'technologyController'
           }
         }
         })
+
+  app.setContentWidth = function(toggle) {
+      if(toggle){
+        document.getElementsByClassName('mainReader')[0].style.width= window.innerWidth - 450 + 'px';
+      } else {
+        document.getElementsByClassName('mainReader')[0].style.width= window.innerWidth + 'px';
+      }  
+    };
+
+  app.setContentWidth(open);
+  window.onresize = function(){
+    app.setContentWidth(open);
+  };
 })
 
-var openArticle = function ($scope, $modal, $log) {
 
+
+var openArticle = function ($scope, $modal, $log) {
   $scope.openLink = function (articleUrl, span) {
     document.getElementById('articleIFrame').src = articleUrl;
     console.log(span)
