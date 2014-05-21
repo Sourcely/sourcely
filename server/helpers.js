@@ -19,8 +19,23 @@ var sendWelcome = function(req, res) {
   res.sendfile('public/webClient/welcome.html');
 };
 
+var sendLogin = function(req, res) {
+  res.sendfile('public/webClient/templates/login.html')
+};
+
+var sendSignUp = function(req, res){
+  res.sendfile('public/webClient/templates/signup.html')
+};
+
+var signupUser = function(req, res){
+  console.log(req.data);
+};
+
 module.exports = {
   sendLandingPage: sendLandingPage,
   sendTechArticles: sendTechArticles,
-  sendWelcome: sendWelcome
+  sendWelcome: sendWelcome,
+  sendLogin: sendLogin,
+  sendSignUp: sendSignUp,
+  signupUser: signupUser
 };

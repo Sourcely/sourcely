@@ -14,11 +14,14 @@
   <body ng-controller="mainController">
     <div class='header' class="webBanner">
       <h1>Sourcely</h1>
+      <div class='loginButton'>
+        <a href="/login" class="loginAnchor">Login / Create an Account</a>
+      </div>
     </div>
     <button class="hamburger" ng-click="collapseLeft()">hamburger</button>
     <div class="content">
       <div class="eventUiViewContainer collapsable" ng-class="{isCollapsed: open}">
-        <div ui-view="content" class="articleContainer"></div>
+        <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
       </div>
       <div ui-view="mainReader" class="mainReader"></div>
     </div>
@@ -32,5 +35,6 @@
     <script src="webClient/js/controllers/technologyController.js"></script>
     <script src="webClient/js/controllers/readerController.js"></script>
     <script src="webClient/js/services/techFactory.js"></script>
-    <script src="webClient/js/directives.js"></script>
+    <script src="webClient/js/directives/eventInclude.js"></script>
+    <script src="webClient/js/directives/lazyLoad.js"></script>
 </html>
