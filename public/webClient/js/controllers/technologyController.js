@@ -1,4 +1,4 @@
-app.controller('technology', ['$scope', '$http', 'techFactory', function($scope, $http, techFactory){
+app.controller('technologyController', ['$scope', '$http', 'techFactory', function($scope, $http, techFactory){
   $scope.category = {name:"Technology", articles: techFactory.getTechArticles()};
   if($scope.category.articles === undefined) {
     $http({ method:'GET',
