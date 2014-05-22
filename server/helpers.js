@@ -28,7 +28,17 @@ var sendSignUp = function(req, res){
 };
 
 var signupUser = function(req, res){
-  console.log(req.data);
+  queryHelper.findUser(req.body.username).then(function(data){
+    if(data){
+      //user exists already
+    }else{
+      //user does not exist, create a new user
+    }
+  })
+};
+
+var login = function(req, res){
+  console.log(req.body)
 };
 
 module.exports = {
@@ -37,5 +47,6 @@ module.exports = {
   sendWelcome: sendWelcome,
   sendLogin: sendLogin,
   sendSignUp: sendSignUp,
-  signupUser: signupUser
+  signupUser: signupUser,
+  login: login
 };
