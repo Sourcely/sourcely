@@ -10,33 +10,24 @@ body {
   font-family: 'Roboto', sans-serif;
   top: 0;
   bottom: 0;
+  color: rgb(87, 87, 87);
 }
 
-.header {
+.webBanner {
   height: 40px;
   width: 100%;
   background-color: rgb(68, 165, 255);
   position: absolute;
+  font-size: 20;
+  color: white;
 }
 
-.header h1 {
+.webBanner h1 {
   top: 8px;
-  left: 47%;
+  left: 45%;
   position: absolute;
   color: white;
   font-size: 22px;
-}
-
-.hamburger {
-  height:20px;
-  width: 30px;
-  background: yellow;
-  position: absolute;
-}
-
-.webBanner{
-  font-size: 20;
-  color: white;
 }
 
 .content {
@@ -49,7 +40,6 @@ body {
 
 .collapsable {
   display: inline-block;
-  overflow: hidden;
   height: 100%;
   width: 33%;
   transition: width 0.5s;
@@ -59,8 +49,13 @@ body {
 }
 
 .collapsable.isCollapsed {
-  width: 0;
+  width: 40px;
 }
+
+
+
+/*LOGIN*/
+
 .loginButton{
   float:right;
   text-align: center;
@@ -72,4 +67,208 @@ body {
   position: relative;
   top: 12px;
   right: 20px;
+}
+
+
+
+/*Menu View*/
+
+.newsHeader {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  /*background-color: rgb(211,229,245);*/
+}
+
+.newsHeader h1 {
+  text-align: center;
+  top: 10px;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  font-size: 22px;
+}
+
+.vertSourcely {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+}
+
+.vertSourcely h1 {
+  top: 260px;
+  left: 14px;
+  width: 4px; 
+  color: rgba(68, 165, 255, 0.4);
+  position: absolute;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.menuDiv {
+  height: 100%;
+  width: 40px;
+  float: right;
+  z-index: 100;
+  position: relative;
+  display: inline-block;
+  background-color: rgb(243, 243, 243);
+}
+
+.hamburger {
+  position: absolute;
+  z-index: 101;
+  height:40px;
+  width: 40px;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.eventUiViewContainer {
+  height: 100%;
+  width: 450px;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  display: inline-block;
+  background-color: rgb(243, 243, 243);
+}
+
+.articleContainer {
+  height: 100%;
+  width: 410px;
+  float: left;
+  overflow: auto;
+}
+
+div.articleBox {
+  top: 40px;
+  overflow-y: scroll;
+  position: relative;
+  background-color: rgb(243, 243, 243);
+}
+
+div.currentCategory {
+  left: 0;
+  right: 0;
+  background-color: rgb(243, 243, 243);
+}
+
+div.event {
+  margin-left: 20px;
+  position: relative;
+  display: block;
+}
+
+span.source {
+  display: inline-block;
+  position: relative;
+}
+
+span.source p {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 13px;
+}
+
+span.source p:hover {
+  cursor: pointer;
+}
+
+.readSource{
+  color: rgb(187, 187, 187);
+}
+
+span.source p.sourceName {
+  bottom: 2px;
+  right: 2px;
+  font-size: 12px;
+  position: absolute;
+}
+
+.panel-heading {
+  background-color: rgb(243, 243, 243) !important;
+  padding: 0 !important;
+}
+
+.panel-heading a:hover {
+  text-decoration: none !important;
+}
+
+span.source:hover{
+  color: rgb(68, 165, 255) !important;
+}
+
+.panel-body {
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+
+.panel-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-title {
+  font-size: 15px;
+  margin-left: 8px;
+  padding-bottom: 10px;
+}
+
+div.eventTitle {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+ul.sourceList {
+  margin-left: 30px;
+  margin-top: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+li.sources {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+
+
+/* RIGHT content Div */
+
+.mainReader{
+  right: 0;
+  display: inline-block;
+  height: 100%;
+  background-color: grey;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;        
+  -moz-transition: width 0.5s;        
+  -o-transition: width 0.5s;         
+}
+
+#articleIFrame {
+  padding-left: 3px;
+  padding-right: 2px;
+  background-color: rgb(223, 223, 223);
+  width: 100%;
+  height: 100%;  
+}
+
+.disable_text_highlighting {
+-webkit-touch-callout: none;
+-webkit-user-select: none; /* Webkit */
+-moz-user-select: none;    /* Firefox */
+-ms-user-select: none;     /* IE 10  */
+-o-user-select: none;
+user-select: none;
+}
+
+.disable_border {
+  border-style: none;
 }

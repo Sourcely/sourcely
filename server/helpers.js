@@ -19,6 +19,10 @@ var sendWelcome = function(req, res) {
   res.sendfile('public/webClient/welcome.html');
 };
 
+var markCollectionRead = function(req, res) {
+  console.log("this should be the collection ID that was read: ", req.data);
+};
+
 var sendLogin = function(req, res) {
   res.sendfile('public/webClient/templates/login.html')
 };
@@ -35,6 +39,7 @@ module.exports = {
   sendLandingPage: sendLandingPage,
   sendTechArticles: sendTechArticles,
   sendWelcome: sendWelcome,
+  markCollectionRead: markCollectionRead, 
   sendLogin: sendLogin,
   sendSignUp: sendSignUp,
   signupUser: signupUser

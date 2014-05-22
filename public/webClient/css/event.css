@@ -1,4 +1,4 @@
-
+/*
 div.event {
   margin-left: 10px;
   margin-right: 10px;
@@ -30,9 +30,9 @@ span.source p.sourceName {
 
 .disable_text_highlighting {
 -webkit-touch-callout: none;
--webkit-user-select: none; /* Webkit */
--moz-user-select: none;    /* Firefox */
--ms-user-select: none;     /* IE 10  */
+-webkit-user-select: none; 
+-moz-user-select: none;    
+-ms-user-select: none;     
 -o-user-select: none;
 user-select: none;
 }
@@ -88,3 +88,4 @@ li.sources {
   margin-right: 15px;
   margin-bottom: 15px;
 }
+*/
