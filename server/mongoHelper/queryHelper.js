@@ -41,6 +41,61 @@ var techArticles = function() {
   });
 }
 
+articleCluster.find({"User": "scott"}, function(err, data){if(err){console.log(err)} console.log(data)})
+
+//must set strict to false
+var userModel = mongoose.model('User', new Schema({userName: String, passwordHash: String, readObjects: {}}, {strict: false}), 'clusterCollection');
+var findUser = function(userName){
+  return new Promise(function(resolve,reject){
+    userModel.find({'userName': userName}, function(err, user){
+      if(err){
+        console.log(err);
+      }
+      if(user.length === 0){
+        resolve(false);
+      }else{
+        resolve(user);
+      }
+    })
+  })
+};
+/*
+var techArticles = function() {
+  return new Promise(function (resolve, reject) {
+    articleCluster.find({"category":"tech"},
+      function(err, data) {
+        if(err){
+          console.log(err);
+        }else{
+          var newData = {};
+          for(var i = 0; i<data.length; i++){
+            if(newData[data[i].collectionID]) {
+              newData[data[i].collectionID].push(data[i]);
+            } else {
+              newData[data[i].collectionID] = [data[i]];
+            }
+          }
+          var articles = newData;
+          for(var cluster in articles){
+              var tempTime = 0;
+              for(var i = 0; i < articles[cluster].length; i++){
+                  var articleTime = articles[cluster][i]['epochTime'];
+                  if(articleTime > tempTime){
+                      tempTime = articleTime;
+                  }
+              }
+              var tempCluster = articles[cluster]
+              articles[cluster] = {'sources': tempCluster}
+              articles[cluster]['mostRecentUpdate'] = tempTime;
+          }
+          resolve(articles);
+        }
+      });
+  });
+}
+*/
+
 module.exports = {
-  techArticles: techArticles
+  techArticles: techArticles,
+  findUser: findUser
 };
