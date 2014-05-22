@@ -17,7 +17,7 @@
     "npm": "1.3.x"
   },
   "scripts": {
-    "start":"node server/server.js",
+    "start": "node server/server.js",
     "test": "node node_modules/grunt-cli/bin/grunt test",
     "postinstall": "node node_modules/bower/bin/bower install"
   },
@@ -31,7 +31,8 @@
     "knex": "~0.5.13",
     "bookshelf": "~0.6.10",
     "bluebird": "~1.2.3",
-    "mongoose": "~3.8.8"
+    "mongoose": "~3.8.8",
+    "body-parser": "~1.2.0"
   },
   "devDependencies": {
     "assetmanager": "^0.1.1"
