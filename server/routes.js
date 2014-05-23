@@ -8,4 +8,5 @@ module.exports = function(app){
   app.get('/signup', helper.sendSignUp);
   app.post('/signup', helper.signupUser);
   app.post('/login', helper.login);
+  app.post('/markread', helper.markCollectionRead);
 };
