@@ -53,6 +53,11 @@ body {
   position: relative;
   top: 12px;
   right: 20px;
+  color: rgb(85, 85, 85);
+}
+.loginAnchor:hover{
+  color: white;
+  text-decoration: none;
 }
 
 
@@ -90,6 +95,7 @@ body {
   position: relative;
   overflow: hidden;
   float: left;
+  -webkit-transform: translateZ(0);
   transition: width 0.5s;
   -webkit-transition: width 0.5s;        
   -moz-transition: width 0.5s;        
@@ -98,6 +104,7 @@ body {
 }
 
 .collapsable.isCollapsed {
+  -webkit-transform: translateZ(0);
   width: 40px;
 }
 
@@ -113,7 +120,7 @@ body {
 }
 
 .logoShown.isCollapsed {
-  color: rgba(68, 165, 255, 0.7);
+  color: rgba(68, 165, 255, 0.5);
   z-index: 1000;
 }
 
@@ -137,7 +144,7 @@ body {
   width: 35px; height: 45px; right: 3px; position: absolute;
 }
 .hamburgerContainer:hover {cursor: pointer;}
-.navtoggle { position: absolute; top: 15px;}
+.navtoggle { position: absolute; top: 15px; -webkit-transform: translateZ(0);}
 
 .navtoggle { cursor: pointer; padding: 10px 35px 16px 0px; }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
@@ -149,28 +156,36 @@ body {
   position: absolute;
   display: block;
   content: '';
+  -webkit-transform: translateZ(0);
 }
 .navtoggle span:before {
   top: -10px; 
+  -webkit-transform: translateZ(0);
 }
 .navtoggle span:after {
   bottom: -10px;
+  -webkit-transform: translateZ(0);
 }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
   transition: all 0.5s ease-in-out;
+  -webkit-transform: translateZ(0);
 }
 .navtoggle.isOpen span {
   background: transparent;
+  -webkit-transform: translateZ(0);
 }
 .navtoggle.isOpen span:before, .navtoggle.isOpen span:after {
   top: 0;
+  -webkit-transform: translateZ(0);
 }
 .navtoggle.isOpen span:before {
+  -webkit-transform: translateZ(0);
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .navtoggle.isOpen span:after {
+  -webkit-transform: translateZ(0);
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   transform: rotate(-45deg);
@@ -231,15 +246,19 @@ span.source p:hover {
   cursor: pointer;
 }
 
-.readSource{
-  color: rgb(187, 187, 187);
-}
-
 span.source p.sourceName {
   bottom: 2px;
   right: 2px;
   font-size: 12px;
   position: absolute;
+}
+
+span.source:hover{
+  color: rgb(68, 165, 255) !important;
+}
+
+.readSource{
+  color: rgb(187, 187, 187);
 }
 
 .panel-heading {
@@ -250,10 +269,6 @@ span.source p.sourceName {
 
 .panel-heading a:hover {
   text-decoration: none !important;
-}
-
-span.source:hover{
-  color: rgb(68, 165, 255) !important;
 }
 
 .panel-body {

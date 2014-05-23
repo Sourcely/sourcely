@@ -22,9 +22,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   app.setContentWidth = function(toggle) {
       if(toggle){
-        document.getElementsByClassName('mainReader')[0].style.width= window.innerWidth - 450 + 'px';
+        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 450 + 'px';
       } else {
-        document.getElementsByClassName('mainReader')[0].style.width= window.innerWidth - 40 + 'px';
+        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 40 + 'px';
       }  
     };
 
