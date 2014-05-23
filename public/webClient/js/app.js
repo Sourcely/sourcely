@@ -32,4 +32,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
   window.onresize = function(){
     app.setContentWidth(open);
   };
+  
 })

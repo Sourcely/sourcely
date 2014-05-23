@@ -38,20 +38,6 @@ body {
   overflow: hidden;
 }
 
-.collapsable {
-  display: inline-block;
-  height: 100%;
-  width: 33%;
-  transition: width 0.5s;
-  -webkit-transition: width 0.5s;        
-  -moz-transition: width 0.5s;        
-  -o-transition: width 0.5s;
-}
-
-.collapsable.isCollapsed {
-  width: 40px;
-}
-
 
 
 /*LOGIN*/
@@ -77,32 +63,47 @@ body {
   position: absolute;
   width: 100%;
   height: 40px;
-  /*background-color: rgb(211,229,245);*/
 }
 
 .newsHeader h1 {
-  text-align: center;
-  top: 10px;
+  left: 100px;
+  top: 15px;
   width: 100%;
   height: 40px;
   position: absolute;
   font-size: 22px;
 }
 
-.vertSourcely {
-  position: absolute;
-  width: 100%;
-  height: 40px;
+.collapsable {
+  display: inline-block;
+  height: 100%;
+  width: 450px;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;        
+  -moz-transition: width 0.5s;        
+  -o-transition: width 0.5s;
+  background-color: rgb(250, 250, 250);
 }
 
-.vertSourcely h1 {
+.collapsable.isCollapsed {
+  width: 40px;
+}
+
+.logoShown {
   top: 260px;
   left: 14px;
   width: 4px; 
-  color: rgba(68, 165, 255, 0.4);
+  color: rgb(250, 250, 250);
   position: absolute;
   font-size: 18px;
   word-wrap: break-word;
+}
+
+.logoShown.isShown {
+  color: rgba(68, 165, 255, 0.45);
 }
 
 .menuDiv {
@@ -112,12 +113,12 @@ body {
   z-index: 100;
   position: relative;
   display: inline-block;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(250, 250, 250);
 }
 
 .hamburger {
+  top: 5px;
   position: absolute;
-  z-index: 101;
   height:40px;
   width: 40px;
 }
@@ -126,15 +127,60 @@ body {
   cursor: pointer;
 }
 
-.eventUiViewContainer {
-  height: 100%;
-  width: 450px;
-  position: relative;
-  overflow: hidden;
-  float: left;
-  display: inline-block;
-  background-color: rgb(243, 243, 243);
+
+
+
+
+
+
+
+/*NAV TOGGLE*/
+
+.hamburgerContainer {height: 40px;}
+.hamburgerContainer:hover {cursor: pointer;}
+.navtoggle { position: absolute; top: 15px; left: 2px;}
+
+.navtoggle { cursor: pointer; padding: 10px 35px 16px 0px; }
+.navtoggle span, .navtoggle span:before, .navtoggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: rgba(85, 85 ,85, 0.9);
+  position: absolute;
+  display: block;
+  content: '';
+  color: black;
 }
+.navtoggle span:before {
+  top: -10px; 
+}
+.navtoggle span:after {
+  bottom: -10px;
+}
+
+.navtoggle span, .navtoggle span:before, .navtoggle span:after {
+  transition: all 500ms ease-in-out;
+}
+.navtoggle.active span {
+  background-color: transparent;
+}
+.navtoggle.active span:before, .navtoggle.active span:after {
+  top: 0;
+}
+.navtoggle.active span:before {
+  transform: rotate(45deg);
+}
+.navtoggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+
+
+
+
+
+
 
 .articleContainer {
   height: 100%;
@@ -144,16 +190,16 @@ body {
 }
 
 div.articleBox {
-  top: 40px;
+  top: 50px;
   overflow-y: scroll;
   position: relative;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(250, 250, 250);
 }
 
 div.currentCategory {
   left: 0;
   right: 0;
-  background-color: rgb(243, 243, 243);
+  background-color: rgb(250, 250, 250);
 }
 
 div.event {
@@ -190,7 +236,8 @@ span.source p.sourceName {
 }
 
 .panel-heading {
-  background-color: rgb(243, 243, 243) !important;
+  background-color: rgb(250, 250, 250) !important;
+
   padding: 0 !important;
 }
 

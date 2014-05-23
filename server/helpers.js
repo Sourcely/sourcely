@@ -20,7 +20,7 @@ var sendWelcome = function(req, res) {
 };
 
 var markCollectionRead = function(req, res) {
-  console.log("this should be the collection ID that was read: ", req.data);
+  console.log(req.body);
 };
 
 var sendLogin = function(req, res) {
