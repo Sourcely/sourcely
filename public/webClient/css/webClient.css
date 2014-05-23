@@ -157,7 +157,7 @@ body {
   bottom: -10px;
 }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
-  transition: all 500ms ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .navtoggle.isOpen span {
   background: transparent;
