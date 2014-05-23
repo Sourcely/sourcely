@@ -86,6 +86,7 @@ body {
   height: 100%;
   position: absolute;
   font-size: 22px;
+  color: rgb(85, 85, 85);
 }
 
 .collapsable {
