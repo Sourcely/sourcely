@@ -8,7 +8,8 @@ var mongoose = require('mongoose');
 require('./configMongo')
 require('./express')(app);
 require('./routes')(app);
-require('./mongoHelper/queryHelper');
+require('./mongoHelper/queryArticles');
+require('./mongoHelper/queryUsers');
 app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'), function(){
