@@ -66,6 +66,9 @@ body {
   width: 100%;
   height: 50px;
   background-color: rgb(250, 250, 250);
+}
+
+.newsHeader.hasShadow{
   -webkit-box-shadow: 0 5px 6px -6px #777;
      -moz-box-shadow: 0 5px 6px -6px #777;
           box-shadow: 0 5px 6px -6px #777;
