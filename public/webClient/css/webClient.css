@@ -191,7 +191,6 @@ body {
 
 div.articleBox {
   top: 50px;
-  overflow-y: scroll;
   position: relative;
   background-color: rgb(250, 250, 250);
 }

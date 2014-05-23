@@ -1,5 +1,5 @@
-// var fs       = Promise.promisifyAll(require('fs'));
-// var mkdirp   = Promise.promisify(require('mkdirp'));
+//var fs       = Promise.promisifyAll(require('fs'));
+//var mkdirp   = Promise.promisify(require('mkdirp'));
 var queryHelper  = require('./mongoHelper/queryArticles.js');
 var Path         = require('path');
 var http         = require('http');

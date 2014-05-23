@@ -4,10 +4,10 @@ var app = angular.module('webClient', [
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/technology")
+    $urlRouterProvider.otherwise("/topStories")
     $stateProvider
-      .state('technology', {
-        url: '/technology',
+      .state('topStories', {
+        url: '/topStories',
         views: {
           'content@': {
             templateUrl: 'webClient/templates/reader.html',
@@ -19,6 +19,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
           }
         }
         })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'webClient/templates/login.html',
+        controller: 'loginController'
+      })
 
   app.setContentWidth = function(toggle) {
       if(toggle){
