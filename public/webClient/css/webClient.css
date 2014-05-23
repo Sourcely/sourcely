@@ -10,33 +10,24 @@ body {
   font-family: 'Roboto', sans-serif;
   top: 0;
   bottom: 0;
+  color: rgb(87, 87, 87);
 }
 
-.header {
+.webBanner {
   height: 40px;
   width: 100%;
   background-color: rgb(68, 165, 255);
   position: absolute;
+  font-size: 20;
+  color: white;
 }
 
-.header h1 {
+.webBanner h1 {
   top: 8px;
-  left: 47%;
+  left: 45%;
   position: absolute;
   color: white;
   font-size: 22px;
-}
-
-.hamburger {
-  height:20px;
-  width: 30px;
-  background: yellow;
-  position: absolute;
-}
-
-.webBanner{
-  font-size: 20;
-  color: white;
 }
 
 .content {
@@ -47,20 +38,10 @@ body {
   overflow: hidden;
 }
 
-.collapsable {
-  display: inline-block;
-  overflow: hidden;
-  height: 100%;
-  width: 33%;
-  transition: width 0.5s;
-  -webkit-transition: width 0.5s;        
-  -moz-transition: width 0.5s;        
-  -o-transition: width 0.5s;
-}
 
-.collapsable.isCollapsed {
-  width: 0;
-}
+
+/*LOGIN*/
+
 .loginButton{
   float:right;
   text-align: center;
@@ -72,4 +53,269 @@ body {
   position: relative;
   top: 12px;
   right: 20px;
+}
+
+
+
+/*Menu View*/
+
+.newsHeader {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+}
+
+.newsHeader h1 {
+  left: 100px;
+  top: 15px;
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  font-size: 22px;
+}
+
+.collapsable {
+  display: inline-block;
+  height: 100%;
+  width: 450px;
+  position: relative;
+  overflow: hidden;
+  float: left;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;        
+  -moz-transition: width 0.5s;        
+  -o-transition: width 0.5s;
+  background-color: rgb(250, 250, 250);
+}
+
+.collapsable.isCollapsed {
+  width: 40px;
+}
+
+.logoShown {
+  top: 260px;
+  left: 14px;
+  width: 4px; 
+  color: rgb(250, 250, 250);
+  position: absolute;
+  font-size: 18px;
+  word-wrap: break-word;
+}
+
+.logoShown.isShown {
+  color: rgba(68, 165, 255, 0.45);
+}
+
+.menuDiv {
+  height: 100%;
+  width: 40px;
+  float: right;
+  z-index: 100;
+  position: relative;
+  display: inline-block;
+  background-color: rgb(250, 250, 250);
+}
+
+.hamburger {
+  top: 5px;
+  position: absolute;
+  height:40px;
+  width: 40px;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/*NAV TOGGLE*/
+
+.hamburgerContainer {height: 40px;}
+.hamburgerContainer:hover {cursor: pointer;}
+.navtoggle { position: absolute; top: 15px; left: 2px;}
+
+.navtoggle { cursor: pointer; padding: 10px 35px 16px 0px; }
+.navtoggle span, .navtoggle span:before, .navtoggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: rgba(85, 85 ,85, 0.9);
+  position: absolute;
+  display: block;
+  content: '';
+  color: black;
+}
+.navtoggle span:before {
+  top: -10px; 
+}
+.navtoggle span:after {
+  bottom: -10px;
+}
+
+.navtoggle span, .navtoggle span:before, .navtoggle span:after {
+  transition: all 500ms ease-in-out;
+}
+.navtoggle.active span {
+  background-color: transparent;
+}
+.navtoggle.active span:before, .navtoggle.active span:after {
+  top: 0;
+}
+.navtoggle.active span:before {
+  transform: rotate(45deg);
+}
+.navtoggle.active span:after {
+  transform: rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+.articleContainer {
+  height: 100%;
+  width: 410px;
+  float: left;
+  overflow: auto;
+}
+
+div.articleBox {
+  top: 50px;
+  overflow-y: scroll;
+  position: relative;
+  background-color: rgb(250, 250, 250);
+}
+
+div.currentCategory {
+  left: 0;
+  right: 0;
+  background-color: rgb(250, 250, 250);
+}
+
+div.event {
+  margin-left: 20px;
+  position: relative;
+  display: block;
+}
+
+span.source {
+  display: inline-block;
+  position: relative;
+}
+
+span.source p {
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 13px;
+}
+
+span.source p:hover {
+  cursor: pointer;
+}
+
+.readSource{
+  color: rgb(187, 187, 187);
+}
+
+span.source p.sourceName {
+  bottom: 2px;
+  right: 2px;
+  font-size: 12px;
+  position: absolute;
+}
+
+.panel-heading {
+  background-color: rgb(250, 250, 250) !important;
+
+  padding: 0 !important;
+}
+
+.panel-heading a:hover {
+  text-decoration: none !important;
+}
+
+span.source:hover{
+  color: rgb(68, 165, 255) !important;
+}
+
+.panel-body {
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+
+.panel-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-title {
+  font-size: 15px;
+  margin-left: 8px;
+  padding-bottom: 10px;
+}
+
+div.eventTitle {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+ul.sourceList {
+  margin-left: 30px;
+  margin-top: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+li.sources {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+
+
+/* RIGHT content Div */
+
+.mainReader{
+  right: 0;
+  display: inline-block;
+  height: 100%;
+  background-color: grey;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;        
+  -moz-transition: width 0.5s;        
+  -o-transition: width 0.5s;         
+}
+
+#articleIFrame {
+  padding-left: 3px;
+  padding-right: 2px;
+  background-color: rgb(223, 223, 223);
+  width: 100%;
+  height: 100%;  
+}
+
+.disable_text_highlighting {
+-webkit-touch-callout: none;
+-webkit-user-select: none; /* Webkit */
+-moz-user-select: none;    /* Firefox */
+-ms-user-select: none;     /* IE 10  */
+-o-user-select: none;
+user-select: none;
+}
+
+.disable_border {
+  border-style: none;
 }

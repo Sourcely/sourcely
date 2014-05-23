@@ -19,8 +19,12 @@ var sendWelcome = function(req, res) {
   res.sendfile('public/webClient/welcome.html');
 };
 
+var markCollectionRead = function(req, res) {
+  console.log(req.body);
+};
 module.exports = {
   sendLandingPage: sendLandingPage,
   sendTechArticles: sendTechArticles,
-  sendWelcome: sendWelcome
+  sendWelcome: sendWelcome,
+  markCollectionRead: markCollectionRead
 };

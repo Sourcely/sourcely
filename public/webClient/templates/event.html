@@ -4,10 +4,10 @@
     <accordion-group class="disable_border disable_text_highlighting" ng-class="{true:'active', false:''}[isOpen]" heading="{{article[0].title}}">
       <ul class="sourceList">
         <li class="sources" ng-repeat="source in article">
-          <!-- <div ng-controller="openArticle"> -->
+          <div ng-controller="reader">
             <!-- <div class="arrow-right"></div> -->
-            <span class="source" ng-click="" onclick="this.className='source readSource'"><p>{{source.title}}</p> <!-- <p class="sourceName">{{source.source}}</p> --></span>
-          <!-- </div> -->
+            <span class="source" ng-click="openLink(source.link, source.collectionID)" onclick="this.className='source readSource'"><p>{{source.title}}</p> <!-- <p class="sourceName">{{source.source}}</p> --></span>
+          </div>
 
         </li>
       </ul>

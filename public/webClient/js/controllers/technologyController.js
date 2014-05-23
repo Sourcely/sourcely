@@ -18,7 +18,7 @@ app.controller('technologyController', ['$scope', '$http', 'techFactory', functi
   if($scope.categoryHolder.articles === undefined) {
     $http({ method:'GET',
             url:'/technology'
-         }).success(function(data,status,headers,config){
+         }).success(function(data,status,headers,config){      
            var timeSortedArticles = [];
            for(var articleCluster in data){
             var tempArticle=[];
@@ -35,6 +35,7 @@ app.controller('technologyController', ['$scope', '$http', 'techFactory', functi
            for (var i = 0; i < 20; i++) {
             $scope.category.articles.push($scope.categoryHolder.articles[i]);
            }
+           console.log($scope.category.articles);
          }).error(function(err,status,headers,config){
            console.log("error: ", err);
          });

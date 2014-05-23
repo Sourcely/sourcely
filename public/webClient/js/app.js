@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           },
           'mainReader@': {
             templateUrl: '/webClient/templates/mainReader.html',
-            controller: 'technologyController'
+            controller: ''
           }
         }
         })
@@ -24,7 +24,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       if(toggle){
         document.getElementsByClassName('mainReader')[0].style.width= window.innerWidth - 450 + 'px';
       } else {
-        document.getElementsByClassName('mainReader')[0].style.width= window.innerWidth + 'px';
+        document.getElementsByClassName('mainReader')[0].style.width= window.innerWidth - 40 + 'px';
       }  
     };
 
@@ -32,14 +32,5 @@ app.config(function($stateProvider, $urlRouterProvider) {
   window.onresize = function(){
     app.setContentWidth(open);
   };
-})
-
-
-
-var openArticle = function ($scope, $modal, $log) {
-  $scope.openLink = function (articleUrl, span) {
-    document.getElementById('articleIFrame').src = articleUrl;
-    console.log(span)
-  };
   
-};
+})
