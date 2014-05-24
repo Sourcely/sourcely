@@ -10,29 +10,27 @@ body {
   font-family: 'Roboto', sans-serif;
   top: 0;
   bottom: 0;
-  color: rgb(87, 87, 87);
+  color: rgb(85, 85, 85);
 }
 
 .webBanner {
-  height: 40px;
+  height: 50px;
   width: 100%;
-  background-color: rgb(68, 165, 255);
+  background-color: rgb(100, 180, 255);
   position: absolute;
-  font-size: 20;
-  color: white;
 }
 
 .webBanner h1 {
-  top: 8px;
-  left: 45%;
+  top: 12px;
+  left: 20px;
   position: absolute;
-  color: white;
-  font-size: 22px;
+  color: rgb(85, 85, 85);
+  font-size: 28px;
 }
 
 .content {
   width: 100%;
-  top: 40px;
+  top: 50px;
   bottom: 0;
   position: absolute;
   overflow: hidden;
@@ -51,7 +49,7 @@ body {
 .loginAnchor{
   font-size: 14;
   position: relative;
-  top: 12px;
+  top: 20px;
   right: 20px;
   color: rgb(85, 85, 85);
 }
@@ -74,18 +72,18 @@ body {
 }
 
 .newsHeader.hasShadow{
-  -webkit-box-shadow: 0 5px 6px -6px #777;
-     -moz-box-shadow: 0 5px 6px -6px #777;
-          box-shadow: 0 5px 6px -6px #777;
+  -webkit-box-shadow: 0 5px 6px -5px #777;
+     -moz-box-shadow: 0 5px 6px -5px #777;
+          box-shadow: 0 5px 6px -5px #777;
 }
 
 .newsHeader h1 {
   top: 15px;
-  left: 100px;
+  left: 175px;
   width: 100%;
   height: 100%;
   position: absolute;
-  font-size: 22px;
+  font-size: 24px;
   color: rgb(85, 85, 85);
 }
 
@@ -109,19 +107,19 @@ body {
   width: 40px;
 }
 
-.logoShown {
-  top: 260px;
+.motoShown {
+  bottom: 50px;
   left: 14px;
   width: 4px; 
   color: rgb(250, 250, 250);
   position: absolute;
-  font-size: 18px;
+  font-size: 16px;
   word-wrap: break-word;
   z-index: -1;
 }
 
-.logoShown.isCollapsed {
-  color: rgba(68, 165, 255, 0.5);
+.motoShown.isCollapsed {
+  color: rgb(85, 85, 85);
   z-index: 1000;
 }
 
@@ -142,7 +140,7 @@ body {
 /*NAV TOGGLE*/
 
 .hamburgerContainer {
-  width: 35px; height: 45px; right: 3px; position: absolute;
+  width: 30px; height: 40px; right: 3px; position: absolute;
 }
 .hamburgerContainer:hover {cursor: pointer;}
 .navtoggle { position: absolute; top: 15px; -webkit-transform: translateZ(0);}
@@ -151,8 +149,8 @@ body {
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
   cursor: pointer;
   border-radius: 1px;
-  height: 5px;
-  width: 35px;
+  height: 4px;
+  width: 20px;
   background: rgba(85, 85 ,85, 0.9);
   position: absolute;
   display: block;
@@ -160,11 +158,11 @@ body {
   -webkit-transform: translateZ(0);
 }
 .navtoggle span:before {
-  top: -10px; 
+  top: -7px; 
   -webkit-transform: translateZ(0);
 }
 .navtoggle span:after {
-  bottom: -10px;
+  bottom: -7px;
   -webkit-transform: translateZ(0);
 }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
@@ -255,7 +253,7 @@ span.source p.sourceName {
 }
 
 span.source:hover{
-  color: rgb(68, 165, 255) !important;
+  color: rgb(100, 180, 255); !important;
 }
 
 .readSource{
