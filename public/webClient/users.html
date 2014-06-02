@@ -1,0 +1,45 @@
+<html lang="en" ng-app="webClient">
+  <head>
+    <link type="text/css" rel="stylesheet" href="system/lib/bootstrap/dist/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="webClient/css/reset.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link type="text/css" rel="stylesheet" href="webClient/css/webClient.css">
+    <link type="text/css" rel="stylesheet" href="webClient/css/mainReader.css">
+    <link type="text/css" rel="stylesheet" href="webClient/css/event.css">
+    <link type="text/css" rel="stylesheet" href="webClient/css/reader.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <title>Sourcely</title>
+  </head>
+
+  <body ng-controller="mainController">
+    <div class="webBanner">
+      <h1>Sourcely</h1>
+      <div class='loginButton'>
+        <a href="/login" class="loginAnchor">Login / Create an Account</a>
+      </div>
+    </div>
+    <div class="content">
+      <div class="collapsable" ng-class="{isCollapsed: open}">
+        <div class="menuDiv">
+          <!-- <img src="webClient/assets/icons/hamburger-icon.png" class="hamburger" ng-click="collapseLeft()"></img> -->
+          <div class="hamburgerContainter"><a class="navtoggle" href="#" ng-click="collapseLeft()" ng-class"{active: open}"><span></span></a></div>
+          <div class="vertSourcely"><h1 class="logoShown" ng-class="{isShown: open}">SOURCELY</h1></div>
+        </div>
+        <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
+      </div>
+      <div ui-view="mainReader" class="mainReader">
+      </div>
+    </div>
+  </body>
+
+    <script src="system/lib/angular/angular.js"></script>
+    <script src="system/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="system/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="webClient/js/app.js"></script>
+    <script src="webClient/js/controllers/mainController.js"></script>
+    <script src="webClient/js/controllers/technologyController.js"></script>
+    <script src="webClient/js/controllers/readerController.js"></script>
+    <script src="webClient/js/services/techFactory.js"></script>
+    <script src="webClient/js/directives/eventInclude.js"></script>
+    <script src="webClient/js/directives/lazyLoad.js"></script>
+</html>

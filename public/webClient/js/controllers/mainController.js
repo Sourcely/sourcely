@@ -1,4 +1,4 @@
-app.controller('mainController', ['$scope', '$http', '$document', function($scope, $http, $document){
+app.controller('mainController', ['$scope', '$http', function($scope, $http){
 
   $scope.open = false;
 
