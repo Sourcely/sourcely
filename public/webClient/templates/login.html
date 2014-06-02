@@ -6,12 +6,10 @@
   <div>
   <h2>Login</h2>
   <div>
-    <form class='loginForm'>
-        
+    <form class='loginForm'> 
         Username:<input id="username" type="text" name="username"> </br>
         Password:<input id="password" type="password" name="password"> </br>
-        <input type="submit" value="Login" ng-click="function(){console.log('test')}"> 
-        
+        <input type="submit"> 
     </form>
     <p>
       <a href="/signup">Create an Account &rarr;</a>
@@ -19,4 +17,20 @@
   </div>
   </div>
 </body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+  $('.loginForm').submit(function(e) {
+    e.preventDefault();
+    var username = $("#username")[0].value;
+    var password = $("#password")[0].value;
+    $.post( '/login', {'username': username, 'passwordHash': password}, function(data){
+      console.log(data);
+      if(data){
+        window.location.replace("/");
+      }else{
+        window.location.replace("/login");
+      }
+    });
+  });
+</script>
 </html>

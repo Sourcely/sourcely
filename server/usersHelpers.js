@@ -30,17 +30,16 @@ var signupUser = function(req, res){
 
 var login = function(req, res){
   queryHelper.findUser(req.body.username).then(function(data){
-    console.log(data)
     if(data){
-        if(data[0].passwordHash === req.body.password){
+        if(data[0].passwordHash === req.body.passwordHash){
           //res.json({readArticles:data[0].readObjects});
-          res.redirect('/');
+          res.send(true);
         }else{
-          res.redirect('/login');
+          res.send(false);
         }
     }else{
       //user does not exist, create a new user
-      res.redirect('/login');
+      res.redirect(false);
     }
   })
 };
