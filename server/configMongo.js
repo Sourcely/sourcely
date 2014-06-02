@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
-//mongoose.connect('mongodb://sourcely:sourcely@oceanic.mongohq.com:10033/app25019458');
-mongoose.connect('localhost:27017');
+mongoose.connect('mongodb://sourcely:sourcely@oceanic.mongohq.com:10033/app25019458');
 var Admin = mongoose.mongo.Admin;
 var clusterConnection = mongoose.connection;
 

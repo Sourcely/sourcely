@@ -1,13 +1,22 @@
-<h2>Login</h2>
-<div ng-controller='loginController'>
-  <form novalidate class='loginForm'>
-      
-      Username:<input id="username" type="text" name="username"> </br>
-      Password:<input id="password" type="password" name="password"> </br>
-      <input type="submit" value="Login" ng-click="function(){console.log('test')}"> 
-      
-  </form>
-  <p>
-    <a href="/signup">Create an Account &rarr;</a>
-  <p>
-</div>
+<html>
+<head>
+  <title>Sourcely</title>
+</head>
+<body>
+  <div>
+  <h2>Login</h2>
+  <div>
+    <form class='loginForm'>
+        
+        Username:<input id="username" type="text" name="username"> </br>
+        Password:<input id="password" type="password" name="password"> </br>
+        <input type="submit" value="Login" ng-click="function(){console.log('test')}"> 
+        
+    </form>
+    <p>
+      <a href="/signup">Create an Account &rarr;</a>
+    <p>
+  </div>
+  </div>
+</body>
+</html>
