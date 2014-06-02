@@ -8,7 +8,7 @@ app.controller('technologyController', ['$scope', '$http', 'techFactory', functi
   $scope.lazyLoader = function() {
       if(total >= counter + 10){
         for (var i = counter; i < counter+10; i++) {
-            console.log($scope.categoryHolder.articles[i])
+            // console.log($scope.categoryHolder.articles[i])
             $scope.category.articles.push($scope.categoryHolder.articles[i]);
         };
         counter += 10;
@@ -35,7 +35,7 @@ app.controller('technologyController', ['$scope', '$http', 'techFactory', functi
            for (var i = 0; i < 20; i++) {
             $scope.category.articles.push($scope.categoryHolder.articles[i]);
            }
-           console.log($scope.category.articles);
+           // console.log($scope.category.articles);
          }).error(function(err,status,headers,config){
            console.log("error: ", err);
          });

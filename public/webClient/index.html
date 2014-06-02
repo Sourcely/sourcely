@@ -21,9 +21,7 @@
     <div class="content">
       <div class="collapsable" ng-class="{isCollapsed: open}">
         <div class="menuDiv">
-          <!-- <img src="webClient/assets/icons/hamburger-icon.png" class="hamburger" ng-click="collapseLeft()"></img> -->
-          <div class="hamburgerContainter"><a class="navtoggle" href="#" ng-click="collapseLeft()" ng-class"{active: open}"><span></span></a></div>
-          <div class="vertSourcely"><h1 class="logoShown" ng-class="{isShown: open}">SOURCELY</h1></div>
+          <div class="vertSourcely"><h1 class="logoShown" ng-class="{isCollapsed: open}">SOURCELY</h1></div>
         </div>
         <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
       </div>
