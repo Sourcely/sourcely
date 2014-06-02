@@ -1,12 +1,14 @@
 var helper = require('./helpers');
-
+var usersHelper = require('./usersHelpers')
 module.exports = function(app){
-  app.get('/', helper.sendLandingPage);
   app.get('/technology', helper.sendTechArticles);
   app.get('/welcome', helper.sendWelcome);
-  app.get('/login', helper.sendLogin);
-  app.get('/signup', helper.sendSignUp);
-  app.post('/signup', helper.signupUser);
-  app.post('/login', helper.login);
+  app.get('/login', usersHelper.sendLogin);
+  app.get('/signup', usersHelper.sendSignUp);
+  app.post('/signup', usersHelper.signupUser);
+  app.post('/login', usersHelper.login);
   app.post('/markread', helper.markCollectionRead);
+  app.get('*', helper.sendLandingPage);
 };
+
+

@@ -14,14 +14,16 @@
   <body ng-controller="mainController">
     <div class="webBanner">
       <h1>Sourcely</h1>
-      <div class="loginButton">
-        <a class="loginAnchor" href="/login">Login / Signup</a>
+      <div class='loginButton'>
+        <a href="/login" class="loginAnchor">Login / Create an Account</a>
       </div>
     </div>
     <div class="content">
       <div class="collapsable" ng-class="{isCollapsed: open}">
         <div class="menuDiv">
-          <div class="vertSourcely"><h1 class="logoShown" ng-class="{isCollapsed: open}">SOURCELY</h1></div>
+          <!-- <img src="webClient/assets/icons/hamburger-icon.png" class="hamburger" ng-click="collapseLeft()"></img> -->
+          <div class="hamburgerContainter"><a class="navtoggle" href="#" ng-click="collapseLeft()" ng-class"{active: open}"><span></span></a></div>
+          <div class="vertSourcely"><h1 class="logoShown" ng-class="{isShown: open}">SOURCELY</h1></div>
         </div>
         <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
       </div>
