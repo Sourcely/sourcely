@@ -13,15 +13,23 @@
 
   <body ng-controller="mainController">
     <div class="webBanner">
-      <h1>Sourcely</h1>
-      <div class="loginButton">
-        <a class="loginAnchor" href="/login">Login / Signup</a>
+      <h1>SOURCELY</h1>
+      <div class='accountCorner'>
+        <div class='loginButton' ng-hide='loggedIn'>
+          <a ng-click="openModal('login')" class="loginAnchor">Login / Signup</a>
+        </div>
+        <div class='accountDetails' ng-hide='!loggedIn'>
+          <span class="gear"></span>
+          {{accountName}}
+        </div> 
       </div>
     </div>
     <div class="content">
       <div class="collapsable" ng-class="{isCollapsed: open}">
         <div class="menuDiv">
-          <div class="vertSourcely"><h1 class="logoShown" ng-class="{isCollapsed: open}">SOURCELY</h1></div>
+          <div class="vertSourcely">
+            <h1 class="motoShown" ng-class="{isCollapsed: open}">SOURCELY</h1>
+          </div>
         </div>
         <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
       </div>
