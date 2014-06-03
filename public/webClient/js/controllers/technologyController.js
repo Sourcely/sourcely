@@ -1,6 +1,7 @@
 app.controller('technologyController', ['$scope', '$http', 'techFactory', function($scope, $http, techFactory){
   $scope.category = {name:"Technology", articles: []};
   $scope.categoryHolder = {name:"Technology", articles: techFactory.getTechArticles()}; 
+  $scope.readingNew = true;
 
   var counter = 20;
   var total;
