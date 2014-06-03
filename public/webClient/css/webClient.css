@@ -40,12 +40,20 @@ body {
 
 /*LOGIN*/
 
-.loginButton{
+.accountCorner {
   float:right;
-  text-align: center;
-  height: 100%;
   position: relative;
 }
+
+.accountDetails {
+  position: relative;
+  font-size: 18;
+  position: relative;
+  top: 14px;
+  right: 20px;
+  color: rgb(85, 85, 85);
+}
+
 .loginAnchor{
   font-size: 14;
   position: relative;
@@ -166,7 +174,7 @@ body {
   -webkit-transform: translateZ(0);
 }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
-  transition: all 0.5s ease-in-out;
+  /*transition: all 0.5s ease-in-out;*/
   -webkit-transform: translateZ(0);
 }
 .navtoggle.isOpen span {
@@ -339,4 +347,38 @@ user-select: none;
 
 .disable_border {
   border-style: none;
+}
+
+/*LOGIN*/
+
+.login {
+  text-align: center;
+}
+
+.login h2{
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.loginForm input {
+  margin-left: 20px;
+}
+
+.userField {
+  margin-bottom: 10px;
+}
+
+.passwordField {
+  margin-bottom: 10px;
+}
+
+.loginSubmit {
+  margin-bottom: 40px;
+}
+
+.signupButton {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
 }
