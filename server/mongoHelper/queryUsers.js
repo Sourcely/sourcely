@@ -24,7 +24,25 @@ var createUser = function(username, password){
   userModel.create({"username": username, passwordHash: password, readObjects: {3: 3}});
 };
 
+var updateUserReadArticles = function(clusterID, username) {
+  findUser(username).then(function(data) {
+    var readObjects = data.readObjects || {};
+    console.log('readObjects: ', readObjects);
+    readObjects[clusterID] = clusterID;
+    userModel.update( {username: username},
+      { $set: {
+          readObjects: readObjects
+        }
+      }
+    )
+  });
+  findUser(username).then(function(data) {
+    console.log('updated readObjects: ', data.readObjects);
+  });
+};
+
 module.exports = {
   findUser: findUser,
-  createUser: createUser
+  createUser: createUser,
+  updateUserReadArticles: updateUserReadArticles
 };
