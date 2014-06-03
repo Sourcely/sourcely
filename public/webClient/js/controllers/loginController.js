@@ -1,5 +1,9 @@
 app.controller('loginController', ['$scope', '$http','$modalInstance', function($scope, $http, $modalInstance){
   $scope.signup = true;
+  $scope.loginData = function(username, password){
+    console.log("Hey")
+    console.log(username, password);
+  }
 /*  $scope.test= function(){
     console.log("from login controller")
     console.log(arguments);

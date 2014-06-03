@@ -365,6 +365,10 @@ user-select: none;
   margin-left: 20px;
 }
 
+.signupForm input {
+  margin-left: 20px;
+}
+
 .userField {
   margin-bottom: 10px;
 }
