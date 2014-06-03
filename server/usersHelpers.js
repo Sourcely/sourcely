@@ -34,13 +34,14 @@ var login = function(req, res){
     if(data){
         if(data[0].passwordHash === req.body.password){
           //res.json({readArticles:data[0].readObjects});
-          res.redirect('/');
+          var formattedData = {authorized: true, username: data[0]['username'], readArticles: "put read articles here"};
+          res.send(formattedData);
         }else{
-          res.redirect('/login');
+          res.send(false);
         }
     }else{
       //user does not exist, create a new user
-      res.redirect('/login');
+      res.send(false);
     }
   })
 };

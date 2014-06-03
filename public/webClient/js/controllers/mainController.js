@@ -1,10 +1,10 @@
-app.controller('mainController', ['$scope', '$http', '$modal', function($scope, $http, $modal){
+app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', function($scope, $http, $modal, $rootScope){
 
   $scope.open = false;
 
-  $scope.loggedIn = false;
+  $rootScope.loggedIn = false;
 
-  $scope.accountName = "";
+  $rootScope.accountName = "";
 
   $scope.signup = true;
 
