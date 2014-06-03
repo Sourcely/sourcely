@@ -276,6 +276,8 @@ span.source:hover{
 
 .panel-heading a:hover {
   text-decoration: none !important;
+  cursor: pointer;
+  color: rgb(100, 180, 255);
 }
 
 .panel-body {
@@ -336,18 +338,17 @@ li.sources {
   height: 100%;  
 }
 
-.disable_text_highlighting {
--webkit-touch-callout: none;
--webkit-user-select: none; /* Webkit */
--moz-user-select: none;    /* Firefox */
--ms-user-select: none;     /* IE 10  */
--o-user-select: none;
-user-select: none;
-}
-
-.disable_border {
+.accordionHead {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; /* Webkit */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE 10  */
+  -o-user-select: none;
+  user-select: none;
   border-style: none;
 }
+
+
 
 /*LOGIN*/
 

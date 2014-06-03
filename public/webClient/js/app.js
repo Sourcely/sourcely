@@ -4,7 +4,7 @@ var app = angular.module('webClient', [
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/topStories")
+    $urlRouterProvider.otherwise("/topStories");
     $stateProvider
       .state('topStories', {
         url: '/topStories',
@@ -18,7 +18,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: ''
           }
         }
-        })
+        });
 
   app.setContentWidth = function(toggle) {
       if(toggle){
