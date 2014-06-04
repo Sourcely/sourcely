@@ -7,7 +7,7 @@ module.exports = function(app){
   app.get('/signup', usersHelper.sendSignUp);
   app.post('/signup', usersHelper.signupUser);
   app.post('/login', usersHelper.login);
-  app.post('/markread', helper.markCollectionRead);
+  app.post('/markread', usersHelper.markCollectionRead);
   app.get('*', helper.sendLandingPage);
 };
 

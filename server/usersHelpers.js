@@ -17,12 +17,13 @@ var signupUser = function(req, res){
   queryHelper.findUser(req.body.username).then(function(data){
     if(data){
       //user exists already
-      res.redirect('/signup')
+      res.send(false)
     }else{
       //user does not exist, create a new user
       if(req.body.username && req.body.password){
         queryHelper.createUser(req.body.username, req.body.password);
-        res.redirect('/')
+        var formattedData = {authorized: true, username: req.body.username, readArticles: "put read articles here"};
+        res.send(formattedData);
       }
     }
   })
@@ -46,9 +47,14 @@ var login = function(req, res){
   })
 };
 
+var markCollectionRead = function(req, res) {
+  queryHelper.updateUserReadArticles(req.body.clusterId, req.body.username);  
+};
+
 module.exports = {
   sendLogin: sendLogin,
   sendSignUp: sendSignUp,
   signupUser: signupUser,
-  login: login
+  login: login,
+  markCollectionRead: markCollectionRead
 };

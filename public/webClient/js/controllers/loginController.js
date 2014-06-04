@@ -10,9 +10,18 @@ app.controller('loginController', ['$scope', '$http','$modalInstance', '$rootSco
       if(data.authorized){
         console.log("data is true: ", data);
         $rootScope.loggedIn = true;
+        $rootScope.accountName = data.username;
         $modalInstance.dismiss('cancel');
       }
-    });  
+    });
   }
-
+  $scope.signupData = function(credentials){
+    $http.post('/signup', credentials).success(function(data) {
+      if(data.authorized){
+        $rootScope.loggedIn = true;
+        $rootScope.accountName = data.username;
+        $modalInstance.dismiss('cancel');
+      }
+    });
+  };
 }]);

@@ -6,6 +6,8 @@ app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', fun
 
   $rootScope.accountName = "";
 
+  $rootScope.readArticles = [];
+
   $scope.signup = true;
 
   $scope.collapseLeft = function() {
