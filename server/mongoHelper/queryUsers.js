@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
 
 //must set strict to false
-var userModel = mongoose.model('User', new Schema({username: String, passwordHash: String, readObjects: {}}, {strict: false}), 'clusterCollection');
+var userModel = mongoose.model('User', new Schema({username: String, passwordHash: String, readObjects: Array}, {strict: false}), 'clusterCollection');
+
 var findUser = function(username){
   return new Promise(function(resolve,reject){
     userModel.find({'username': username}, function(err, user){
@@ -21,23 +22,21 @@ var findUser = function(username){
 };
 
 var createUser = function(username, password){
-  userModel.create({"username": username, passwordHash: password, readObjects: {3: 3}});
+  userModel.create({"username": username, passwordHash: password, readObjects: []});
 };
 
 var updateUserReadArticles = function(clusterID, username) {
   findUser(username).then(function(data) {
-    var readObjects = data.readObjects || {};
-    console.log('readObjects: ', readObjects);
-    readObjects[clusterID] = clusterID;
-    userModel.update( {username: username},
-      { $set: {
-          readObjects: readObjects
-        }
-      }
-    )
+    var readObjects = data.readObjects || [];
+    if(readObjects.indexOf(clusterID) === -1){
+      userModel.update({username: username},{$push: {readObjects: clusterID}}, function (err, data) {
+        if (err) console.log(err);
+        console.log(data);
+      })
+    };
   });
   findUser(username).then(function(data) {
-    console.log('updated readObjects: ', data.readObjects);
+    console.log('updated readObjects: ', data[0].readObjects);
   });
 };
 
