@@ -33,7 +33,7 @@
         </div>
         <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
       </div>
-      <div ui-view="mainReader" class="mainReader">
+      <div ui-view="mainReader" class="mainReader" ng-class="{isOpen: !open}">
       </div>
     </div>
   </body>

@@ -10,27 +10,27 @@ body {
   font-family: 'Roboto', sans-serif;
   top: 0;
   bottom: 0;
-  color: rgb(85, 85, 85);
+  color: rgb(55, 55, 55);
 }
 
 .webBanner {
-  height: 50px;
+  height: 60px;
   width: 100%;
-  background-color: rgb(100, 180, 255);
+  background-color: rgb(55, 55, 55);
   position: absolute;
 }
 
 .webBanner h1 {
-  top: 12px;
+  top: 16px;
   left: 20px;
   position: absolute;
-  color: rgb(85, 85, 85);
+  color: rgb(243, 243, 243);
   font-size: 28px;
 }
 
 .content {
   width: 100%;
-  top: 50px;
+  top: 60px;
   bottom: 0;
   position: absolute;
   overflow: hidden;
@@ -51,15 +51,15 @@ body {
   position: relative;
   top: 14px;
   right: 20px;
-  color: rgb(85, 85, 85);
+  color: rgb(55, 55, 55);
 }
 
 .loginAnchor{
   font-size: 14;
   position: relative;
-  top: 20px;
-  right: 20px;
-  color: rgb(85, 85, 85);
+  top: 22px;
+  right: 16px;
+  color: rgb(243, 243, 243);
 }
 .loginAnchor:hover{
   color: white;
@@ -92,14 +92,14 @@ body {
   height: 100%;
   position: absolute;
   font-size: 24px;
-  color: rgb(85, 85, 85);
+  color: rgb(55, 55, 55);
 }
 
 .collapsable {
-  display: inline-block;
+  /*display: inline-block;*/
   height: 100%;
   width: 450px;
-  position: relative;
+  /*position: relative;*/
   overflow: hidden;
   float: left;
   -webkit-transform: translateZ(0);
@@ -127,7 +127,7 @@ body {
 }
 
 .motoShown.isCollapsed {
-  color: rgb(85, 85, 85);
+  color: rgb(55, 55, 55);
   z-index: 1000;
 }
 
@@ -159,7 +159,7 @@ body {
   border-radius: 1px;
   height: 4px;
   width: 20px;
-  background: rgba(85, 85 ,85, 0.9);
+  background: rgba(55, 55 ,55, 0.9);
   position: absolute;
   display: block;
   content: '';
@@ -174,7 +174,6 @@ body {
   -webkit-transform: translateZ(0);
 }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
-  /*transition: all 0.5s ease-in-out;*/
   -webkit-transform: translateZ(0);
 }
 .navtoggle.isOpen span {
@@ -320,8 +319,10 @@ li.sources {
 /* RIGHT content Div */
 
 .mainReader{
-  right: 0;
-  display: inline-block;
+  /*right: 0;*/
+  float: right;
+  width: 100%;
+  /*display: inline-block;*/
   height: 100%;
   background-color: grey;
   transition: width 0.5s;
@@ -329,6 +330,10 @@ li.sources {
   -moz-transition: width 0.5s;        
   -o-transition: width 0.5s;         
 }
+
+/*.mainReader.isOpen {
+  width: 70%;
+}*/
 
 #articleIFrame {
   padding-left: 3px;

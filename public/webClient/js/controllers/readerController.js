@@ -4,7 +4,12 @@ app.controller('reader', ['$scope', '$http', '$rootScope', function($scope, $htt
     document.getElementById('articleIFrame').src = articleUrl;
     var collection = {clusterId: collectionID, username: $rootScope.accountName};
     if($rootScope.loggedIn){
-      $http.post('/markread', collection).success(console.log("collection: ", collectionID + " has been marked as read"));  
+      $http.post('/markread', collection).success( function(data){
+        if($rootScope.readArticles.indexOf(collection.clusterId)===-1){
+          $rootScope.readArticles.push(collection.clusterId); 
+          console.log($rootScope.readArticles); 
+        }
+      });
     }
   };  
   

@@ -8,6 +8,8 @@ app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', fun
 
   $rootScope.readArticles = [];
 
+  $rootScope.readArticlesObject = {};
+
   $scope.signup = true;
 
   $scope.collapseLeft = function() {
