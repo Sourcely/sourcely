@@ -8,7 +8,7 @@ app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', fun
 
   $rootScope.readArticles = [];
 
-  $rootScope.readArticlesObject = {};
+  $rootScope.readArticlesObject = $rootScope.readArticlesObject || {};
 
   $scope.signup = true;
 
@@ -19,7 +19,6 @@ app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', fun
   };
 
   $scope.openModal = function (logOrSign) {
-    console.log(logOrSign);
     var modalInstance = $modal.open({
       controller: 'loginController',
       templateUrl: 'webClient/templates/'+ logOrSign +'.html',

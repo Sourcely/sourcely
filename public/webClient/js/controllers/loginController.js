@@ -6,11 +6,15 @@ app.controller('loginController', ['$scope', '$http','$modalInstance', '$rootSco
   };
   $scope.loginData = function(credentials){
     $http.post('/login', credentials).success(function(data) {
-      console.log(data);
       if(data.authorized){
-        console.log("data is true: ", data);
         $rootScope.loggedIn = true;
         $rootScope.accountName = data.username;
+        $rootScope.readArticles = data.readArticles;
+        var readArticlesArray = data.readArticles
+        for(var i = 0; i < readArticlesArray.length; i++){
+          $rootScope.readArticlesObject[readArticlesArray[i]] = true;
+        }
+        console.log($rootScope.readArticlesObject);
         $modalInstance.dismiss('cancel');
       }
     });
@@ -20,6 +24,7 @@ app.controller('loginController', ['$scope', '$http','$modalInstance', '$rootSco
       if(data.authorized){
         $rootScope.loggedIn = true;
         $rootScope.accountName = data.username;
+        $rootScope.readArticles = data.readArticles;
         $modalInstance.dismiss('cancel');
       }
     });

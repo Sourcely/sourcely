@@ -1,8 +1,6 @@
 angular.module("webClient").directive("eventInclude", function() {
   return {
-      scope: {
-        article: '=',
-      },
+      scope: {article: '='},
       restrict: "E",
       templateUrl: "webClient/templates/event.html"
   }

@@ -35,9 +35,6 @@ var updateUserReadArticles = function(clusterID, username) {
       })
     };
   });
-  findUser(username).then(function(data) {
-    console.log('updated readObjects: ', data[0].readObjects);
-  });
 };
 
 module.exports = {
