@@ -1,4 +1,4 @@
-app.controller('technologyController', ['$scope', '$http', 'techFactory', function($scope, $http, techFactory){
+app.controller('technologyController', ['$scope', '$http', 'techFactory', '$rootScope', function($scope, $http, techFactory, $rootScope){
   $scope.category = {name:"Technology", articles: []};
   $scope.categoryHolder = {name:"Technology", articles: techFactory.getTechArticles()}; 
   $scope.readingNew = true;
