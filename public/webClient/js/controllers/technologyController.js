@@ -1,8 +1,18 @@
 app.controller('technologyController', ['$scope', '$http', 'techFactory','$rootScope', function($scope, $http, techFactory,$rootScope){
   $scope.category = {name:"Technology", articles: []};
   $scope.categoryHolder = {name:"Technology", articles: techFactory.getTechArticles()}; 
-  $scope.readingNew = true;
-
+  $rootScope.readingNew = true;
+  $scope.toggleNew = function(){
+    var readArticlesArray = $rootScope.readArticles
+    for(var i = 0; i < readArticlesArray.length; i++){
+          $rootScope.readArticlesObject[readArticlesArray[i]] = true;
+    }
+    $rootScope.readingNew = !$rootScope.readingNew;
+  };
+  $scope.logger = function(a,b){
+    console.log(a);
+    console.log(b);
+  }
   var counter = 20;
   var total;
   
