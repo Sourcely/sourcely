@@ -19,7 +19,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           }
         }
         });
-
+      
   app.setContentWidth = function(toggle) {
       if(toggle){
         document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 450 + 'px';

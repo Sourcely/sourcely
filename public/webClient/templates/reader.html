@@ -1,15 +1,15 @@
 <div class="currentCategory">
   <div class="newsHeader">
     <div class="newOrAll" ng-hide="!loggedIn">
-      <div class="newToggle" ng-hide="readingNew" ng-click="readingNew = !readingNew">New</div>
-      <div class="allToggle" ng-hide="!readingNew" ng-click="readingNew = !readingNew">All</div>
+      <div class="newToggle" ng-hide="!readingNew" ng-click="toggleNew()">New</div>
+      <div class="allToggle" ng-hide="readingNew" ng-click="toggleNew()">All</div>
     </div>
     <h1>Tech News</h1>
     <div class="hamburgerContainer" ng-click="collapseLeft()"><a class="navtoggle" ng-class="{isOpen: !open}" href="#"><span></span></a></div>
   </div>
   <div class="articleBox">
     <div class ="events" ng-repeat="article in category.articles">
-      <event-include article='article[0]'></event-include>
+      <event-include article='article[0]' ng-click="logger(readArticlesObject, article[0][0]['collectionID'])" ng-hide="readingNew && readArticlesObject[article[0][0]['collectionID']]"></event-include>
     </div>
   </div>
 </div>
