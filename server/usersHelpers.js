@@ -1,9 +1,6 @@
-//var fs       = Promise.promisifyAll(require('fs'));
-//var mkdirp   = Promise.promisify(require('mkdirp'));
 var queryHelper  = require('./mongoHelper/queryUsers.js')
 var Path         = require('path');
 var http         = require('http');
-// var _        = require('underscore');
 
 var sendLogin = function(req, res) {
   res.sendfile('public/webClient/templates/login.html')
