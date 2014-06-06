@@ -4,9 +4,6 @@
     <link type="text/css" rel="stylesheet" href="webClient/css/reset.css">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="webClient/css/webClient.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/mainReader.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/event.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/reader.css">
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="webClient/assets/icons/favicon.ico" type="image/icon"> <link rel="icon" href="webClient/assets/icons/favicon.ico" type="image/icon">
     <title>Sourcely</title>
@@ -32,7 +29,7 @@
             <h1 class="motoShown" ng-class="{isCollapsed: open}">SOURCELY</h1>
           </div>
         </div>
-        <div ui-view="content" class="articleContainer" lazy-load="lazyLoader()"></div>
+        <div ui-view="content" class="articleContainer" scroll-track="scrollTrack()"></div>
       </div>
       <div ui-view="mainReader" class="mainReader" ng-class="{isOpen: !open}">
       </div>
@@ -48,7 +45,6 @@
     <script src="webClient/js/controllers/readerController.js"></script>
     <script src="webClient/js/controllers/loginController.js"></script>
     <script src="webClient/js/services/readingStateService.js"></script>
-    <script src="webClient/js/services/techFactory.js"></script>
+    <script src="webClient/js/directives/scrollTrack.js"></script>
     <script src="webClient/js/directives/eventInclude.js"></script>
-    <script src="webClient/js/directives/lazyLoad.js"></script>
 </html>
