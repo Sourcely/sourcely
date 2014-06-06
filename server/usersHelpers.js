@@ -1,6 +1,7 @@
 var queryHelper  = require('./mongoHelper/queryUsers.js')
 var Path         = require('path');
 var http         = require('http');
+var bcrypt = require('bcrypt-nodejs');
 
 var sendLogin = function(req, res) {
   res.sendfile('public/webClient/templates/login.html')
@@ -19,7 +20,7 @@ var signupUser = function(req, res){
       //user does not exist, create a new user
       if(req.body.username && req.body.password){
         queryHelper.createUser(req.body.username, req.body.password);
-        var formattedData = {authorized: true, username: req.body.username, readArticles: data[0]['readObjects']};
+        var formattedData = {authorized: true, username: req.body.username, readArticles: []};
         res.send(formattedData);
       }
     }
@@ -29,12 +30,14 @@ var signupUser = function(req, res){
 var login = function(req, res){
   queryHelper.findUser(req.body.username).then(function(data){
     if(data){
-        if(data[0].passwordHash === req.body.password){
+       bcrypt.compare(req.body.password,data[0].passwordHash, function(err, equal){
+        if(equal){
           var formattedData = {authorized: true, username: data[0]['username'], readArticles: data[0]['readObjects']};
           res.send(formattedData);
         }else{
           res.send(false);
         }
+       });
     }else{
       //user does not exist, create a new user
       res.send(false);
@@ -44,8 +47,7 @@ var login = function(req, res){
 
 var markCollectionRead = function(req, res) {
   queryHelper.updateUserReadArticles(req.body.clusterId, req.body.username);  
-  console.log("marked read collection");
-  res.send({scott:"scott"});
+  res.send(true);
 };
 
 module.exports = {

@@ -27,7 +27,8 @@
     "express-validator": "~1.0.1",
     "bluebird": "~1.2.3",
     "mongoose": "~3.8.8",
-    "requirejs": "^2.1.14"
+    "requirejs": "^2.1.14",
+    "bcrypt-nodejs": "0.0.3"
   },
   "devDependencies": {
     "assetmanager": "^0.1.1"
