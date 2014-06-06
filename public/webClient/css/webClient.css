@@ -43,37 +43,6 @@ body {
 
 
 
-/*LOGIN*/
-
-.accountCorner {
-  float:right;
-  position: relative;
-}
-
-.accountDetails {
-  position: relative;
-  font-size: 18;
-  position: relative;
-  top: 14px;
-  right: 20px;
-  color: rgb(243, 243, 243);
-}
-
-.loginAnchor{
-  font-size: 14;
-  position: relative;
-  top: 22px;
-  right: 16px;
-  color: rgb(243, 243, 243);
-}
-.loginAnchor:hover{
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-
 /*Menu View*/
 
 .newsHeader {
@@ -102,18 +71,44 @@ body {
 }
 
 .newOrAll {
+  cursor: pointer;
   font-size: 14px;
-  left: 12px;
+  text-align: center;
+  display: inline;
+  width: 100px;
+  height: 25px;
+  left: 18px;
   top: 20px;
+  /*border: 1px solid rgb(50,50,50);*/
   position: absolute;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.allToggle, .unreadToggle, .slashToggle {
+  display: inline;
+  position: relative;
+  top: 5px;
 }
 
 .allToggle.isDisabled{
-  color: rgb(200, 200, 200);
+  /*font-size: 18px;*/
+  color: rgb(100, 180, 255);
+  font-weight: 900;
+  /*color: rgb(243, 243, 243);*/
+  /*background-color: rgb(50, 50, 50);*/
 }
 
 .unreadToggle.isDisabled{
-  color: rgb(200, 200, 200);
+  /*font-size: 18px;*/
+  color: rgb(100, 180, 255);
+  font-weight: 900;
+  /*color: rgb(243, 243, 243);*/
+  /*background-color: rgb(50, 50, 50);*/
 }
 
 .collapsable {
@@ -153,6 +148,7 @@ body {
 .menuDiv {
   height: 100%;
   width: 40px;
+  right: 0;
   float: right;
   z-index: 100;
   position: relative;
@@ -162,17 +158,15 @@ body {
 
 
 
-
-
 /*NAV TOGGLE*/
 
 .hamburgerContainer {
-  width: 30px; height: 40px; right: 0px; position: absolute;
+  width: 40px; height: 40px; right: 0px; position: absolute;
 }
 .hamburgerContainer:hover {cursor: pointer;}
-.navtoggle { position: absolute; top: 15px; -webkit-transform: translateZ(0);}
+.navtoggle { position: absolute; top: 15px; left: 10px; -webkit-transform: translateZ(0);}
 
-.navtoggle { cursor: pointer; padding: 10px 35px 16px 0px; }
+.navtoggle { cursor: pointer; padding: 10px 30px 16px 0px; }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
   cursor: pointer;
   border-radius: 1px;
@@ -370,6 +364,37 @@ li.sources {
   -o-user-select: none;
   user-select: none;
   border-style: none;
+}
+
+
+
+/*LOGIN BUTTON / ACCOUNT CORNER*/
+
+.accountCorner {
+  float:right;
+  position: relative;
+}
+
+.accountDetails {
+  position: relative;
+  font-size: 18;
+  position: relative;
+  top: 14px;
+  right: 20px;
+  color: rgb(243, 243, 243);
+}
+
+.loginAnchor{
+  font-size: 14;
+  position: relative;
+  top: 22px;
+  right: 16px;
+  color: rgb(243, 243, 243);
+}
+.loginAnchor:hover{
+  text-decoration: none;
+  color: rgb(100, 180, 255); !important;
+  cursor: pointer;
 }
 
 
