@@ -6,9 +6,10 @@ var app     = express();
 var mongoose = require('mongoose');
 
 require('./configMongo')
-require('./routes')(app);
 require('./express')(app);
-require('./mongoHelper/queryHelper')
+require('./routes')(app);
+require('./mongoHelper/queryArticles');
+require('./mongoHelper/queryUsers');
 app.set('port', process.env.PORT || 3000);
 
 app.listen(app.get('port'), function(){

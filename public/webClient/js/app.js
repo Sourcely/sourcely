@@ -4,30 +4,33 @@ var app = angular.module('webClient', [
 ]);
 
 app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/technology")
+    $urlRouterProvider.otherwise("/topStories");
     $stateProvider
-      .state('technology', {
-        url: '/technology',
+      .state('topStories', {
+        url: '/topStories',
         views: {
           'content@': {
             templateUrl: 'webClient/templates/reader.html',
-            controller: 'technology'
+            controller: 'technologyController'
           },
           'mainReader@': {
             templateUrl: '/webClient/templates/mainReader.html',
-            controller: 'technology'
+            controller: ''
           }
         }
-        })
-})
+      });
+      
+  app.setContentWidth = function(toggle) {
+      if(toggle){
+        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 450 + 'px';
+      } else {
+        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 40 + 'px';
+      }  
+    };
 
-app.snapper = new Snap({
-  element: document.getElementById('articleContainer')
-});
-
-var openArticle = function ($scope, $modal, $log) {
-
-  $scope.openLink = function (articleUrl) {
-    document.getElementById('articleIFrame').src = articleUrl;
+  app.setContentWidth(open);
+  window.onresize = function(){
+    app.setContentWidth(open);
   };
-};
+  
+})

@@ -4,30 +4,47 @@
     <link type="text/css" rel="stylesheet" href="webClient/css/reset.css">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <link type="text/css" rel="stylesheet" href="webClient/css/webClient.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/articles.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/mainReader.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/event.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="webClient/assets/icons/favicon.ico" type="image/icon"> <link rel="icon" href="webClient/assets/icons/favicon.ico" type="image/icon">
     <title>Sourcely</title>
   </head>
 
-  <body>
-  <div id='header' class="webBanner">
-    <h1>Sourcely</h1>
-  </div>
-    <div id="content">
-      <div ui-view="content" class="articleContainer"></div>
-      <div ui-view="mainReader" class="mainReader"></div>
+  <body ng-controller="mainController">
+    <div class="webBanner">
+      <h1>S O U R C E L Y</h1>
+      <div class='accountCorner'>
+        <div class='loginButton' ng-hide='loggedIn'>
+          <a ng-click="openModal('login')" class="loginAnchor">Login / Signup</a>
+        </div>
+        <div class='accountDetails' ng-hide='!loggedIn'>
+          <span class="gear"></span>
+          {{accountName}}
+        </div> 
+      </div>
     </div>
-
+    <div class="content">
+      <div class="collapsable" ng-class="{isCollapsed: open}">
+        <div class="menuDiv">
+          <div class="vertSourcely">
+            <h1 class="motoShown" ng-class="{isCollapsed: open}">SOURCELY</h1>
+          </div>
+        </div>
+        <div ui-view="content" class="articleContainer" scroll-track="scrollTrack()"></div>
+      </div>
+      <div ui-view="mainReader" class="mainReader" ng-class="{isOpen: !open}">
+      </div>
+    </div>
   </body>
+
     <script src="system/lib/angular/angular.js"></script>
     <script src="system/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="system/lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="webClient/js/snap.js"></script>
+    <script src="system/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="webClient/js/app.js"></script>
-    <script src="webClient/js/controllers/technology.js"></script>
-    <script src="webClient/js/controllers/reader.js"></script>
-    <script src="webClient/js/services/techFactory.js"></script>
-    <script src="webClient/js/directives.js"></script>
+    <script src="webClient/js/controllers/mainController.js"></script>
+    <script src="webClient/js/controllers/technologyController.js"></script>
+    <script src="webClient/js/controllers/readerController.js"></script>
+    <script src="webClient/js/controllers/loginController.js"></script>
+    <script src="webClient/js/services/readingStateService.js"></script>
+    <script src="webClient/js/directives/scrollTrack.js"></script>
+    <script src="webClient/js/directives/eventInclude.js"></script>
 </html>
