@@ -1,6 +1,7 @@
 var Promise  = require('bluebird');
 var clusters = require('../configMongo.js').connection;
 var mongoose = require('mongoose');
+var bcrypt   = require('bcrypt-nodejs');
 var Schema   = mongoose.Schema;
 
 //must set strict to false
@@ -22,7 +23,11 @@ var findUser = function(username){
 };
 
 var createUser = function(username, password){
-  userModel.create({"username": username, passwordHash: password, readObjects: []});
+  bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(password, salt, null, function(err, result) {
+      userModel.create({"username": username, passwordHash: result, readObjects: []});
+    });
+  });
 };
 
 var updateUserReadArticles = function(clusterID, username) {

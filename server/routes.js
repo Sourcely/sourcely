@@ -1,5 +1,6 @@
 var helper = require('./helpers');
 var usersHelper = require('./usersHelpers')
+
 module.exports = function(app){
   app.get('/technology', helper.sendTechArticles);
   app.get('/welcome', helper.sendWelcome);

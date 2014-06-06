@@ -1,6 +1,5 @@
 var queryHelper  = require('./mongoHelper/queryArticles.js');
-var Path         = require('path');
-var http         = require('http');
+
 
 var sendLandingPage = function(req, res) {
   res.sendfile('public/webClient/index.html');
