@@ -6,7 +6,7 @@
   "private": false,
   "contributors": [
     "Scott Zhang <Scottzhang235@gmail.com>",
-    "Brian Kang <Brian.Kang2@gmail.com>"
+    "Brian Kang <BrianlKang@gmail.com>"
   ],
   "repository": {
     "type": "git",
@@ -25,10 +25,9 @@
     "express": "~3.4.7",
     "bower": "^1.3.4",
     "express-validator": "~1.0.1",
-    "jquery": "~2.1.0",
-    "lodash": "~2.4.1",
     "bluebird": "~1.2.3",
-    "mongoose": "~3.8.8"
+    "mongoose": "~3.8.8",
+    "requirejs": "^2.1.14"
   },
   "devDependencies": {
     "assetmanager": "^0.1.1"

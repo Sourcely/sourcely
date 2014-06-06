@@ -1,6 +1,5 @@
 var path    = require('path');
 var express = require('express');
-//var bodyParser = require('body-parser');
 
 module.exports = function(app){
 	var fullpath = path.join(__dirname, '../public');
