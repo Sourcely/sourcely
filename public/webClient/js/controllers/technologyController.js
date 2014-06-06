@@ -1,13 +1,16 @@
-app.controller('technologyController', ['$scope', '$http', 'techFactory','$rootScope', function($scope, $http, techFactory,$rootScope){
+app.controller('technologyController', ['$scope', '$http', 'techFactory', '$rootScope', 'toggleUnread', function($scope, $http, techFactory, $rootScope, toggleUnread){
+
   $scope.category = {name:"Technology", articles: []};
   $scope.categoryHolder = {name:"Technology", articles: techFactory.getTechArticles()}; 
-  $rootScope.readingNew = true;
+  $scope.readingUnread = toggleUnread(false);
+
   $scope.toggleNew = function(){
     var readArticlesArray = $rootScope.readArticles
     for(var i = 0; i < readArticlesArray.length; i++){
           $rootScope.readArticlesObject[readArticlesArray[i]] = true;
     }
-    $rootScope.readingNew = !$rootScope.readingNew;
+    // $rootScope.readingNew = !$rootScope.readingNew;
+    $scope.readingUnread = toggleUnread(true);
   };
   $scope.logger = function(a,b){
     console.log(a);
