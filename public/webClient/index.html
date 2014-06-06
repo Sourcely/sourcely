@@ -7,13 +7,14 @@
     <link type="text/css" rel="stylesheet" href="webClient/css/mainReader.css">
     <link type="text/css" rel="stylesheet" href="webClient/css/event.css">
     <link type="text/css" rel="stylesheet" href="webClient/css/reader.css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="webClient/assets/icons/favicon.ico" type="image/icon"> <link rel="icon" href="webClient/assets/icons/favicon.ico" type="image/icon">
     <title>Sourcely</title>
   </head>
 
   <body ng-controller="mainController">
     <div class="webBanner">
-      <h1>SOURCELY</h1>
+      <h1>S O U R C E L Y</h1>
       <div class='accountCorner'>
         <div class='loginButton' ng-hide='loggedIn'>
           <a ng-click="openModal('login')" class="loginAnchor">Login / Signup</a>
@@ -46,6 +47,7 @@
     <script src="webClient/js/controllers/technologyController.js"></script>
     <script src="webClient/js/controllers/readerController.js"></script>
     <script src="webClient/js/controllers/loginController.js"></script>
+    <script src="webClient/js/services/readingStateService.js"></script>
     <script src="webClient/js/services/techFactory.js"></script>
     <script src="webClient/js/directives/eventInclude.js"></script>
     <script src="webClient/js/directives/lazyLoad.js"></script>

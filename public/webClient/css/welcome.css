@@ -1,5 +1,6 @@
 body {
   background-color: rgb(214, 214, 214);
+  font-family: 'Lato', sans-serif;
 }
 
 div.welcomeDiv {
@@ -13,7 +14,7 @@ div.welcomeDiv {
 }
 
 div.welcomeDiv h1 {
-  font-size: 44px;
+  font-size: 36px;
 }
 
 .intro {

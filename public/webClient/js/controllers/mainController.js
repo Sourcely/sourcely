@@ -1,4 +1,4 @@
-app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', function($scope, $http, $modal, $rootScope){
+app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'toggleUnread', function($scope, $http, $modal, $rootScope, toggleUnread){
 
   $scope.open = false;
 
@@ -11,6 +11,8 @@ app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', fun
   $rootScope.readArticlesObject = $rootScope.readArticlesObject || {};
 
   $scope.signup = true;
+
+  $scope.readingUnread = toggleUnread(false);
 
   $scope.collapseLeft = function() {
     app.setContentWidth($scope.open);

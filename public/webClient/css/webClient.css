@@ -7,25 +7,30 @@ a {
 
 body {
   background-color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato', sans-serif;
   top: 0;
   bottom: 0;
-  color: rgb(55, 55, 55);
+  color: rgb(50, 50, 50);
 }
 
 .webBanner {
   height: 60px;
   width: 100%;
-  background-color: rgb(55, 55, 55);
+  background-color: rgb(50, 50, 50);
   position: absolute;
 }
 
 .webBanner h1 {
   top: 16px;
-  left: 20px;
+  left: 35px;
   position: absolute;
   color: rgb(243, 243, 243);
   font-size: 28px;
+}
+
+.webBanner h1 a{
+  text-decoration: none;
+  color: rgb(243, 243, 243);
 }
 
 .content {
@@ -34,36 +39,6 @@ body {
   bottom: 0;
   position: absolute;
   overflow: hidden;
-}
-
-
-
-/*LOGIN*/
-
-.accountCorner {
-  float:right;
-  position: relative;
-}
-
-.accountDetails {
-  position: relative;
-  font-size: 18;
-  position: relative;
-  top: 14px;
-  right: 20px;
-  color: rgb(55, 55, 55);
-}
-
-.loginAnchor{
-  font-size: 14;
-  position: relative;
-  top: 22px;
-  right: 16px;
-  color: rgb(243, 243, 243);
-}
-.loginAnchor:hover{
-  color: white;
-  text-decoration: none;
 }
 
 
@@ -92,14 +67,53 @@ body {
   height: 100%;
   position: absolute;
   font-size: 24px;
-  color: rgb(55, 55, 55);
+  color: rgba(50, 50, 50, 0.9);
+}
+
+.newOrAll {
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+  display: inline;
+  width: 100px;
+  height: 25px;
+  left: 18px;
+  top: 20px;
+  /*border: 1px solid rgb(50,50,50);*/
+  position: absolute;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.allToggle, .unreadToggle, .slashToggle {
+  display: inline;
+  position: relative;
+  top: 5px;
+}
+
+.allToggle.isDisabled{
+  /*font-size: 18px;*/
+  color: rgb(100, 180, 255);
+  font-weight: 900;
+  /*color: rgb(243, 243, 243);*/
+  /*background-color: rgb(50, 50, 50);*/
+}
+
+.unreadToggle.isDisabled{
+  /*font-size: 18px;*/
+  color: rgb(100, 180, 255);
+  font-weight: 900;
+  /*color: rgb(243, 243, 243);*/
+  /*background-color: rgb(50, 50, 50);*/
 }
 
 .collapsable {
-  /*display: inline-block;*/
   height: 100%;
   width: 450px;
-  /*position: relative;*/
   overflow: hidden;
   float: left;
   -webkit-transform: translateZ(0);
@@ -127,13 +141,14 @@ body {
 }
 
 .motoShown.isCollapsed {
-  color: rgb(55, 55, 55);
+  color: rgb(50, 50, 50);
   z-index: 1000;
 }
 
 .menuDiv {
   height: 100%;
   width: 40px;
+  right: 0;
   float: right;
   z-index: 100;
   position: relative;
@@ -143,23 +158,21 @@ body {
 
 
 
-
-
 /*NAV TOGGLE*/
 
 .hamburgerContainer {
-  width: 30px; height: 40px; right: 3px; position: absolute;
+  width: 40px; height: 40px; right: 0px; position: absolute;
 }
 .hamburgerContainer:hover {cursor: pointer;}
-.navtoggle { position: absolute; top: 15px; -webkit-transform: translateZ(0);}
+.navtoggle { position: absolute; top: 15px; left: 10px; -webkit-transform: translateZ(0);}
 
-.navtoggle { cursor: pointer; padding: 10px 35px 16px 0px; }
+.navtoggle { cursor: pointer; padding: 10px 30px 16px 0px; }
 .navtoggle span, .navtoggle span:before, .navtoggle span:after {
   cursor: pointer;
   border-radius: 1px;
   height: 4px;
   width: 20px;
-  background: rgba(55, 55 ,55, 0.9);
+  background: rgba(50, 50 ,50, 0.9);
   position: absolute;
   display: block;
   content: '';
@@ -351,6 +364,37 @@ li.sources {
   -o-user-select: none;
   user-select: none;
   border-style: none;
+}
+
+
+
+/*LOGIN BUTTON / ACCOUNT CORNER*/
+
+.accountCorner {
+  float:right;
+  position: relative;
+}
+
+.accountDetails {
+  position: relative;
+  font-size: 18;
+  position: relative;
+  top: 14px;
+  right: 20px;
+  color: rgb(243, 243, 243);
+}
+
+.loginAnchor{
+  font-size: 14;
+  position: relative;
+  top: 22px;
+  right: 16px;
+  color: rgb(243, 243, 243);
+}
+.loginAnchor:hover{
+  text-decoration: none;
+  color: rgb(100, 180, 255); !important;
+  cursor: pointer;
 }
 
 
