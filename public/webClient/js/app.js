@@ -59,8 +59,7 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 });
 
 app.run(function($http, $rootScope, $window) {
-  $window.localStorage.token = $window.localStorage.token || {};
-
+  $window.localStorage.token = $window.localStorage.token || "";
   var getArticles = function() {
     $http({ method:'GET',
               url:'/technology'
@@ -86,7 +85,7 @@ app.run(function($http, $rootScope, $window) {
            });
   };
 
-  if($window.localStorage.token){    
+  if($window.localStorage.token.length>0){    
     $http.post('/api/authenticate', {authType: 'run-onload'}).success(function(data) {    
       $rootScope.loggedIn = true;
       $rootScope.accountName = data.username;
