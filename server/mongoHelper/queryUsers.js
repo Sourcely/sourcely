@@ -1,8 +1,9 @@
 var Promise  = require('bluebird');
 var clusters = require('../configMongo.js').connection;
 var mongoose = require('mongoose');
+var bcrypt   = require('bcrypt-nodejs');
 var Schema   = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
+var jwt      = require('jwt-simple');
 
 //must set strict to false
 var userModel = mongoose.model('User', new Schema({username: String, passwordHash: String, readObjects: Array}, {strict: false}), 'clusterCollection');
@@ -22,10 +23,39 @@ var findUser = function(username){
   })
 };
 
+var findUserId = function(userId){
+  return new Promise(function(resolve,reject){
+    userModel.find({'_id': userId}, function(err, user){
+      if(err){
+        console.log(err);
+      }
+      if(user.length === 0){
+        resolve(false);
+      }else{
+        resolve(user);
+      }
+    })
+  })
+};
+
 var createUser = function(username, password){
+<<<<<<< HEAD
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(username, salt,null, function(err, hash) {
       userModel.create({"username": username, passwordHash: hash, readObjects: []});
+=======
+  return new Promise(function(resolve,reject){
+    var userId;
+    bcrypt.genSalt(10, function(err, salt) {
+      bcrypt.hash(password, salt, null, function(err, result) {
+        userModel.create({"username": username, passwordHash: result, readObjects: []}, function (err, data) {
+          console.log('created user: ', data);
+          var formattedData = {username: data['username'], userId: data['_id'] };
+          var token = jwt.encode(formattedData, 'secretsauce');                  
+          resolve({ token: token, readArticles: [], username: data['username']});
+        });
+      });
+>>>>>>> e413477da293ff6c87183f7f26ea401743346be5
     });
   });
 };
@@ -45,5 +75,6 @@ var updateUserReadArticles = function(clusterID, username) {
 module.exports = {
   findUser: findUser,
   createUser: createUser,
-  updateUserReadArticles: updateUserReadArticles
+  updateUserReadArticles: updateUserReadArticles,
+  findUserId: findUserId
 };
