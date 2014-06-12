@@ -33,18 +33,6 @@ var signupUser = function(req, res){
 };
 
 var login = function(req, res){
-<<<<<<< HEAD
-  queryHelper.findUser(req.body.username).then(function(data){
-    if(data){
-       bcrypt.compare(req.body.password,data[0].passwordHash, function(err, equal){
-        if(equal){
-          var formattedData = {authorized: true, username: data[0]['username'], readArticles: data[0]['readObjects']};
-          res.send(formattedData);
-        }else{
-          res.send(false);
-        }
-       });
-=======
   queryHelper.findUser(req.body.username).then(function(data){    
     if(data){      
       bcrypt.compare(req.body.password, data[0].passwordHash, function(err, result) {        
@@ -57,7 +45,6 @@ var login = function(req, res){
           res.send(401, "Incorrect Password");
         }
       })
->>>>>>> e413477da293ff6c87183f7f26ea401743346be5
     }else{
       res.send(401, "User Doesn't Exist");
     }

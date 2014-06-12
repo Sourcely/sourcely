@@ -39,11 +39,6 @@ var findUserId = function(userId){
 };
 
 var createUser = function(username, password){
-<<<<<<< HEAD
-  bcrypt.genSalt(10, function(err, salt) {
-    bcrypt.hash(username, salt,null, function(err, hash) {
-      userModel.create({"username": username, passwordHash: hash, readObjects: []});
-=======
   return new Promise(function(resolve,reject){
     var userId;
     bcrypt.genSalt(10, function(err, salt) {
@@ -55,7 +50,6 @@ var createUser = function(username, password){
           resolve({ token: token, readArticles: [], username: data['username']});
         });
       });
->>>>>>> e413477da293ff6c87183f7f26ea401743346be5
     });
   });
 };
