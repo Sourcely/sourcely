@@ -22,12 +22,32 @@ var findUser = function(username){
   })
 };
 
+var findUserId = function(userId){
+  return new Promise(function(resolve,reject){
+    userModel.find({'_id': userId}, function(err, user){
+      if(err){
+        console.log(err);
+      }
+      if(user.length === 0){
+        resolve(false);
+      }else{
+        resolve(user);
+      }
+    })
+  })
+};
+
 var createUser = function(username, password){
+  var userId;
   bcrypt.genSalt(10, function(err, salt) {
     bcrypt.hash(password, salt, null, function(err, result) {
-      userModel.create({"username": username, passwordHash: result, readObjects: []});
+      userModel.create({"username": username, passwordHash: result, readObjects: []}, function (err, user) {
+        console.log('created user: ', user);
+        userId = user._id;
+      });
     });
   });
+  return userId;
 };
 
 var updateUserReadArticles = function(clusterID, username) {
@@ -45,5 +65,6 @@ var updateUserReadArticles = function(clusterID, username) {
 module.exports = {
   findUser: findUser,
   createUser: createUser,
-  updateUserReadArticles: updateUserReadArticles
+  updateUserReadArticles: updateUserReadArticles,
+  findUserId: findUserId
 };

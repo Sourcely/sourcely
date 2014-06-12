@@ -1,8 +1,9 @@
-var queryHelper  = require('./mongoHelper/queryUsers.js')
-var bcrypt       = require('bcrypt-nodejs');
-var Path         = require('path');
-var http         = require('http');
-var jwt          = require('jwt-simple');
+var queryHelper   = require('./mongoHelper/queryUsers.js');
+var articleHelper = require('./mongoHelper/queryArticles.js');
+var bcrypt        = require('bcrypt-nodejs');
+var Path          = require('path');
+var http          = require('http');
+var jwt           = require('jwt-simple');
 
 var sendLogin = function(req, res) {
   res.sendfile('public/webClient/templates/login.html')
@@ -21,23 +22,23 @@ var signupUser = function(req, res){
       //user does not exist, create a new user
       if(req.body.username && req.body.password){
         queryHelper.createUser(req.body.username, req.body.password);
-        var formattedData = {authorized: true, username: req.body.username, readArticles: []};
-        var token = jwt.sign(formattedData, secret, { expiresInMinutes: 60*5 } );
-        res.json({ token: token });
+        var formattedData = {username: req.body.username, userId: data[0]['_id'] };
+        var token = jwt.encode(formattedData, 'secretsauce');        
+        res.json({ token: token, readArticles: [], username: req.body.username});
       }
     }
   })
 };
 
 var login = function(req, res){
-  queryHelper.findUser(req.body.username).then(function(data){
-
-    if(data){
-      bcrypt.compare(req.body.password, data[0].passwordHash, function(err, result) {
-        if (result) {
-          var formattedData = {authorized: true, username: data[0]['username'], readArticles: data[0]['readObjects']};
-          var token = jwt.sign(formattedData, secret, { expiresInMinutes: 60*5 } );
-          res.json({ token: token });                
+  queryHelper.findUser(req.body.username).then(function(data){    
+    if(data){      
+      bcrypt.compare(req.body.password, data[0].passwordHash, function(err, result) {        
+        if (result) {          
+          var formattedData = {username: req.body.username, userId: data[0]['_id']};
+          var token = jwt.encode(formattedData, 'secretsauce');          
+          var sendData = {token: token, readArticles: data[0]['readObjects'], username: req.body.username};                    
+          res.json(sendData);                
         } else {
           res.send(401, "Incorrect Password");
         }
@@ -48,38 +49,23 @@ var login = function(req, res){
   })
 };
 
-var authenticate = function(req, res) {
-  queryHelper.findUser(req.body.username).then(function(data){
-
+var authenticate = function(req, res) {  
+  var authObj = jwt.decode(req.headers.authorization, 'secretsauce');  
+  queryHelper.findUserId(authObj.userId).then(function(data){
     if(data){
-      bcrypt.compare(req.body.password, data[0].passwordHash, function(err, result) {
-        if (result) {
-          var formattedData = {authorized: true, username: data[0]['username'], readArticles: data[0]['readObjects']};
-          res.send(formattedData);        
-        } else {
-          res.send(401, "not authenticated");
-        }
-      })
-    }else{
-      res.send(401, "not authenticated");
+      var allArticles;
+      articleHelper.techArticles().then(function(articlesData) {
+        allArticles = articlesData;
+        var formattedData = {username: data[0]['username'], userId: data[0]['_id']};
+        var token = jwt.encode(formattedData, 'secretsauce');
+        var sendData = {token: token, readArticles: data[0]['readObjects'], allArticles: allArticles, username: data[0]['username']};        
+        res.json(sendData);
+      });
+    } else {
+      console.log('couldnt find user');
+      res.send(401, "sorry dude");
     }
-  })
-  if (!(req.body.username === 'john.doe' && req.body.password === 'foobar')) {
-    res.send(401, 'Wrong user or password');
-    return;
-  }
-
-  var profile = {
-    first_name: 'John',
-    last_name: 'Doe',
-    email: 'john@doe.com',
-    id: 123
-  };
-
-  // We are sending the profile inside the token
-  var token = jwt.sign(profile, secret, { expiresInMinutes: 60*5 });
-
-  res.json({ token: token });
+  });
 };
 
 var markCollectionRead = function(req, res) {
