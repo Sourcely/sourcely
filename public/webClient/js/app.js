@@ -93,14 +93,8 @@ app.run(function($http, $rootScope, $window) {
       $rootScope.loggedIn = true;
       $rootScope.accountName = data.username;
       $rootScope.readArticles = data.readArticles;
-      $rootScope.readArticlesObject = {};
-      // for(var i = 0; i < $rootScope.readArticles.length; i++){
-      //   $rootScope.readArticlesObject[$rootScope.readArticles[i]] = true;
-      // }
-    })
-    // .error(function() {    
-    //   getArticles();
-    // });
+      $rootScope.readArticlesObject = {};      
+    });
   }
   getArticles();
 });
