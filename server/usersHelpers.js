@@ -17,14 +17,15 @@ var signupUser = function(req, res){
   queryHelper.findUser(req.body.username).then(function(data){
     if(data){
       //user exists already
+      console.log('user exists');
       res.send(401, "user already exists");
     }else{
-      //user does not exist, create a new user
+      //user does not exist, create a new user      
       if(req.body.username && req.body.password){
-        queryHelper.createUser(req.body.username, req.body.password);
-        var formattedData = {username: req.body.username, userId: data[0]['_id'] };
-        var token = jwt.encode(formattedData, 'secretsauce');        
-        res.json({ token: token, readArticles: [], username: req.body.username});
+        console.log('create user');
+        queryHelper.createUser(req.body.username, req.body.password).then(function(data) {
+          res.json(data);
+        });
       }
     }
   })
