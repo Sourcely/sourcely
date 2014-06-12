@@ -59,13 +59,13 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 });
 
 app.run(function($http, $rootScope, $window) {
-  $window.localStorage.token = $window.localStorage.token || "";
+  // $window.localStorage.token = $window.localStorage.token || "";
   var getArticles = function() {
     $http({ method:'GET',
               url:'/technology'
-           }).success(function(data,status,headers,config){      
-             var timeSortedArticles = [];
-             for(var articleCluster in data){
+          }).success(function(data,status,headers,config){      
+            var timeSortedArticles = [];
+            for(var articleCluster in data){
               var tempArticle=[];
               for (var key in data[articleCluster]){
                 if(data[articleCluster][key][0]){
@@ -75,30 +75,32 @@ app.run(function($http, $rootScope, $window) {
                 tempArticle.push(data[articleCluster][key]);
               }
               timeSortedArticles.push(tempArticle);
-             }
-             timeSortedArticles.sort(function(a,b){
+            }
+            timeSortedArticles.sort(function(a,b){
               return b[1]-a[1];
-             });          
-             $rootScope.category.articles = timeSortedArticles;           
-           }).error(function(err,status,headers,config){
-             console.log("error: ", err);
-           });
+            });          
+            $rootScope.category.articles = timeSortedArticles;   
+            for(var i = 0; i < $rootScope.readArticles.length; i++){
+              $rootScope.readArticlesObject[$rootScope.readArticles[i]] = true;
+            }        
+          }).error(function(err,status,headers,config){
+            console.log("error: ", err);
+          });
   };
 
-  if($window.localStorage.token.length>0){    
+  if($window.localStorage.token){   
     $http.post('/api/authenticate', {authType: 'run-onload'}).success(function(data) {    
       $rootScope.loggedIn = true;
       $rootScope.accountName = data.username;
       $rootScope.readArticles = data.readArticles;
       $rootScope.readArticlesObject = {};
-      for(var i = 0; i < $rootScope.readArticles.length; i++){
-        $rootScope.readArticlesObject[$rootScope.readArticles[i]] = true;
-      }
+      // for(var i = 0; i < $rootScope.readArticles.length; i++){
+      //   $rootScope.readArticlesObject[$rootScope.readArticles[i]] = true;
+      // }
     })
-    .error(function() {    
-      getArticles();
-    });
-  } else {
-    getArticles();
+    // .error(function() {    
+    //   getArticles();
+    // });
   }
+  getArticles();
 });

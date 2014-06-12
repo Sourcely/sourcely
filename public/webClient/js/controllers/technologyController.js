@@ -1,4 +1,4 @@
-app.controller('technologyController', ['$scope', '$http', '$rootScope', 'toggleUnread', function($scope, $http, $rootScope, toggleUnread){
+app.controller('technologyController', ['$scope', '$http', '$rootScope', 'toggleUnread', '$window', function($scope, $http, $rootScope, toggleUnread, $window){
 
   $rootScope.category = {name:"Technology", articles: undefined};
 
@@ -12,7 +12,7 @@ app.controller('technologyController', ['$scope', '$http', '$rootScope', 'toggle
     $scope.readingUnread = toggleUnread(true);
   };
 
-  if($rootScope.category.articles === undefined) {
+  if($rootScope.category.articles === undefined || $window.localStorage.token === undefined) {
     $http({ method:'GET',
             url:'/technology'
          }).success(function(data,status,headers,config){      

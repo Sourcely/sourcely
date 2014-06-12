@@ -51,17 +51,18 @@ var login = function(req, res){
 };
 
 var authenticate = function(req, res) {  
-  var authObj = jwt.decode(req.headers.authorization, 'secretsauce');  
+  var authObj = jwt.decode(req.headers.authorization, 'secretsauce');
   queryHelper.findUserId(authObj.userId).then(function(data){
     if(data){
-      var allArticles;
-      articleHelper.techArticles().then(function(articlesData) {
-        allArticles = articlesData;
+      // var allArticles;
+      // articleHelper.techArticles().then(function(articlesData) {
+        // allArticles = articlesData;
         var formattedData = {username: data[0]['username'], userId: data[0]['_id']};
         var token = jwt.encode(formattedData, 'secretsauce');
-        var sendData = {token: token, readArticles: data[0]['readObjects'], allArticles: allArticles, username: data[0]['username']};        
+        // var sendData = {token: token, readArticles: data[0]['readObjects'], allArticles: allArticles, username: data[0]['username']};
+        var sendData = {token: token, readArticles: data[0]['readObjects'], username: data[0]['username']};        
         res.json(sendData);
-      });
+      // });
     } else {
       console.log('couldnt find user');
       res.send(401, "sorry dude");
