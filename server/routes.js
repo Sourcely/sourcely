@@ -1,12 +1,14 @@
-var helper = require('./helpers');
-var usersHelper = require('./usersHelpers')
+var helpers        = require('./helpers');
+var usersHelpers   = require('./usersHelpers');
+
 module.exports = function(app){
-  app.get('/technology', helper.sendTechArticles);
-  app.get('/welcome', helper.sendWelcome);
-  app.post('/signup', usersHelper.signupUser);
-  app.post('/login', usersHelper.login);
-  app.post('/markread', usersHelper.markCollectionRead);
-  app.get('*', helper.sendLandingPage);
+  app.get('/technology', helpers.sendTechArticles);
+  app.get('/welcome', helpers.sendWelcome);
+  app.post('/signup', usersHelpers.signupUser);
+  app.post('/login', usersHelpers.login);
+  app.post('/api/authenticate', usersHelpers.authenticate);
+  app.post('/markread', usersHelpers.markCollectionRead);
+  app.get('*', helpers.sendLandingPage);
 };
 
 
