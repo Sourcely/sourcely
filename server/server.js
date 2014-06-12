@@ -5,7 +5,7 @@ var helper  = require('./helpers');
 var app     = express();
 var mongoose = require('mongoose');
 
-require('./configMongo')
+require('./configMongo');
 require('./express')(app);
 require('./routes')(app);
 require('./mongoHelper/queryArticles');
