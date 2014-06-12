@@ -85,11 +85,7 @@ var authenticate = function(req, res) {
 };
 
 var markCollectionRead = function(req, res) {
-<<<<<<< HEAD
-  queryHelper.updateUserReadArticles(req.body.clusterId, req.body.username);  
-=======
   queryHelper.updateUserReadArticles(req.body.clusterId, req.body.username);
->>>>>>> e413477da293ff6c87183f7f26ea401743346be5
   res.send(true);
 };
 
