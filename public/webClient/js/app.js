@@ -7,7 +7,7 @@ angular.module('webClient').config(function($stateProvider, $urlRouterProvider, 
   $httpProvider.interceptors.push('authInterceptor');
   $urlRouterProvider.otherwise("");
   $stateProvider
-  .state('topStories',
+  .state('main',
   {
     url: '',
     views: {
