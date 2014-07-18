@@ -41,10 +41,9 @@ var createUser = function(username, password){
     var userId;
     bcrypt.genSalt(10, function(err, salt) {
       bcrypt.hash(password, salt, null, function(err, result) {
-        userModel.create({"username": username, passwordHash: result, readObjects: []}, function (err, data) {
-          console.log('created user: ', data);
-          var formattedData = {username: data['username'], userId: data['_id'] };
-          var token = jwt.encode(formattedData, 'secretsauce');
+        userModel.create({"username": username, passwordHash: result, readObjects: []}, function (err, data) {          
+          var formattedData = {username: data['username'], userId: data['_id'], authorized: true, tokenDate: Date.now() };
+          var token = jwt.encode(formattedData, process.env.SECRET);                  
           resolve({ token: token, readArticles: [], username: data['username']});
         });
       });
@@ -57,9 +56,8 @@ var updateUserReadArticles = function(clusterID, username) {
     var readObjects = data.readObjects || [];
     if(readObjects.indexOf(clusterID) === -1){
       userModel.update({username: username},{$push: {readObjects: clusterID}}, function (err, data) {
-        if (err) console.log(err);
-        console.log(data);
-      })
+        if (err) console.log(err);        
+      });
     };
   });
 };

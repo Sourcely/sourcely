@@ -1,4 +1,4 @@
-app.controller('dropDownController', ['$scope', function($scope) {
+angular.module('webClient').controller('dropDownController', ['$scope', function($scope) {
 
   $scope.dropDown = {
     isOpen: false

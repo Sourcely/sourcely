@@ -1,5 +1,6 @@
 'use strict';
 
+require('newrelic');
 var express = require('express');
 var helper  = require('./helpers');
 var app     = express();

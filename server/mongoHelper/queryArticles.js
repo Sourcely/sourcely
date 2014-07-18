@@ -9,15 +9,16 @@ var Promise  = require('bluebird'),
 var articleCluster = mongoose.model('Article');
 
 var techArticles = function() {
-  console.log("tech articles")
+  var startTime = Date.now();
+  console.log('started!');  
   return new Promise(function (resolve, reject) {
     console.log("on the hunt for new articles");
     articleCluster.find({"category":"tech"},
       function(err, data) {
+        console.log('ended! and took: ', (Date.now()-startTime)/1000, 'seconds');
         if(err){
           console.log(err);
         }else{
-          console.log("found some articles");
           var newData = {};
           for(var i = 0; i<data.length; i++){
             if(newData[data[i].collectionID]) {
@@ -28,17 +29,18 @@ var techArticles = function() {
           }
           var articles = newData;
           for(var cluster in articles){
-              var tempTime = 0;
-              for(var i = 0; i < articles[cluster].length; i++){
-                  var articleTime = articles[cluster][i]['epochTime'];
-                  if(articleTime > tempTime){
-                      tempTime = articleTime;
-                  }
+            var tempTime = 0;
+            for(var i = 0; i < articles[cluster].length; i++){
+              var articleTime = articles[cluster][i]['epochTime'];
+              if(articleTime > tempTime){
+                tempTime = articleTime;
               }
-              var tempCluster = articles[cluster]
-              articles[cluster] = {'sources': tempCluster}
-              articles[cluster]['mostRecentUpdate'] = tempTime;
+            }
+            var tempCluster = articles[cluster]
+            articles[cluster] = {'sources': tempCluster}
+            articles[cluster]['mostRecentUpdate'] = tempTime;
           }
+          console.log('ended! and took: ', (Date.now()-startTime)/1000, 'seconds');
           resolve(articles);
         }
       });
