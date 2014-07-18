@@ -4,7 +4,7 @@ app.controller('reader', ['$scope', '$http', '$rootScope', function($scope, $htt
     var collection = {clusterId: collectionID, username: $rootScope.accountName};
     console.log(collectionID);
     if($rootScope.loggedIn){
-      $http.post('/markread', collection).success(function(){
+      $http.post('/api/markread', collection).success(function(){
             if($rootScope.readArticles.indexOf(collection.clusterId)===-1){
                 $rootScope.readArticles.push(collection.clusterId);
             }

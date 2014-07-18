@@ -3,20 +3,17 @@ var app = angular.module('webClient', [
   'ui.bootstrap'
 ]);
 
-app.factory('authInterceptor', function ($rootScope, $q, $window) {
-  console.log($window.localStorage.token);
+app.factory('authInterceptor', function ($rootScope, $q, $window) {  
   return {
     request: function (config) {
       config.headers = config.headers || {};
       if ($window.localStorage.token) {
         config.headers.Authorization = $window.localStorage.token;
-      }
-      // console.log(config);
+      }      
       return config;
     },
     response: function (response) {
-      if (response.status === 401) {
-        // $window.localStorage;
+      if (response.status === 401) {        
         console.log('token deleted');
       }
       return response || $q.when(response);
@@ -63,7 +60,9 @@ app.run(function($http, $rootScope, $window) {
   var getArticles = function() {
     $http({ method:'GET',
               url:'/technology'
-          }).success(function(data,status,headers,config){      
+          }).success(function(data,status,headers,config){
+            console.log('GOT ARTICLES')      
+            console.log(data);
             var timeSortedArticles = [];
             for(var articleCluster in data){
               var tempArticle=[];
@@ -82,18 +81,21 @@ app.run(function($http, $rootScope, $window) {
             $rootScope.category.articles = timeSortedArticles;   
             for(var i = 0; i < $rootScope.readArticles.length; i++){
               $rootScope.readArticlesObject[$rootScope.readArticles[i]] = true;
-            }        
+            }
+            console.log('finished sorting articles')        
           }).error(function(err,status,headers,config){
             console.log("error: ", err);
           });
   };
 
-  if($window.localStorage.token){   
+  if($window.localStorage.token){  
+    console.log('i got a token');
     $http.post('/api/authenticate', {authType: 'run-onload'}).success(function(data) {    
       $rootScope.loggedIn = true;
       $rootScope.accountName = data.username;
       $rootScope.readArticles = data.readArticles;
       $rootScope.readArticlesObject = {};      
+      console.log('finished at authentication')
     });
   }
   getArticles();

@@ -8,12 +8,14 @@ var articleCluster = mongoose.model('Article');
 //this will return every article in the database
 
 var techArticles = function() {
+  var startTime = Date.now();
+  console.log('started!');
   return new Promise(function (resolve, reject) {
     articleCluster.find({"category":"tech"},
       function(err, data) {
         if(err){
           console.log(err);
-        }else{
+        }else{          
           var newData = {};
           for(var i = 0; i<data.length; i++){
             if(newData[data[i].collectionID]) {
@@ -35,6 +37,7 @@ var techArticles = function() {
               articles[cluster] = {'sources': tempCluster}
               articles[cluster]['mostRecentUpdate'] = tempTime;
           }
+          console.log('ended! and took: ', (Date.now()-startTime)/1000, 'seconds');
           resolve(articles);
         }
       });

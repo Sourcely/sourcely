@@ -7,8 +7,6 @@ module.exports = function(app){
   app.post('/signup', usersHelpers.signupUser);
   app.post('/login', usersHelpers.login);
   app.post('/api/authenticate', usersHelpers.authenticate);
-  app.post('/markread', usersHelpers.markCollectionRead);
+  app.post('/api/markread', usersHelpers.markCollectionRead);
   app.get('*', helpers.sendLandingPage);
 };
-
-
