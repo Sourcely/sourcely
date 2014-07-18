@@ -1,6 +1,6 @@
 'use strict';
 
-var queryHelper  = require('./mongoHelper/queryArticles.js');
+var queryHelper  = require('./Articles/queryArticles.js');
 
 var sendLandingPage = function(req, res) {
   res.sendfile('public/webClient/index.html');
@@ -13,7 +13,7 @@ var sendTechArticles = function(req, res) {
 };
 
 var sendWelcome = function(req, res) {
-  res.sendfile('public/webClient/components/auth/templates/welcome.html');
+  res.sendfile('public/webClient/components/reader/templates/welcome.html');
 };
 
 module.exports = {

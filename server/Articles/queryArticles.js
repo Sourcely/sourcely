@@ -4,18 +4,15 @@ var Promise  = require('bluebird'),
     clusters = require('../configMongo.js').connection,
     mongoose = require('mongoose'),
     Schema   = mongoose.Schema,
-    articleModel = require('../mongoModels/articleModel.js')
+    articleModel = require('./articleModel.js')
 
 var articleCluster = mongoose.model('Article');
 
 var techArticles = function() {
   var startTime = Date.now();
-  console.log('started!');  
   return new Promise(function (resolve, reject) {
-    console.log("on the hunt for new articles");
     articleCluster.find({"category":"tech"},
       function(err, data) {
-        console.log('ended! and took: ', (Date.now()-startTime)/1000, 'seconds');
         if(err){
           console.log(err);
         }else{
@@ -40,7 +37,6 @@ var techArticles = function() {
             articles[cluster] = {'sources': tempCluster}
             articles[cluster]['mostRecentUpdate'] = tempTime;
           }
-          console.log('ended! and took: ', (Date.now()-startTime)/1000, 'seconds');
           resolve(articles);
         }
       });

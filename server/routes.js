@@ -1,7 +1,7 @@
 'use strict';
 
 var helpers        = require('./helpers');
-var usersHelpers   = require('./usersHelpers');
+var usersHelpers   = require('./Users/helpers');
 
 module.exports = function(app){
   app.get('/articles', helpers.sendTechArticles);

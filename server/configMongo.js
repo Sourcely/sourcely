@@ -1,7 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://sourcely:sourcely@oceanic.mongohq.com:10033/app25019458');
+
+mongoose.connect(process.env.MONGODB_URL);
 
 var Admin = mongoose.mongo.Admin,
     clusterConnection = mongoose.connection;
