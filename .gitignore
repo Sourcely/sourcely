@@ -1,4 +1,4 @@
-newrelic_agent.log
+*.log
 .DS_Store
 .nodemonignore
 .bower-*/
