@@ -1,13 +1,17 @@
 'use strict';
 
-var express = require('express');
-var helper  = require('./helpers');
-var app     = express();
+require('newrelic');
 
-var mysql = require('mysql');
+var express  = require('express'),
+    helper   = require('./helpers'),
+    app      = express(),
+    mongoose = require('mongoose');
 
-app.listen(process.env.PORT || 3000);
-
-require('./server/models/database')
-require('./routes')(app);
+require('./configMongo');
 require('./express')(app);
+require('./routes')(app);
+app.set('port', process.env.PORT || 3000);
+
+app.listen(app.get('port'), function(){
+  console.log('Magic happens on port ' + app.get('port'));
+});

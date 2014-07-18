@@ -1,0 +1,57 @@
+/************ imports ************/
+@import 'reset';
+@import 'events';
+@import 'welcome';
+@import 'mainView';
+@import 'navToggle';
+@import 'login';
+@import 'mainReader';
+
+
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #878785;
+}
+
+body {
+  background-color: #FFFFFF;
+  font-family: 'Lato', sans-serif;
+  top: 0;
+  bottom: 0;
+  color: rgb(50, 50, 50);
+}
+
+.webBanner {
+  height: 60px;
+  width: 100%;
+  background-color: rgb(50, 50, 50);
+  position: absolute;
+}
+
+.webBanner h1 {
+  top: 16px;
+  left: 35px;
+  position: absolute;
+  color: rgb(243, 243, 243);
+  font-size: 28px;
+}
+
+.webBanner h1 a{
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+}
+
+.content {
+  width: 100%;
+  top: 60px;
+  bottom: 0;
+  position: absolute;
+  overflow: hidden;
+}

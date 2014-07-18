@@ -1,5 +1,11 @@
+newrelic_agent.log
+*.log
 .DS_Store
 .nodemonignore
 .bower-*/
 node_modules/
-/public/build/
+public/system/
+*.pyc
+public/client
+.sass-cache
+server/webScraper/server.py

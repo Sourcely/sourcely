@@ -1,17 +1,12 @@
 {
+  "main": "server/server.js",
   "name": "Sourcely",
   "description": "Mysql, angular, express, node.js",
   "version": "0.0.1",
   "private": false,
   "contributors": [
-    {
-      "name": "Scott Zhang",
-      "mail": "Scottzhang235@gmail.com"
-    },
-    {
-      "name": "Brian Kang",
-      "mail": "Brian.Kang2@gmail.com"
-    }
+    "Scott Zhang <Scottzhang235@gmail.com>",
+    "Brian Kang <BrianlKang@gmail.com>"
   ],
   "repository": {
     "type": "git",
@@ -22,21 +17,28 @@
     "npm": "1.3.x"
   },
   "scripts": {
-    "start": "node node_modules/grunt-cli/bin/grunt",
+    "start": "node server/server.js",
     "test": "node node_modules/grunt-cli/bin/grunt test",
     "postinstall": "node node_modules/bower/bin/bower install"
   },
   "dependencies": {
     "express": "~3.4.7",
-    "bower": "~1.2.8",
+    "bower": "^1.3.4",
     "express-validator": "~1.0.1",
-    "jquery": "~2.1.0",
-    "mysql": "~2.1.1",
-    "lodash": "~2.4.1",
-    "knex": "~0.5.13",
-    "bookshelf": "~0.6.10"
+    "bluebird": "~1.2.3",
+    "mongoose": "~3.8.8",
+    "requirejs": "^2.1.14",
+    "bcrypt-nodejs": "0.0.3",
+    "jwt-simple": "^0.2.0",    
+    "newrelic": "^1.8.0"
   },
   "devDependencies": {
     "assetmanager": "^0.1.1"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Sourcely/sourcely/issues"
+  },
+  "homepage": "https://github.com/Sourcely/sourcely",
+  "author": "Sourcely",
+  "license": "ISC"
 }

@@ -1,15 +1,23 @@
-// var Promise  = require('bluebird');
-// var fs       = Promise.promisifyAll(require('fs'));
-// var mkdirp   = Promise.promisify(require('mkdirp'));
-var Path     = require('path');
-var waterline = require('waterline');
-var _ = require('lodash');
-// var _        = require('underscore');
+'use strict';
+
+var queryHelper  = require('./Articles/queryArticles.js');
 
 var sendLandingPage = function(req, res) {
-  res.sendfile('public/index.html');
+  res.sendfile('public/webClient/index.html');
+};
+
+var sendTechArticles = function(req, res) {
+  queryHelper.techArticles().then(function(data) {
+    res.send(data);
+  });
+};
+
+var sendWelcome = function(req, res) {
+  res.sendfile('public/webClient/components/reader/templates/welcome.html');
 };
 
 module.exports = {
-  sendLandingPage: sendLandingPage
+  sendLandingPage: sendLandingPage,
+  sendTechArticles: sendTechArticles,
+  sendWelcome: sendWelcome
 };
