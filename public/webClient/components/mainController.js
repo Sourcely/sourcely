@@ -1,4 +1,4 @@
-angular.module('webClient').controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'toggleUnread', '$window','resizeReader', function($scope, $http, $modal, $rootScope, toggleUnread, $window, resizeReader){
+angular.module('webClient').controller('mainController', ['$scope', '$modal', '$rootScope', 'toggleUnread', '$window','resizeReader', function($scope, $modal, $rootScope, toggleUnread, $window, resizeReader){
 
   $scope.open = false;
 
@@ -24,10 +24,10 @@ angular.module('webClient').controller('mainController', ['$scope', '$http', '$m
     $scope.open = !$scope.open;
   };
 
-  $scope.openModal = function (logOrSign) {
+  $scope.openModal = function () {
     var modalInstance = $modal.open({
       controller: 'loginController',
-      templateUrl: 'webClient/templates/'+ logOrSign +'.html',
+      templateUrl: 'webClient/components/auth/templates/login.html',
       size: 'sm'
     });
   };

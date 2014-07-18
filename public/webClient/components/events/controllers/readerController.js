@@ -1,6 +1,7 @@
-angular.module('webClient').controller('reader', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
+angular.module('webClient').controller('readerController', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
+  var iframe = document.getElementById('articleIFrame');
   $scope.openLink = function (articleUrl, collectionID) {
-    document.getElementById('articleIFrame').src = articleUrl;
+    iframe.src = articleUrl;
     var collection = {clusterId: collectionID, username: $rootScope.accountName};
     if($rootScope.loggedIn){
       $http.post('/api/markread', collection)

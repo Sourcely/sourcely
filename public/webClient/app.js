@@ -7,20 +7,23 @@ angular.module('webClient').config(function($stateProvider, $urlRouterProvider, 
   $httpProvider.interceptors.push('authInterceptor');
   $urlRouterProvider.otherwise("");
   $stateProvider
-  .state('main',
-  {
+  .state('main', {
     url: '',
     views: {
-      'mainReader@': {
-        templateUrl: '/webClient/templates/mainReader.html',
+      '': {
+        templateUrl: '/webClient/components/main.html',
+        controller: 'mainController'
+      },
+      'events@main': {
+        templateUrl: '/webClient/components/events/templates/eventList.html',
+        controller: 'contentController'
+      },
+      'mainReader@main': {
+        templateUrl: '/webClient/components/reader/mainReader.html',
         controller: 'mainReaderController'
       },
-      'content@': {
-        templateUrl: 'webClient/templates/reader.html',
-        controller: 'content'
-      },
-      'dropDown@': {
-        templateUrl: '/webClient/templates/dropDown.html',
+      'dropDown@main': {
+        templateUrl: '/webClient/components/auth/templates/dropDown.html',
         controller: 'dropDownController'
       }
     }

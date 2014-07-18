@@ -1,4 +1,4 @@
-angular.module('webClient').controller('content', ['$scope', '$http', '$rootScope', 'toggleUnread', '$window', function($scope, $http, $rootScope, toggleUnread, $window){
+angular.module('webClient').controller('contentController', ['$scope', '$http', '$rootScope', 'toggleUnread', '$window', function($scope, $http, $rootScope, toggleUnread, $window){
 
   $rootScope.category = {name:"Technology", articles: undefined};
 
