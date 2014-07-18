@@ -15,6 +15,7 @@ var techArticles = function() {
     console.log("on the hunt for new articles");
     articleCluster.find({"category":"tech"},
       function(err, data) {
+        console.log('ended! and took: ', (Date.now()-startTime)/1000, 'seconds');
         if(err){
           console.log(err);
         }else{
