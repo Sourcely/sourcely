@@ -264,3 +264,7 @@
 {"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":21443,"component":"express","level":40,"msg":"Unrecognized version NaN of Express detected; not instrumenting","time":"2014-07-18T08:01:25.450Z","v":0}
 {"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":21443,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/720670/applications/4293329","time":"2014-07-18T08:01:26.567Z","v":0}
 {"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":21443,"component":"collector_api","level":30,"msg":"Connected to collector-118.newrelic.com:443 with agent run ID 954743611.","time":"2014-07-18T08:01:26.568Z","v":0}
+{"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":21539,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-07-18T08:02:13.939Z","v":0}
+{"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":21539,"component":"express","level":40,"msg":"Unrecognized version NaN of Express detected; not instrumenting","time":"2014-07-18T08:02:14.174Z","v":0}
+{"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":21539,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/720670/applications/4293329","time":"2014-07-18T08:02:15.823Z","v":0}
+{"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":21539,"component":"collector_api","level":30,"msg":"Connected to collector-118.newrelic.com:443 with agent run ID 954745438.","time":"2014-07-18T08:02:15.824Z","v":0}
