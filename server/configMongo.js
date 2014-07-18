@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+
 mongoose.connect(process.env.MONGODB_URL);
 
 var Admin = mongoose.mongo.Admin,
