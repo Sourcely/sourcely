@@ -19,7 +19,7 @@ angular.module('webClient').config(function($stateProvider, $urlRouterProvider, 
         controller: 'contentController'
       },
       'mainReader@main': {
-        templateUrl: '/webClient/components/reader/mainReader.html',
+        templateUrl: '/webClient/components/reader/templates/mainReader.html',
         controller: 'mainReaderController'
       },
       'dropDown@main': {
