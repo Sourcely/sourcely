@@ -14,7 +14,7 @@ var sendTechArticles = function(req, res) {
 };
 
 var sendWelcome = function(req, res) {
-  res.sendfile('public/webClient/components/auth/templates/welcome.html');
+  res.sendfile('public/webClient/components/reader/templates/welcome.html');
 };
 
 module.exports = {
