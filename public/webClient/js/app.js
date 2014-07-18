@@ -1,36 +1,39 @@
-var app = angular.module('webClient', [
+angular.module('webClient', [
   'ui.router',
   'ui.bootstrap'
 ]);
 
-app.config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/topStories");
-    $stateProvider
-      .state('topStories', {
-        url: '/topStories',
-        views: {
-          'content@': {
-            templateUrl: 'webClient/templates/reader.html',
-            controller: 'technologyController'
-          },
-          'mainReader@': {
-            templateUrl: '/webClient/templates/mainReader.html',
-            controller: ''
-          }
-        }
-      });
-      
-  app.setContentWidth = function(toggle) {
-      if(toggle){
-        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 450 + 'px';
-      } else {
-        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 40 + 'px';
-      }  
-    };
+angular.module('webClient').config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+  $httpProvider.interceptors.push('authInterceptor');
+  $urlRouterProvider.otherwise("");
+  $stateProvider
+  .state('main',
+  {
+    url: '',
+    views: {
+      'mainReader@': {
+        templateUrl: '/webClient/templates/mainReader.html',
+        controller: 'mainReaderController'
+      },
+      'content@': {
+        templateUrl: 'webClient/templates/reader.html',
+        controller: 'content'
+      },
+      'dropDown@': {
+        templateUrl: '/webClient/templates/dropDown.html',
+        controller: 'dropDownController'
+      }
+    }
+  });
+});
 
-  app.setContentWidth(open);
-  window.onresize = function(){
-    app.setContentWidth(open);
-  };
-  
-})
+angular.module('webClient').run(function($http, $rootScope, $window) {
+  if($window.localStorage.token){
+    $http.post('/api/authenticate', {authType: 'run-onload'}).success(function(data) {
+      $rootScope.loggedIn = true;
+      $rootScope.accountName = data.username;
+      $rootScope.readArticles = data.readArticles;
+      $rootScope.readArticlesObject = {};
+    })
+  }
+});
