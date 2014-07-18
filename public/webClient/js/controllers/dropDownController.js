@@ -1,9 +1,4 @@
 app.controller('dropDownController', ['$scope', function($scope) {
-  $scope.items = [
-    'The first choice!',
-    'And another choice for you.',
-    'but wait! A third!'
-  ];
 
   $scope.dropDown = {
     isOpen: false

@@ -1,19 +1,23 @@
-var Promise  = require('bluebird');
-var clusters = require('../configMongo.js').connection;
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
+'use strict';
 
-var articleModel = mongoose.model('Article', new Schema({collectionID: Number, title: String,link: String, date: String, category: String, description: String, epochTime: Number, source: String}), 'clusterCollection');
+var Promise  = require('bluebird'),
+    clusters = require('../configMongo.js').connection,
+    mongoose = require('mongoose'),
+    Schema   = mongoose.Schema,
+    articleModel = require('../mongoModels/articleModel.js')
+
 var articleCluster = mongoose.model('Article');
-//this will return every article in the database
 
 var techArticles = function() {
+  console.log("tech articles")
   return new Promise(function (resolve, reject) {
+    console.log("on the hunt for new articles");
     articleCluster.find({"category":"tech"},
       function(err, data) {
         if(err){
           console.log(err);
         }else{
+          console.log("found some articles");
           var newData = {};
           for(var i = 0; i<data.length; i++){
             if(newData[data[i].collectionID]) {
