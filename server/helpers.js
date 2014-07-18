@@ -7,7 +7,6 @@ var sendLandingPage = function(req, res) {
 };
 
 var sendTechArticles = function(req, res) {
-  console.log("i want to send")
   queryHelper.techArticles().then(function(data) {
     res.send(data);
   });

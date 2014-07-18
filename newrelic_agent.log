@@ -458,3 +458,11 @@
 {"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":33580,"component":"express","level":40,"msg":"Unrecognized version NaN of Express detected; not instrumenting","time":"2014-07-18T16:37:26.922Z","v":0}
 {"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":33580,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/720670/applications/4293329","time":"2014-07-18T16:37:27.986Z","v":0}
 {"name":"newrelic","hostname":"BrianK-MacBook-Air.local","pid":33580,"component":"collector_api","level":30,"msg":"Connected to collector-118.newrelic.com:443 with agent run ID 955934204.","time":"2014-07-18T16:37:27.987Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":9612,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-07-18T19:26:00.928Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":9612,"component":"express","level":40,"msg":"Unrecognized version NaN of Express detected; not instrumenting","time":"2014-07-18T19:26:05.592Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":9612,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/720670/applications/4293329","time":"2014-07-18T19:26:07.442Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":9612,"component":"collector_api","level":30,"msg":"Connected to collector-118.newrelic.com:443 with agent run ID 956444485.","time":"2014-07-18T19:26:07.443Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":14020,"level":30,"msg":"Starting New Relic for Node.js connection process.","time":"2014-07-18T19:29:27.207Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":14020,"component":"express","level":40,"msg":"Unrecognized version NaN of Express detected; not instrumenting","time":"2014-07-18T19:29:29.059Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":14020,"component":"new_relic_response","level":30,"msg":"Reporting to: https://rpm.newrelic.com/accounts/720670/applications/4293329","time":"2014-07-18T19:29:30.397Z","v":0}
+{"name":"newrelic","hostname":"CaptainComputer","pid":14020,"component":"collector_api","level":30,"msg":"Connected to collector-118.newrelic.com:443 with agent run ID 956451381.","time":"2014-07-18T19:29:30.398Z","v":0}

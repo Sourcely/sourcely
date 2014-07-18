@@ -9,14 +9,14 @@ var queryHelper   = require('./mongoHelper/queryUsers.js'),
 
 
 var signupUser = function(req, res){
-  queryHelper.findUser(req.body.username).then(function(data){
-    if(data){      
-      console.log('user exists');
+  queryHelper.findUser(req.body.username)
+  .then(function(data){
+    if(data){
       res.send(401, "user already exists");
-    }else{      
+    }else{
       if(req.body.username && req.body.password){
-        console.log('create user');
-        queryHelper.createUser(req.body.username, req.body.password).then(function(data) {
+        queryHelper.createUser(req.body.username, req.body.password)
+        .then(function(data) {
           res.json(data);
         });
       }
@@ -25,13 +25,14 @@ var signupUser = function(req, res){
 };
 
 var login = function(req, res){
-  queryHelper.findUser(req.body.username).then(function(data){    
-    if(data){      
-      bcrypt.compare(req.body.password, data[0].passwordHash, function(err, result) {        
+  queryHelper.findUser(req.body.username).then(function(data){
+    if(data){
+      bcrypt.compare(req.body.password, data[0].passwordHash, function(err, result) {
         if (result) {
-          var formattedData = {username: req.body.username, userId: data[0]['_id'], authorized: true, tokenDate: Date.now()};
-          var token = jwt.encode(formattedData, process.env.SECRET);
-          var sendData = {token: token, readArticles: data[0]['readObjects'], username: req.body.username};
+          var user = data[0],
+              formattedData = {username: req.body.username, userId: user['_id'], authorized: true, tokenDate: Date.now()},
+              token = jwt.encode(formattedData, "scott"/*process.env.SECRET*/),
+              sendData = {token: token, readArticles: user['readObjects'], username: req.body.username};
           res.json(sendData);
         } else {
           res.send(401, "Incorrect Password");
@@ -43,17 +44,16 @@ var login = function(req, res){
   })
 };
 
-var authenticate = function(req, res) {    
+var authenticate = function(req, res) {
   queryHelper.findUserId(req.user.userId).then(function(data){
     if(data){
-      //generate token + refreshes expiration date
-      var formattedData = {username: data[0]['username'], userId: data[0]['_id'], authorized: true, tokenDate: Date.now()};
-      var token = jwt.encode(formattedData, process.env.SECRET);
-      var sendData = {token: token, readArticles: data[0]['readObjects'], username: data[0]['username']};
+      var user = data[0],
+          formattedData = {username: user['username'], userId: user['_id'], authorized: true, tokenDate: Date.now()},
+          token = jwt.encode(formattedData, "scott"),
+          sendData = {token: token, readArticles: user['readObjects'], username: user['username']};
       res.json(sendData);
     } else {
-      console.log('couldnt find user');
-      res.send(401, "sorry dude");
+      res.send(401, "Auth Failed, invalid user");
     }
   });
 };

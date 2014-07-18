@@ -1,10 +1,11 @@
 'use strict';
 
 require('newrelic');
-var express = require('express');
-var helper  = require('./helpers');
-var app     = express();
-var mongoose = require('mongoose');
+
+var express  = require('express'),
+    helper   = require('./helpers'),
+    app      = express(),
+    mongoose = require('mongoose');
 
 require('./configMongo');
 require('./express')(app);

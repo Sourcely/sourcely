@@ -5,3 +5,5 @@ node_modules/
 public/system/
 *.pyc
 newrelic_agent.log
+public/client
+newrelic.js
