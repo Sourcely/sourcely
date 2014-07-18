@@ -1,0 +1,91 @@
+div.event {
+  margin-left: 20px;
+  position: relative;
+  display: block;
+}
+
+.sourceFavicon:hover {
+  cursor: pointer;
+}
+
+span.source {
+  display: inline-block;
+  position: relative;
+}
+
+span.source p {
+  display: inline;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 13px;
+}
+
+span.source p:hover {
+  cursor: pointer;
+}
+
+span.source p.sourceName {
+  bottom: 2px;
+  right: 2px;
+  font-size: 12px;
+  position: absolute;
+}
+
+span.source:hover{
+  color: rgb(100, 180, 255) !important;
+}
+
+.readSource{
+  color: rgb(187, 187, 187);
+}
+
+.panel-heading {
+  background-color: rgb(250, 250, 250) !important;
+
+  padding: 0 !important;
+}
+
+.panel-heading a:hover {
+  text-decoration: none !important;
+  cursor: pointer;
+  color: rgb(100, 180, 255);
+}
+
+.panel-body {
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+
+.panel-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-title {
+  font-size: 15px;
+  margin-left: 8px;
+  padding-bottom: 10px;
+}
+
+div.eventTitle {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+ul.sourceList {
+  margin-left: 30px;
+  margin-top: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+li.sources {
+  display: inline-block;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+
+

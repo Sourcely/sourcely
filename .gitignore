@@ -7,3 +7,4 @@ node_modules/
 public/system/
 *.pyc
 public/client
+.sass-cache
