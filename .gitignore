@@ -1,7 +1,7 @@
+newrelic_agent.log
 .DS_Store
 .nodemonignore
 .bower-*/
 node_modules/
 public/system/
 *.pyc
-newrelic_agent.log
