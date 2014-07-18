@@ -1,4 +1,4 @@
-app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'toggleUnread', '$window','resizeReader', function($scope, $http, $modal, $rootScope, toggleUnread, $window, resizeReader){
+angular.module('webClient').controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'toggleUnread', '$window','resizeReader', function($scope, $http, $modal, $rootScope, toggleUnread, $window, resizeReader){
 
   $scope.open = false;
 

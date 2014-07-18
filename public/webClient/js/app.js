@@ -12,7 +12,8 @@ angular.module('webClient').config(function($stateProvider, $urlRouterProvider, 
     url: '',
     views: {
       'mainReader@': {
-        templateUrl: '/webClient/templates/mainReader.html'        
+        templateUrl: '/webClient/templates/mainReader.html',
+        controller: 'mainReaderController'
       },
       'content@': {
         templateUrl: 'webClient/templates/reader.html',
