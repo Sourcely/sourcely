@@ -1,8 +1,10 @@
+'use strict';
+
 var helpers        = require('./helpers');
 var usersHelpers   = require('./usersHelpers');
 
 module.exports = function(app){
-  app.get('/technology', helpers.sendTechArticles);
+  app.get('/articles', helpers.sendTechArticles);
   app.get('/welcome', helpers.sendWelcome);
   app.post('/signup', usersHelpers.signupUser);
   app.post('/login', usersHelpers.login);
@@ -10,5 +12,3 @@ module.exports = function(app){
   app.post('/markread', usersHelpers.markCollectionRead);
   app.get('*', helpers.sendLandingPage);
 };
-
-

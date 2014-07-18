@@ -11,17 +11,13 @@ app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
     .state('topStories', {
       url: '/topStories',
       views: {
-        'mainReader@': {
-          templateUrl: '/webClient/templates/mainReader.html',
-          controller: ''
-        },
         'content@': {
           templateUrl: 'webClient/templates/reader.html',
           controller: 'content'
         },
-        'dropDown@': {
-          templateUrl: '/webClient/templates/dropDown.html',
-          controller: 'dropDownController'
+        'mainReader@': {
+          templateUrl: '/webClient/templates/mainReader.html',
+          controller: ''
         }
       }
       });

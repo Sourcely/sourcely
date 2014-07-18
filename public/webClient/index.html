@@ -1,5 +1,9 @@
+<!--
+Wait for block of code to happen before block of code kicks in
+Angular resolve -->
 <html lang="en" ng-app="webClient">
   <head>
+
     <link type="text/css" rel="stylesheet" href="system/lib/bootstrap/dist/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="webClient/css/reset.css">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -12,19 +16,7 @@
   <body ng-controller="mainController">
     <div class="webBanner">
       <h1>S O U R C E L Y</h1>
-      <div class='accountCorner' ng-controller="dropDownController">
-        <div class='loginButton' ng-hide='loggedIn'>
-          <a ng-click="openModal('login')" class="loginAnchor">Login / Signup</a>
-        </div>
-        <div class='accountDetails btn-group' ng-hide='!loggedIn' dropdown is-open="dropDown.isopen">
-          <button type="accountName" class="btn btn-primary dropdown-toggle">
-            {{accountName}} <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" role="menu">            
-            <li class='signOut'><a href="#" ng-click="signOut()">Sign Out</a></li>
-          </ul>
-        </div> 
-      </div>
+      <div ui-view="dropDown"></div>
     </div>
     <div class="content">
       <div class="collapsable" ng-class="{isCollapsed: open}">
@@ -35,8 +27,7 @@
         </div>
         <div ui-view="content" class="articleContainer" scroll-track="scrollTrack()"></div>
       </div>
-      <div ui-view="mainReader" class="mainReader" ng-class="{isOpen: !open}">
-      </div>
+      <div ui-view="mainReader" class="mainReader" ng-class="{isOpen: !open}"></div>
     </div>
   </body>
 
@@ -45,11 +36,13 @@
     <script src="system/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="webClient/js/app.js"></script>
     <script src="webClient/js/controllers/mainController.js"></script>
-    <script src="webClient/js/controllers/technologyController.js"></script>
+    <script src="webClient/js/controllers/content.js"></script>
     <script src="webClient/js/controllers/readerController.js"></script>
     <script src="webClient/js/controllers/loginController.js"></script>
     <script src="webClient/js/controllers/dropDownController.js"></script>
-    <script src="webClient/js/services/readingStateService.js"></script>
+    <script src="webClient/js/services/toggleUnread.js"></script>
+    <script src="webClient/js/services/resizeReader.js"></script>
+    <script src="webClient/js/services/authInterceptor.js"></script>
     <script src="webClient/js/directives/scrollTrack.js"></script>
     <script src="webClient/js/directives/eventInclude.js"></script>
 </html>

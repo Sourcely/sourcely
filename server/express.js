@@ -1,7 +1,9 @@
-var path          = require('path');
-var express       = require('express');
-var jwt           = require('jwt-simple');
-var decode        = require('jwt-express-decode');
+'use strict';
+
+var path          = require('path'),
+    express       = require('express'),
+    jwt           = require('jwt-simple'),
+    decode        = require('jwt-express-decode');
 
 module.exports = function(app){
 	var fullpath = path.join(__dirname, '../public');

@@ -1,12 +1,10 @@
-var Promise  = require('bluebird');
-var clusters = require('../configMongo.js').connection;
-var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
-var Schema   = mongoose.Schema;
-var jwt      = require('jwt-simple');
+'use strict';
 
-//must set strict to false
-var userModel = mongoose.model('User', new Schema({username: String, passwordHash: String, readObjects: Array}, {strict: false}), 'clusterCollection');
+var Promise  = require('bluebird'),
+    clusters = require('../configMongo.js').connection,
+    bcrypt   = require('bcrypt-nodejs'),
+    jwt      = require('jwt-simple'),
+    userModel= require('../mongoModels/userModel.js');
 
 var findUser = function(username){
   return new Promise(function(resolve,reject){
@@ -46,7 +44,7 @@ var createUser = function(username, password){
         userModel.create({"username": username, passwordHash: result, readObjects: []}, function (err, data) {
           console.log('created user: ', data);
           var formattedData = {username: data['username'], userId: data['_id'] };
-          var token = jwt.encode(formattedData, 'secretsauce');                  
+          var token = jwt.encode(formattedData, 'secretsauce');
           resolve({ token: token, readArticles: [], username: data['username']});
         });
       });
