@@ -1,102 +1,39 @@
-var app = angular.module('webClient', [
+angular.module('webClient', [
   'ui.router',
   'ui.bootstrap'
 ]);
 
-app.factory('authInterceptor', function ($rootScope, $q, $window) {  
-  return {
-    request: function (config) {
-      config.headers = config.headers || {};
-      if ($window.localStorage.token) {
-        config.headers.Authorization = $window.localStorage.token;
-      }      
-      return config;
-    },
-    response: function (response) {
-      if (response.status === 401) {        
-        console.log('token deleted');
-      }
-      return response || $q.when(response);
-    }
-  };
-});
-
-app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
+angular.module('webClient').config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
-  $urlRouterProvider.otherwise("/topStories");
-
+  $urlRouterProvider.otherwise("");
   $stateProvider
-    .state('topStories', {
-      url: '/topStories',
-      views: {
-        'content@': {
-          templateUrl: 'webClient/templates/reader.html',
-          controller: 'technologyController'
-        },
-        'mainReader@': {
-          templateUrl: '/webClient/templates/mainReader.html',
-          controller: ''
-        }
+  .state('topStories',
+  {
+    url: '',
+    views: {
+      'mainReader@': {
+        templateUrl: '/webClient/templates/mainReader.html'        
+      },
+      'content@': {
+        templateUrl: 'webClient/templates/reader.html',
+        controller: 'content'
+      },
+      'dropDown@': {
+        templateUrl: '/webClient/templates/dropDown.html',
+        controller: 'dropDownController'
       }
-      });
-    
-  app.setContentWidth = function(toggle) {
-      if(toggle){
-        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 450 + 'px';
-      } else {
-        document.getElementsByClassName('mainReader')[0].style.width = window.innerWidth - 40 + 'px';
-      }  
-    };
+    }
+  });
 
-  app.setContentWidth(open);
-  window.onresize = function(){
-    app.setContentWidth(open);
-  };
-  
 });
 
-app.run(function($http, $rootScope, $window) {
-  // $window.localStorage.token = $window.localStorage.token || "";
-  var getArticles = function() {
-    $http({ method:'GET',
-              url:'/technology'
-          }).success(function(data,status,headers,config){
-            console.log('GOT ARTICLES')      
-            console.log(data);
-            var timeSortedArticles = [];
-            for(var articleCluster in data){
-              var tempArticle=[];
-              for (var key in data[articleCluster]){
-                if(data[articleCluster][key][0]){
-                  var articleCluster = data[articleCluster][key][0]['collectionID'];
-                  $rootScope.readArticlesObject[articleCluster] = false;
-                };
-                tempArticle.push(data[articleCluster][key]);
-              }
-              timeSortedArticles.push(tempArticle);
-            }
-            timeSortedArticles.sort(function(a,b){
-              return b[1]-a[1];
-            });          
-            $rootScope.category.articles = timeSortedArticles;   
-            for(var i = 0; i < $rootScope.readArticles.length; i++){
-              $rootScope.readArticlesObject[$rootScope.readArticles[i]] = true;
-            }
-            console.log('finished sorting articles')        
-          }).error(function(err,status,headers,config){
-            console.log("error: ", err);
-          });
-  };
-
-  if($window.localStorage.token){  
-    console.log('i got a token');
-    $http.post('/api/authenticate', {authType: 'run-onload'}).success(function(data) {    
+angular.module('webClient').run(function($http, $rootScope, $window) {
+  if($window.localStorage.token){
+    $http.post('/api/authenticate', {authType: 'run-onload'}).success(function(data) {
       $rootScope.loggedIn = true;
       $rootScope.accountName = data.username;
       $rootScope.readArticles = data.readArticles;
-      $rootScope.readArticlesObject = {};      
-      console.log('finished at authentication')
-    });
+      $rootScope.readArticlesObject = {};
+    })
   }
-  getArticles();
 });

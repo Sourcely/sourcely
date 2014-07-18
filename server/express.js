@@ -1,6 +1,8 @@
-var path          = require('path');
-var express       = require('express');
-var jwt           = require('jwt-simple');
+'use strict';
+
+var path          = require('path'),
+    express       = require('express'),
+    jwt           = require('jwt-simple');
 
 module.exports = function(app){
 	var fullpath = path.join(__dirname, '../public');
@@ -12,8 +14,7 @@ module.exports = function(app){
   app.use(express.static(fullpath));
   app.use('/api', function(req, res, next) {        
     var user = jwt.decode(req.headers.authorization, process.env.SECRET);    
-    req.user = user;
-    console.log(req.user);    
+    req.user = user;    
     if(Math.abs(Date.now()-req.user.tokenDate)/1000/60/60<72) {      
       next();    
     } else {      

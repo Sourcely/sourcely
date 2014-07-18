@@ -1,21 +1,23 @@
-var Promise  = require('bluebird');
-var clusters = require('../configMongo.js').connection;
-var mongoose = require('mongoose');
-var Schema   = mongoose.Schema;
+'use strict';
 
-var articleModel = mongoose.model('Article', new Schema({collectionID: Number, title: String,link: String, date: String, category: String, description: String, epochTime: Number, source: String}), 'clusterCollection');
+var Promise  = require('bluebird'),
+    clusters = require('../configMongo.js').connection,
+    mongoose = require('mongoose'),
+    Schema   = mongoose.Schema,
+    articleModel = require('../mongoModels/articleModel.js')
+
 var articleCluster = mongoose.model('Article');
-//this will return every article in the database
 
 var techArticles = function() {
   var startTime = Date.now();
-  console.log('started!');
+  console.log('started!');  
   return new Promise(function (resolve, reject) {
+    console.log("on the hunt for new articles");
     articleCluster.find({"category":"tech"},
       function(err, data) {
         if(err){
           console.log(err);
-        }else{          
+        }else{
           var newData = {};
           for(var i = 0; i<data.length; i++){
             if(newData[data[i].collectionID]) {
@@ -26,16 +28,16 @@ var techArticles = function() {
           }
           var articles = newData;
           for(var cluster in articles){
-              var tempTime = 0;
-              for(var i = 0; i < articles[cluster].length; i++){
-                  var articleTime = articles[cluster][i]['epochTime'];
-                  if(articleTime > tempTime){
-                      tempTime = articleTime;
-                  }
+            var tempTime = 0;
+            for(var i = 0; i < articles[cluster].length; i++){
+              var articleTime = articles[cluster][i]['epochTime'];
+              if(articleTime > tempTime){
+                tempTime = articleTime;
               }
-              var tempCluster = articles[cluster]
-              articles[cluster] = {'sources': tempCluster}
-              articles[cluster]['mostRecentUpdate'] = tempTime;
+            }
+            var tempCluster = articles[cluster]
+            articles[cluster] = {'sources': tempCluster}
+            articles[cluster]['mostRecentUpdate'] = tempTime;
           }
           console.log('ended! and took: ', (Date.now()-startTime)/1000, 'seconds');
           resolve(articles);

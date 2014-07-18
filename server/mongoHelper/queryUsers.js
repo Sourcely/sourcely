@@ -1,12 +1,10 @@
-var Promise  = require('bluebird');
-var clusters = require('../configMongo.js').connection;
-var mongoose = require('mongoose');
-var bcrypt   = require('bcrypt-nodejs');
-var Schema   = mongoose.Schema;
-var jwt      = require('jwt-simple');
+'use strict';
 
-//must set strict to false
-var userModel = mongoose.model('User', new Schema({username: String, passwordHash: String, readObjects: Array}, {strict: false}), 'clusterCollection');
+var Promise  = require('bluebird'),
+    clusters = require('../configMongo.js').connection,
+    bcrypt   = require('bcrypt-nodejs'),
+    jwt      = require('jwt-simple'),
+    userModel= require('../mongoModels/userModel.js');
 
 var findUser = function(username){
   return new Promise(function(resolve,reject){
@@ -58,9 +56,8 @@ var updateUserReadArticles = function(clusterID, username) {
     var readObjects = data.readObjects || [];
     if(readObjects.indexOf(clusterID) === -1){
       userModel.update({username: username},{$push: {readObjects: clusterID}}, function (err, data) {
-        if (err) console.log(err);
-        // console.log(data);
-      })
+        if (err) console.log(err);        
+      });
     };
   });
 };

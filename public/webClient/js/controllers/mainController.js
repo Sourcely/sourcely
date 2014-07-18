@@ -1,4 +1,4 @@
-app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'toggleUnread', '$window', function($scope, $http, $modal, $rootScope, toggleUnread, $window){
+app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'toggleUnread', '$window','resizeReader', function($scope, $http, $modal, $rootScope, toggleUnread, $window, resizeReader){
 
   $scope.open = false;
 
@@ -20,8 +20,8 @@ app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'to
   };
 
   $scope.collapseLeft = function() {
-    app.setContentWidth($scope.open);
-    $scope.open = !$scope.open;    
+    resizeReader($scope.open);
+    $scope.open = !$scope.open;
   };
 
   $scope.openModal = function (logOrSign) {
@@ -30,6 +30,10 @@ app.controller('mainController', ['$scope', '$http', '$modal', '$rootScope', 'to
       templateUrl: 'webClient/templates/'+ logOrSign +'.html',
       size: 'sm'
     });
+  };
+
+  $window.onresize = function(){
+    resizeReader(open);
   };
 
 }]);
