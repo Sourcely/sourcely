@@ -43,6 +43,12 @@ var techArticles = function() {
   });
 }
 
+var sendTechArticles = function(req, res) {
+  techArticles().then(function(data) {
+    res.send(data);
+  });
+};
+
 module.exports = {
-  techArticles: techArticles
+  sendTechArticles: sendTechArticles
 };
