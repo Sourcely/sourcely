@@ -6,6 +6,10 @@ var sendLandingPage = function(req, res) {
   res.sendfile('public/webClient/index.html');
 };
 
+var sendTechArticles = function() {
+  queryHelper.sendTechArticles();
+};
+
 var sendWelcome = function(req, res) {
   res.sendfile('public/webClient/components/reader/templates/welcome.html');
 };
