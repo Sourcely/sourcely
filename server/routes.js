@@ -1,10 +1,11 @@
 'use strict';
 
-var helpers        = require('./helpers');
-var usersHelpers   = require('./usersHelpers');
+var helpers        = require('./staticHelpers.js'),
+    articleQuery   = require('./Articles/queryArticles.js'),
+    usersHelpers   = require('./Users/helpers');
 
 module.exports = function(app){
-  app.get('/articles', helpers.sendTechArticles);
+  app.get('/articles', articleQuery.sendTechArticles);
   app.get('/welcome', helpers.sendWelcome);
   app.post('/signup', usersHelpers.signupUser);
   app.post('/login', usersHelpers.login);

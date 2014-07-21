@@ -8,11 +8,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name : ['Sourcely'],
+  app_name : [process.env.NEW_RELIC_APP_NAME],
   /**
    * Your New Relic license key.
    */
-  license_key : '1dc26e147e61cab87c11bce4b844a150c63e4cff',
+  license_key : process.env.NEW_RELIC_LICENSE_KEY,
   logging : {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing

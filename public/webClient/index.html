@@ -5,46 +5,31 @@ Angular resolve -->
 
   <head>
     <link type="text/css" rel="stylesheet" href="system/lib/bootstrap/dist/css/bootstrap.css">
-    <link type="text/css" rel="stylesheet" href="webClient/css/reset.css">
+    <link type="text/css" rel="stylesheet" href="webClient/assets/styles/main.css">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <link type="text/css" rel="stylesheet" href="webClient/css/webClient.css">
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="webClient/assets/icons/favicon.ico" type="image/icon"> <link rel="icon" href="webClient/assets/icons/favicon.ico" type="image/icon">
+    <link rel="icon" href="webClient/assets/icons/favicon.ico" type="image/icon">
     <title>Sourcely</title>
   </head>
 
-  <body ng-controller="mainController">
-    <div class="webBanner">
-      <h1>S O U R C E L Y</h1>
-      <div ui-view="dropDown"></div>
-    </div>
-    <div class="content">
-      <div class="collapsable" ng-class="{isCollapsed: open}">
-        <div class="menuDiv">
-          <div class="vertSourcely">
-            <h1 class="motoShown" ng-class="{isCollapsed: open}">SOURCELY</h1>
-          </div>
-        </div>
-        <div ui-view="content" class="articleContainer" scroll-track="scrollTrack()"></div>
-      </div>
-      <div ui-view="mainReader" class="mainReader" ng-class="{isOpen: !open}"></div>
-    </div>
+  <body>
+    <div class="main" ui-view></div>
   </body>
 
     <script src="system/lib/angular/angular.js"></script>
     <script src="system/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="system/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="webClient/js/app.js"></script>
-    <script src="webClient/js/services/resizeReader.js"></script>
-    <script src="webClient/js/controllers/mainController.js"></script>
-    <script src="webClient/js/controllers/mainReaderController.js"></script>
-    <script src="webClient/js/controllers/loginController.js"></script>
-    <script src="webClient/js/controllers/readerController.js"></script>
-    <script src="webClient/js/controllers/content.js"></script>
-    <script src="webClient/js/controllers/dropDownController.js"></script>
-    <script src="webClient/js/services/authInterceptor.js"></script>
-    <script src="webClient/js/services/toggleUnread.js"></script>
-    <script src="webClient/js/directives/scrollTrack.js"></script>
-    <script src="webClient/js/directives/eventInclude.js"></script>
+    <script src="webClient/app.js"></script>
+    <script src="webClient/components/reader/services/resizeReader.js"></script>
+    <script src="webClient/components/mainController.js"></script>
+    <script src="webClient/components/reader/mainReaderController.js"></script>
+    <script src="webClient/components/auth/controllers/loginController.js"></script>
+    <script src="webClient/components/events/controllers/readerController.js"></script>
+    <script src="webClient/components/events/controllers/contentController.js"></script>
+    <script src="webClient/components/auth/controllers/dropDownController.js"></script>
+    <script src="webClient/components/auth/services/authInterceptor.js"></script>
+    <script src="webClient/components/events/services/toggleUnread.js"></script>
+    <script src="webClient/components/events/directives/scrollTrack.js"></script>
+    <script src="webClient/components/events/directives/eventInclude.js"></script>
 
 </html>
