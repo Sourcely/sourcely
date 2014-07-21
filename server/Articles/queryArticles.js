@@ -32,10 +32,10 @@ var techArticles = function() {
               if(articleTime > tempTime){
                 tempTime = articleTime;
               }
+              var tempCluster = articles[cluster]
+              articles[cluster] = {'sources': tempCluster}
+              articles[cluster]['mostRecentUpdate'] = tempTime;
             }
-            var tempCluster = articles[cluster]
-            articles[cluster] = {'sources': tempCluster}
-            articles[cluster]['mostRecentUpdate'] = tempTime;
           }
           resolve(articles);
         }

@@ -28,7 +28,6 @@ angular.module('webClient').config(function($stateProvider, $urlRouterProvider, 
       }
     }
   });
-
 });
 
 angular.module('webClient').run(function($http, $rootScope, $window) {
