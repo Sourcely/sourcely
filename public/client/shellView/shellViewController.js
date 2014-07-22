@@ -26,7 +26,7 @@ angular.module('shellView').controller('shellView', ['$scope', '$modal', '$rootS
 
   $scope.openModal = function () {
     var modalInstance = $modal.open({
-      controller: 'loginController',
+      controller: 'login',
       templateUrl: 'webClient/components/auth/templates/login.html',
       size: 'sm'
     });
