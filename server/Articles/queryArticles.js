@@ -32,10 +32,10 @@ var techArticles = function() {
               if(articleTime > tempTime){
                 tempTime = articleTime;
               }
+              var tempCluster = articles[cluster]
+              articles[cluster] = {'sources': tempCluster}
+              articles[cluster]['mostRecentUpdate'] = tempTime;
             }
-            var tempCluster = articles[cluster]
-            articles[cluster] = {'sources': tempCluster}
-            articles[cluster]['mostRecentUpdate'] = tempTime;
           }
           resolve(articles);
         }
@@ -43,6 +43,12 @@ var techArticles = function() {
   });
 }
 
+var sendTechArticles = function(req, res) {
+  techArticles().then(function(data) {
+    res.send(data);
+  });
+};
+
 module.exports = {
-  techArticles: techArticles
+  sendTechArticles: sendTechArticles
 };

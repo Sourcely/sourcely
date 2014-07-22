@@ -3,9 +3,7 @@
 require('newrelic');
 
 var express  = require('express'),
-    helper   = require('./helpers'),
-    app      = express(),
-    mongoose = require('mongoose');
+    app      = express();
 
 require('./configMongo');
 require('./express')(app);

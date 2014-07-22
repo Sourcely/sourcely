@@ -1,0 +1,16 @@
+<div class="currentCategory">
+  <div class="newsHeader">
+    <div class="newOrAll" ng-show="loggedIn && !open" ng-click="toggleNew()">
+      <span class="allToggle" ng-class="{isDisabled: !readingUnread}">All</span>
+      <span class="slashToggle">/</span>
+      <span class="unreadToggle" ng-class="{isDisabled: readingUnread}">Unread</span>
+    </div>
+    <h1>Tech News</h1>
+    <div class="hamburgerContainer" ng-click="collapseLeft()"><a class="navtoggle" ng-class="{isOpen: !open}" href="#"><span></span></a></div>
+  </div>
+  <div class="articleBox">
+    <div class ="events" ng-repeat="article in category.articles">
+      <event-include article='article[0]' ng-click="logger(readArticlesObject, article[0][0]['collectionID'])" ng-hide="readingUnread && readArticlesObject[article[0][0]['collectionID']]"></event-include>
+    </div>
+  </div>
+</div>
