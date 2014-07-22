@@ -18,7 +18,6 @@ angular.module('storyList')
     $http({ method:'GET',
         url:'/articles'
      }).success(function(data,status,headers,config){
-      console.log("got new articles")
        var timeSortedArticles = [];
        for(var articleCluster in data){
         var tempArticle=[];
@@ -35,6 +34,7 @@ angular.module('storyList')
         return b[1]-a[1];
        });
        $rootScope.category.articles = timeSortedArticles;
+       console.log($rootScope.category.articles);
      }).error(function(err,status,headers,config){
        console.log("error: ", err);
      });
