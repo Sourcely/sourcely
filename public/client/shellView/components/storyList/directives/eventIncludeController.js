@@ -1,4 +1,4 @@
-angular.module('webClient').controller('eventInclude', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
+angular.module('storyList').controller('eventInclude', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope){
   var iframe = document.getElementById('articleIFrame');
   $scope.openLink = function (articleUrl, collectionID) {
     iframe.src = articleUrl;

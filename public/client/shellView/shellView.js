@@ -3,8 +3,9 @@ angular.module('shellView', [
   'storyList',
   'reader'
 ])
-
-.config(function($stateProvider) {
+.config(function($stateProvider, $httpProvider, $urlRouterProvider) {
+  $httpProvider.interceptors.push('authInterceptor');
+  $urlRouterProvider.otherwise("");
   $stateProvider
   .state('shellView', {
     url: '',
@@ -26,5 +27,5 @@ angular.module('shellView', [
         controller: 'dropDown'
       }
     }
-  }
+  });
 });

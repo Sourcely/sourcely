@@ -3,7 +3,7 @@
 var queryHelper  = require('./Articles/queryArticles.js');
 
 var sendLandingPage = function(req, res) {
-  res.sendfile('public/webClient/index.html');
+  res.sendfile('public/client/index.html');
 };
 
 var sendTechArticles = function() {
@@ -11,7 +11,7 @@ var sendTechArticles = function() {
 };
 
 var sendWelcome = function(req, res) {
-  res.sendfile('public/webClient/components/reader/templates/welcome.html');
+  res.sendfile('public/client/shellView/components/reader/welcome.html');
 };
 
 module.exports = {

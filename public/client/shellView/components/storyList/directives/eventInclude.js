@@ -3,7 +3,7 @@ angular.module("storyList")
   return {
     scope: {article: '='},
     restrict: "E",
-    templateUrl: "webClient/components/events/templates/event.html",
+    templateUrl: "client/shellView/components/storyList/directives/eventIncludeTemplate.html",
     controller: "eventInclude"
   }
 });
