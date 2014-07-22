@@ -1,0 +1,41 @@
+<html lang="en">
+
+  <head>
+    <link type="text/css" rel="stylesheet" href="system/lib/bootstrap/dist/css/bootstrap.css">
+    <link type="text/css" rel="stylesheet" href="client/assets/styles/main.css">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="client/assets/icons/favicon.ico" type="image/icon">
+    <title>Sourcely</title>
+  </head>
+
+  <body ng-app="client">
+    <div class="main" ui-view></div>
+  </body>
+
+<!-- Libraries -->
+    <script src="system/lib/angular/angular.js"></script>
+    <script src="system/lib/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="system/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<!-- Main App -->
+    <script src="client/app.js"></script>
+<!-- Shell View -->
+    <script src="client/shellView/shellView.js"></script>
+    <script src="client/shellView/shellViewController.js"></script>
+<!-- Authentication -->
+    <script src="client/shellView/components/auth/auth.js"></script>
+    <script src="client/shellView/components/auth/authServices.js"></script>
+    <script src="client/shellView/components/auth/login/login.js"></script>
+    <script src="client/shellView/components/auth/dropDown/dropDown.js"></script>
+<!-- Reader Iframe -->
+    <script src="client/shellView/components/reader/reader.js"></script>
+    <script src="client/shellView/components/reader/resizeReader.js"></script>
+<!-- Article Cluster List -->
+    <script src="client/shellView/components/storyList/storyList.js"></script>
+    <script src="client/shellView/components/storyList/toggleUnread.js"></script>
+    <script src="client/shellView/components/storyList/storyListController.js"></script>
+    <script src="client/shellView/components/storyList/directives/eventInclude.js"></script>
+    <script src="client/shellView/components/storyList/directives/scrollTrack.js"></script>
+    <script src="client/shellView/components/storyList/directives/eventIncludeController.js"></script>
+
+</html>

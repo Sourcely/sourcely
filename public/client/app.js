@@ -1,8 +1,9 @@
-angular.module('webClient', [
+angular.module('client', [
   'ui.router',
   'ui.bootstrap'
 ]);
 
+/*
 angular.module('webClient').config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
   $urlRouterProvider.otherwise("");
@@ -29,7 +30,7 @@ angular.module('webClient').config(function($stateProvider, $urlRouterProvider, 
     }
   });
 });
-
+*/
 angular.module('webClient').run(function($http, $rootScope, $window) {
   if($window.localStorage.token){
     $http.post('/api/authenticate', {authType: 'run-onload'}).success(function(data) {
